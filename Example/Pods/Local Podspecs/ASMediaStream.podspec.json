@@ -1,0 +1,22 @@
+{
+  "name": "ASMediaStream",
+  "version": "0.1.0",
+  "summary": "A short description of ASMediaStream.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/mietelski.robert@gmail.com/ASMediaStream",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "mietelski.robert@gmail.com": "mietelski.robert@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/mietelski.robert@gmail.com/ASMediaStream.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "ASMediaStream/Classes/**/*"
+}

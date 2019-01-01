@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'ASMediaStream_Example' do
+  pod 'ASMediaStream', :path => '../'
+
+  target 'ASMediaStream_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

@@ -1,0 +1,16 @@
+PODS:
+  - ASMediaStream (0.1.0)
+
+DEPENDENCIES:
+  - ASMediaStream (from `../`)
+
+EXTERNAL SOURCES:
+  ASMediaStream:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  ASMediaStream: 6576f8d49d8040b3076cfb2bd68baf82003f80ac
+
+PODFILE CHECKSUM: 2b660f593261c518bb20eb39e10eac092a7c0b7e
+
+COCOAPODS: 1.5.3
