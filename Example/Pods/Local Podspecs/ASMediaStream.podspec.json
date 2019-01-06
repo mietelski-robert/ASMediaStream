@@ -1,22 +1,27 @@
 {
   "name": "ASMediaStream",
   "version": "0.1.0",
-  "summary": "A short description of ASMediaStream.",
+  "summary": "Library to make an audio video call.",
   "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/mietelski.robert@gmail.com/ASMediaStream",
+  "homepage": "https://github.com/mietelski-robert/ASMediaStream",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
   },
   "authors": {
-    "mietelski.robert@gmail.com": "mietelski.robert@gmail.com"
+    "mietelski-robert": "mietelski.robert@gmail.com"
   },
   "source": {
-    "git": "https://github.com/mietelski.robert@gmail.com/ASMediaStream.git",
+    "git": "https://github.com/mietelski-robert/ASMediaStream.git",
     "tag": "0.1.0"
   },
   "platforms": {
-    "ios": "8.0"
+    "ios": "11.0"
   },
-  "source_files": "ASMediaStream/Classes/**/*"
+  "source_files": "ASMediaStream/Source/**/*",
+  "dependencies": {
+    "GoogleWebRTC": [
+
+    ]
+  }
 }

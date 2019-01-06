@@ -8,12 +8,31 @@
 
 /* Begin PBXBuildFile section */
 		4970ED00E4B403F2C0655C8C /* Pods_ASMediaStream_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EE0606DDF4A673EDC78C6C2 /* Pods_ASMediaStream_Example.framework */; };
-		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
-		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
-		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
-		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
-		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
+		6601059021E2481800E19369 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6601058E21E2481800E19369 /* AppDelegate.swift */; };
+		6601059A21E2482100E19369 /* ASMediaStreamClientError+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6601059621E2482100E19369 /* ASMediaStreamClientError+Extension.swift */; };
+		660105A221E2484F00E19369 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6601059D21E2484F00E19369 /* LaunchScreen.xib */; };
+		660105A321E2484F00E19369 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6601059F21E2484F00E19369 /* Main.storyboard */; };
+		660105A421E2484F00E19369 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 660105A121E2484F00E19369 /* Images.xcassets */; };
+		660105B721E24D0900E19369 /* WebSocketSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 660105B621E24D0900E19369 /* WebSocketSession.swift */; };
+		660105B921E24DD800E19369 /* WebSocketSessionError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 660105B821E24DD800E19369 /* WebSocketSessionError.swift */; };
+		660105BB21E24F7E00E19369 /* WebSocketSessionFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 660105BA21E24F7E00E19369 /* WebSocketSessionFactory.swift */; };
+		660105C121E250D200E19369 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 660105BC21E250D200E19369 /* UIViewController+Extension.swift */; };
+		660105C221E250D200E19369 /* UIVIew+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 660105BD21E250D200E19369 /* UIVIew+Extension.swift */; };
+		660105C321E250D200E19369 /* NSLayoutConstraint+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 660105BE21E250D200E19369 /* NSLayoutConstraint+Extension.swift */; };
+		660105C421E250D200E19369 /* Data+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 660105BF21E250D200E19369 /* Data+Extension.swift */; };
+		660105C521E250D200E19369 /* Encodable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 660105C021E250D200E19369 /* Encodable+Extension.swift */; };
+		660105C721E2521200E19369 /* JSONAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 660105C621E2521200E19369 /* JSONAdapter.swift */; };
+		660105C921E254CA00E19369 /* WSError+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 660105C821E254CA00E19369 /* WSError+Extension.swift */; };
+		660105D021E2562A00E19369 /* SessionDescriptionRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 660105CF21E2562A00E19369 /* SessionDescriptionRemote.swift */; };
+		660105D221E2569000E19369 /* CandidateRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 660105D121E2569000E19369 /* CandidateRemote.swift */; };
+		660105D421E2571000E19369 /* WebSocketMessageTypeRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 660105D321E2571000E19369 /* WebSocketMessageTypeRemote.swift */; };
+		660105D821E2577000E19369 /* WebSocketMessageRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 660105D721E2577000E19369 /* WebSocketMessageRemote.swift */; };
+		660105DA21E2586B00E19369 /* WebSocketContentRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 660105D921E2586B00E19369 /* WebSocketContentRemote.swift */; };
+		660105DC21E258E400E19369 /* WebSocketContentTypeRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 660105DB21E258E400E19369 /* WebSocketContentTypeRemote.swift */; };
+		662AF8EA21E2703200D46FD0 /* RoomTextInputViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 662AF8E921E2703200D46FD0 /* RoomTextInputViewCell.swift */; };
+		662AF8EC21E2705300D46FD0 /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 662AF8EB21E2705300D46FD0 /* RoomViewController.swift */; };
+		662AF8EE21E2705C00D46FD0 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 662AF8ED21E2705C00D46FD0 /* VideoViewController.swift */; };
 		E940BC2D2EC1E7F65C10E6D0 /* Pods_ASMediaStream_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6C4818484FCFD0B80E81D06 /* Pods_ASMediaStream_Tests.framework */; };
 /* End PBXBuildFile section */
 
@@ -31,15 +50,34 @@
 		015720AE2828E6C4FE143660 /* Pods-ASMediaStream_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ASMediaStream_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ASMediaStream_Tests/Pods-ASMediaStream_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* ASMediaStream_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ASMediaStream_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		607FACD71AFB9204008FA782 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		607FACDA1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		607FACDC1AFB9204008FA782 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		607FACE51AFB9204008FA782 /* ASMediaStream_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ASMediaStream_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		61B50159663A486583ADEA46 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		6601058E21E2481800E19369 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		6601059621E2482100E19369 /* ASMediaStreamClientError+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ASMediaStreamClientError+Extension.swift"; sourceTree = "<group>"; };
+		6601059E21E2484F00E19369 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = LaunchScreen.xib; sourceTree = "<group>"; };
+		660105A021E2484F00E19369 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
+		660105A121E2484F00E19369 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		660105B621E24D0900E19369 /* WebSocketSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketSession.swift; sourceTree = "<group>"; };
+		660105B821E24DD800E19369 /* WebSocketSessionError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketSessionError.swift; sourceTree = "<group>"; };
+		660105BA21E24F7E00E19369 /* WebSocketSessionFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketSessionFactory.swift; sourceTree = "<group>"; };
+		660105BC21E250D200E19369 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		660105BD21E250D200E19369 /* UIVIew+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIVIew+Extension.swift"; sourceTree = "<group>"; };
+		660105BE21E250D200E19369 /* NSLayoutConstraint+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint+Extension.swift"; sourceTree = "<group>"; };
+		660105BF21E250D200E19369 /* Data+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Data+Extension.swift"; sourceTree = "<group>"; };
+		660105C021E250D200E19369 /* Encodable+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Encodable+Extension.swift"; sourceTree = "<group>"; };
+		660105C621E2521200E19369 /* JSONAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONAdapter.swift; sourceTree = "<group>"; };
+		660105C821E254CA00E19369 /* WSError+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WSError+Extension.swift"; sourceTree = "<group>"; };
+		660105CF21E2562A00E19369 /* SessionDescriptionRemote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionDescriptionRemote.swift; sourceTree = "<group>"; };
+		660105D121E2569000E19369 /* CandidateRemote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandidateRemote.swift; sourceTree = "<group>"; };
+		660105D321E2571000E19369 /* WebSocketMessageTypeRemote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketMessageTypeRemote.swift; sourceTree = "<group>"; };
+		660105D721E2577000E19369 /* WebSocketMessageRemote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketMessageRemote.swift; sourceTree = "<group>"; };
+		660105D921E2586B00E19369 /* WebSocketContentRemote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketContentRemote.swift; sourceTree = "<group>"; };
+		660105DB21E258E400E19369 /* WebSocketContentTypeRemote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketContentTypeRemote.swift; sourceTree = "<group>"; };
+		662AF8E921E2703200D46FD0 /* RoomTextInputViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomTextInputViewCell.swift; sourceTree = "<group>"; };
+		662AF8EB21E2705300D46FD0 /* RoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomViewController.swift; sourceTree = "<group>"; };
+		662AF8ED21E2705C00D46FD0 /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		85E604E1FA204DAE45159E0F /* Pods-ASMediaStream_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ASMediaStream_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-ASMediaStream_Example/Pods-ASMediaStream_Example.release.xcconfig"; sourceTree = "<group>"; };
 		8723997A5F9EBCA45FC8013A /* Pods-ASMediaStream_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ASMediaStream_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ASMediaStream_Example/Pods-ASMediaStream_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		8EE0606DDF4A673EDC78C6C2 /* Pods_ASMediaStream_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ASMediaStream_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -113,11 +151,8 @@
 		607FACD21AFB9204008FA782 /* Example for ASMediaStream */ = {
 			isa = PBXGroup;
 			children = (
-				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
-				607FACD71AFB9204008FA782 /* ViewController.swift */,
-				607FACD91AFB9204008FA782 /* Main.storyboard */,
-				607FACDC1AFB9204008FA782 /* Images.xcassets */,
-				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
+				6601059121E2482100E19369 /* Source */,
+				660105A521E2485500E19369 /* Resources */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
 			);
 			name = "Example for ASMediaStream";
@@ -157,6 +192,84 @@
 				61B50159663A486583ADEA46 /* LICENSE */,
 			);
 			name = "Podspec Metadata";
+			sourceTree = "<group>";
+		};
+		6601059121E2482100E19369 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				6601058E21E2481800E19369 /* AppDelegate.swift */,
+				660105C621E2521200E19369 /* JSONAdapter.swift */,
+				6601059521E2482100E19369 /* Extension */,
+				660105CE21E2560500E19369 /* Model */,
+				660105B521E24B7900E19369 /* Signaling */,
+				662AF8E721E2701900D46FD0 /* Controller */,
+				662AF8E821E2702300D46FD0 /* View */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		6601059521E2482100E19369 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				6601059621E2482100E19369 /* ASMediaStreamClientError+Extension.swift */,
+				660105C821E254CA00E19369 /* WSError+Extension.swift */,
+				660105BF21E250D200E19369 /* Data+Extension.swift */,
+				660105C021E250D200E19369 /* Encodable+Extension.swift */,
+				660105BE21E250D200E19369 /* NSLayoutConstraint+Extension.swift */,
+				660105BD21E250D200E19369 /* UIVIew+Extension.swift */,
+				660105BC21E250D200E19369 /* UIViewController+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		660105A521E2485500E19369 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				6601059D21E2484F00E19369 /* LaunchScreen.xib */,
+				6601059F21E2484F00E19369 /* Main.storyboard */,
+				660105A121E2484F00E19369 /* Images.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		660105B521E24B7900E19369 /* Signaling */ = {
+			isa = PBXGroup;
+			children = (
+				660105BA21E24F7E00E19369 /* WebSocketSessionFactory.swift */,
+				660105B821E24DD800E19369 /* WebSocketSessionError.swift */,
+				660105B621E24D0900E19369 /* WebSocketSession.swift */,
+			);
+			path = Signaling;
+			sourceTree = "<group>";
+		};
+		660105CE21E2560500E19369 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				660105D321E2571000E19369 /* WebSocketMessageTypeRemote.swift */,
+				660105D721E2577000E19369 /* WebSocketMessageRemote.swift */,
+				660105DB21E258E400E19369 /* WebSocketContentTypeRemote.swift */,
+				660105D921E2586B00E19369 /* WebSocketContentRemote.swift */,
+				660105CF21E2562A00E19369 /* SessionDescriptionRemote.swift */,
+				660105D121E2569000E19369 /* CandidateRemote.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		662AF8E721E2701900D46FD0 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				662AF8EB21E2705300D46FD0 /* RoomViewController.swift */,
+				662AF8ED21E2705C00D46FD0 /* VideoViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		662AF8E821E2702300D46FD0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				662AF8E921E2703200D46FD0 /* RoomTextInputViewCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,7 +325,7 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 1010;
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -245,9 +358,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
-				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
-				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
+				660105A421E2484F00E19369 /* Images.xcassets in Resources */,
+				660105A221E2484F00E19369 /* LaunchScreen.xib in Resources */,
+				660105A321E2484F00E19369 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,10 +400,16 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-ASMediaStream_Example/Pods-ASMediaStream_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ASMediaStream/ASMediaStream.framework",
+				"${PODS_ROOT}/GoogleWebRTC/Frameworks/frameworks/WebRTC.framework",
+				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ASMediaStream.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WebRTC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -322,8 +441,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
-				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				660105C921E254CA00E19369 /* WSError+Extension.swift in Sources */,
+				660105D021E2562A00E19369 /* SessionDescriptionRemote.swift in Sources */,
+				660105D421E2571000E19369 /* WebSocketMessageTypeRemote.swift in Sources */,
+				662AF8EC21E2705300D46FD0 /* RoomViewController.swift in Sources */,
+				660105C121E250D200E19369 /* UIViewController+Extension.swift in Sources */,
+				660105C721E2521200E19369 /* JSONAdapter.swift in Sources */,
+				660105D221E2569000E19369 /* CandidateRemote.swift in Sources */,
+				660105D821E2577000E19369 /* WebSocketMessageRemote.swift in Sources */,
+				662AF8EE21E2705C00D46FD0 /* VideoViewController.swift in Sources */,
+				6601059021E2481800E19369 /* AppDelegate.swift in Sources */,
+				6601059A21E2482100E19369 /* ASMediaStreamClientError+Extension.swift in Sources */,
+				660105DA21E2586B00E19369 /* WebSocketContentRemote.swift in Sources */,
+				660105C321E250D200E19369 /* NSLayoutConstraint+Extension.swift in Sources */,
+				660105C521E250D200E19369 /* Encodable+Extension.swift in Sources */,
+				660105C421E250D200E19369 /* Data+Extension.swift in Sources */,
+				660105BB21E24F7E00E19369 /* WebSocketSessionFactory.swift in Sources */,
+				660105B921E24DD800E19369 /* WebSocketSessionError.swift in Sources */,
+				660105C221E250D200E19369 /* UIVIew+Extension.swift in Sources */,
+				662AF8EA21E2703200D46FD0 /* RoomTextInputViewCell.swift in Sources */,
+				660105DC21E258E400E19369 /* WebSocketContentTypeRemote.swift in Sources */,
+				660105B721E24D0900E19369 /* WebSocketSession.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,20 +484,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		607FACD91AFB9204008FA782 /* Main.storyboard */ = {
+		6601059D21E2484F00E19369 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				607FACDA1AFB9204008FA782 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		607FACDE1AFB9204008FA782 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				607FACDF1AFB9204008FA782 /* Base */,
+				6601059E21E2484F00E19369 /* Base */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		6601059F21E2484F00E19369 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				660105A021E2484F00E19369 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -412,7 +550,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -460,7 +598,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -473,11 +611,13 @@
 			baseConfigurationReference = 8723997A5F9EBCA45FC8013A /* Pods-ASMediaStream_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = ASMediaStream/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = robert.mietelski.mediaStream.example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
@@ -488,10 +628,11 @@
 			baseConfigurationReference = 85E604E1FA204DAE45159E0F /* Pods-ASMediaStream_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = ASMediaStream/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = robert.mietelski.mediaStream.example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
@@ -502,6 +643,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D430B716DD8E3A0B5CDDBAB0 /* Pods-ASMediaStream_Tests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -524,6 +666,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 015720AE2828E6C4FE143660 /* Pods-ASMediaStream_Tests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",

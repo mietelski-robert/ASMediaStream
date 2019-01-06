@@ -1,16 +1,39 @@
 PODS:
-  - ASMediaStream (0.1.0)
+  - ASMediaStream (0.1.0):
+    - GoogleWebRTC
+  - GoogleWebRTC (1.1.25544)
+  - PromiseKit (6.5.2):
+    - PromiseKit/CorePromise (= 6.5.2)
+    - PromiseKit/Foundation (= 6.5.2)
+    - PromiseKit/UIKit (= 6.5.2)
+  - PromiseKit/CorePromise (6.5.2)
+  - PromiseKit/Foundation (6.5.2):
+    - PromiseKit/CorePromise
+  - PromiseKit/UIKit (6.5.2):
+    - PromiseKit/CorePromise
+  - Starscream (3.0.6)
 
 DEPENDENCIES:
   - ASMediaStream (from `../`)
+  - PromiseKit
+  - Starscream
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - GoogleWebRTC
+    - PromiseKit
+    - Starscream
 
 EXTERNAL SOURCES:
   ASMediaStream:
     :path: "../"
 
 SPEC CHECKSUMS:
-  ASMediaStream: 6576f8d49d8040b3076cfb2bd68baf82003f80ac
+  ASMediaStream: 2058875c6f799b79073d371fe0b0847d86fada13
+  GoogleWebRTC: b73841295d587468f368d146144753b138ed8014
+  PromiseKit: 27c1601bfb73405871b805bcb8cf7e55c4dad3db
+  Starscream: ef3ece99d765eeccb67de105bfa143f929026cf5
 
-PODFILE CHECKSUM: 2b660f593261c518bb20eb39e10eac092a7c0b7e
+PODFILE CHECKSUM: eee1821e9ba9f6f515bac7dcc0d6130261c8953b
 
 COCOAPODS: 1.5.3

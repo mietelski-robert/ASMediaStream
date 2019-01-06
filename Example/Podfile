@@ -1,7 +1,13 @@
-use_frameworks!
+platform :ios, '11.0'
 
 target 'ASMediaStream_Example' do
+  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for ASMediaStream_Example
   pod 'ASMediaStream', :path => '../'
+  pod 'PromiseKit'
+  pod 'Starscream'
 
   target 'ASMediaStream_Tests' do
     inherit! :search_paths
