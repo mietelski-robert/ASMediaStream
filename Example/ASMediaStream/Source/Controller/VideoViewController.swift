@@ -145,6 +145,7 @@ extension VideoViewController: ASMediaStreamClientDelegate {
         for videoTrack in videoTracks {
             let videoView = RTCEAGLVideoView(frame: .zero)
             videoView.translatesAutoresizingMaskIntoConstraints = false
+            videoView.contentMode = .scaleAspectFit
             videoView.delegate = self
             videoTrack.add(videoView)
             self.remoteVideoStackView.addArrangedSubview(videoView)

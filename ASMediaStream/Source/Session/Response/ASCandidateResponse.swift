@@ -12,12 +12,12 @@ public struct ASCandidateResponse {
 
     // MARK: - Public attributes
     
-    public let senderId: String?
+    public let senderId: String
     public let candidate: RTCIceCandidate
     
     // MARK: - Initialization
     
-    public init(senderId: String? = nil, candidate: RTCIceCandidate) {
+    public init(senderId: String, candidate: RTCIceCandidate) {
         self.senderId = senderId
         self.candidate = candidate
     }

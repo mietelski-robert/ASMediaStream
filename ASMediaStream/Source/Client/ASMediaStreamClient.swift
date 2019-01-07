@@ -68,9 +68,9 @@ public class ASMediaStreamClient: NSObject {
     
     // MARK: - Private attributes
     
+    private var peerConnectionDictionary = [String: RTCPeerConnection]()
     private let connectionFactory = ASMediaStreamConnectionFactory()
     private let sessionFactory: ASMediaStreamSessionFactory
-    private var peerConnection: RTCPeerConnection?
     
     private var audioTrackCasche = [String: RTCAudioTrack]()
     private var videoTrackCasche = [String: RTCVideoTrack]()
@@ -139,8 +139,6 @@ extension ASMediaStreamClient {
                     if caller.isAudioEnabled {
                         try caller.enableAudio(for: mediaStream)
                     }
-                    caller.peerConnection = caller.connectionFactory.makePeerConnection(iceServers: caller.iceServers, delegate: self)
-                    caller.peerConnection?.add(mediaStream)
                     caller.localStream = mediaStream
                 } catch {
                     caller.delegate?.mediaStreamClient(caller, didFailWithError: error)
@@ -152,18 +150,21 @@ extension ASMediaStreamClient {
     }
     
     public func disconnect() {
-        self.peerConnection?.close()
-        self.session?.leave()
-        
-        if let mediaStream = self.localStream {
-            self.peerConnection?.remove(mediaStream)
+        for peerConnection in self.peerConnectionDictionary.values {
+            peerConnection.close()
+            
+            if let mediaStream = self.localStream {
+                peerConnection.remove(mediaStream)
+            }
         }
+        
         self.audioTrackCasche = [:]
         self.videoTrackCasche = [:]
+        self.session?.leave()
         
         self.changeState(to: .disconnected)
         
-        self.peerConnection = nil
+        self.peerConnectionDictionary = [:]
         self.localStream = nil
         self.session = nil
     }
@@ -256,20 +257,20 @@ extension ASMediaStreamClient {
 // MARK: - Message management
 
 extension ASMediaStreamClient {
-    private func sendOffer() {
+    private func sendOffer(receiverId: String?, peerConnection: RTCPeerConnection?) {
         let constraints = self.connectionFactory.makeStreamConstraints(isVideoEnabled: false, isAudioEnabled: false)
         
-        self.peerConnection?.offer(for: constraints) { [weak self] (sessionDescription, error) in
+        peerConnection?.offer(for: constraints) { [weak self, weak peerConnection] (sessionDescription, error) in
             guard let caller = self else { return }
             
             if let sessionDescription = sessionDescription {
-                caller.peerConnection?.setLocalDescription(sessionDescription) { [weak self] error in
+                peerConnection?.setLocalDescription(sessionDescription) { [weak self] error in
                     guard let caller = self else { return }
                     
                     if let error = error {
                         caller.delegate?.mediaStreamClient(caller, didFailWithError: error)
                     } else {
-                        let request = ASSessionDescriptionRequest(sessionDescription: sessionDescription)
+                        let request = ASSessionDescriptionRequest(receiverId: receiverId, sessionDescription: sessionDescription)
                         caller.session?.send(request)
                     }
                 }
@@ -279,14 +280,14 @@ extension ASMediaStreamClient {
         }
     }
     
-    private func sendAnswer(receiverId: String?) {
+    private func sendAnswer(receiverId: String?, peerConnection: RTCPeerConnection?) {
         let constraints = self.connectionFactory.makeStreamConstraints(isVideoEnabled: self.isVideoEnabled, isAudioEnabled: self.isAudioEnabled)
         
-        self.peerConnection?.answer(for: constraints) { [weak self] (sessionDescription, error) in
+        peerConnection?.answer(for: constraints) { [weak self, weak peerConnection] (sessionDescription, error) in
             guard let caller = self else { return }
             
             if let sessionDescription = sessionDescription {
-                caller.peerConnection?.setLocalDescription(sessionDescription) { [weak self] error in
+                peerConnection?.setLocalDescription(sessionDescription) { [weak self] error in
                     guard let caller = self else { return }
                     
                     if let error = error {
@@ -337,7 +338,8 @@ extension ASMediaStreamClient: RTCPeerConnectionDelegate {
     public func peerConnection(_ peerConnection: RTCPeerConnection, didGenerate candidate: RTCIceCandidate) {
         DispatchQueue.main.async {
             if let state = self.session?.state, case .joined(_) = state {
-                self.session?.send(ASCandidateRequest(candidate: candidate))
+                let receiverId = self.peerConnectionDictionary.first(where: { $1 === peerConnection })?.key
+                self.session?.send(ASCandidateRequest(receiverId: receiverId, candidate: candidate))
             }
         }
     }
@@ -358,9 +360,15 @@ extension ASMediaStreamClient: ASMediaStreamSessionDelegate {
         switch state {
         case .open:
             self.changeState(to: .connected)
-        case .joined(let roomMembers):
-            if roomMembers > 1 {
-                self.sendOffer()
+        case .joined(let members):
+            for identifier in members {
+                let peerConnection = self.connectionFactory.makePeerConnection(iceServers: self.iceServers, delegate: self)
+                self.peerConnectionDictionary[identifier] = peerConnection
+                
+                if let mediaStream = self.localStream {
+                    peerConnection.add(mediaStream)
+                }
+                self.sendOffer(receiverId: identifier, peerConnection: peerConnection)
             }
         case .closed:
             self.disconnect()
@@ -368,19 +376,33 @@ extension ASMediaStreamClient: ASMediaStreamSessionDelegate {
     }
     
     public func mediaStreamSession(_ session: ASMediaStreamSession, didReceiveSessionDescriptionResponse response: ASSessionDescriptionResponse) {
-        self.peerConnection?.setRemoteDescription(response.sessionDescription) { [weak self] error in
+        let peerConnection: RTCPeerConnection
+        
+        if let currentPeerConnection = self.peerConnectionDictionary[response.senderId] {
+            peerConnection = currentPeerConnection
+        } else {
+            peerConnection = self.connectionFactory.makePeerConnection(iceServers: self.iceServers, delegate: self)
+            self.peerConnectionDictionary[response.senderId] = peerConnection
+            
+            if let mediaStream = self.localStream {
+                peerConnection.add(mediaStream)
+            }
+        }
+        
+        peerConnection.setRemoteDescription(response.sessionDescription) { [weak self, weak peerConnection] error in
             guard let caller = self else { return }
             
             if let error = error {
                 caller.delegate?.mediaStreamClient(caller, didFailWithError: error)
             } else if response.sessionDescription.type == .offer {
-                caller.sendAnswer(receiverId: response.senderId)
+                caller.sendAnswer(receiverId: response.senderId, peerConnection: peerConnection)
             }
         }
     }
     
     public func mediaStreamSession(_ session: ASMediaStreamSession, didReceiveCandidateResponse response: ASCandidateResponse) {
-        self.peerConnection?.add(response.candidate)
+        let peerConnection = self.peerConnectionDictionary[response.senderId]
+        peerConnection?.add(response.candidate)
     }
     
     public func mediaStreamSession(_ session: ASMediaStreamSession, didFailWithError error: Error) {

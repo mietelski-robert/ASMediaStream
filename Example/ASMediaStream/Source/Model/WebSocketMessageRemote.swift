@@ -8,32 +8,19 @@
 
 import Foundation
 
-// MARK: - Message interface
-
-protocol WebSocketMessageRemote: Codable {
-    associatedtype T = Codable
-    
-    var type: WebSocketMessageTypeRemote { get }
-    var roomId: String { get }
-    var senderId: String? { get }
-    var content: T? { get }
-}
-
-// MARK: - Message implementation
-
-struct SessionDescriptionMessageRemote: WebSocketMessageRemote {
+struct SessionDescriptionMessageRemote: Codable {
     
     // MARK: - Public properties
     
     let type: WebSocketMessageTypeRemote
     let roomId: String
-    let senderId: String?
+    let senderId: String
     let receiverId: String?
-    let content: SessionDescriptionContentRemote?
+    let content: SessionDescriptionContentRemote
     
     // MARK: - Initialization
     
-    init(roomId: String, senderId: String? = nil, receiverId: String, content: SessionDescriptionContentRemote? = nil) {
+    init(roomId: String, senderId: String, receiverId: String, content: SessionDescriptionContentRemote) {
         self.type = .message
         self.roomId = roomId
         self.senderId = senderId
@@ -41,7 +28,7 @@ struct SessionDescriptionMessageRemote: WebSocketMessageRemote {
         self.content = content
     }
     
-    init(roomId: String, senderId: String? = nil, content: SessionDescriptionContentRemote? = nil) {
+    init(roomId: String, senderId: String, content: SessionDescriptionContentRemote) {
         self.type = .broadcast
         self.roomId = roomId
         self.senderId = senderId
@@ -50,19 +37,19 @@ struct SessionDescriptionMessageRemote: WebSocketMessageRemote {
     }
 }
 
-struct CandidateMessageRemote: WebSocketMessageRemote {
+struct CandidateMessageRemote: Codable {
     
     // MARK: - Public properties
     
     let type: WebSocketMessageTypeRemote
     let roomId: String
-    let senderId: String?
+    let senderId: String
     let receiverId: String?
-    let content: CandidateContentRemote?
+    let content: CandidateContentRemote
     
     // MARK: - Initialization
     
-    init(roomId: String, senderId: String? = nil, receiverId: String, content: CandidateContentRemote? = nil) {
+    init(roomId: String, senderId: String, receiverId: String, content: CandidateContentRemote) {
         self.type = .message
         self.roomId = roomId
         self.senderId = senderId
@@ -70,7 +57,7 @@ struct CandidateMessageRemote: WebSocketMessageRemote {
         self.content = content
     }
     
-    init(roomId: String, senderId: String? = nil, content: CandidateContentRemote? = nil) {
+    init(roomId: String, senderId: String, content: CandidateContentRemote) {
         self.type = .broadcast
         self.roomId = roomId
         self.senderId = senderId
@@ -79,7 +66,7 @@ struct CandidateMessageRemote: WebSocketMessageRemote {
     }
 }
 
-struct JoinMessageRemote: WebSocketMessageRemote {
+struct JoinMessageRemote: Codable {
     
     // MARK: - Public properties
     

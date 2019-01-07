@@ -12,12 +12,12 @@ public struct ASSessionDescriptionResponse {
 
     // MARK: - Public attributes
     
-    public let senderId: String?
+    public let senderId: String
     public let sessionDescription: RTCSessionDescription
     
     // MARK: - Initialization
     
-    public init(senderId: String? = nil, sessionDescription: RTCSessionDescription) {
+    public init(senderId: String, sessionDescription: RTCSessionDescription) {
         self.senderId = senderId
         self.sessionDescription = sessionDescription
     }

@@ -1,15 +1,15 @@
 PODS:
   - ASMediaStream (0.1.0):
     - GoogleWebRTC
-  - GoogleWebRTC (1.1.25544)
-  - PromiseKit (6.5.2):
-    - PromiseKit/CorePromise (= 6.5.2)
-    - PromiseKit/Foundation (= 6.5.2)
-    - PromiseKit/UIKit (= 6.5.2)
-  - PromiseKit/CorePromise (6.5.2)
-  - PromiseKit/Foundation (6.5.2):
+  - GoogleWebRTC (1.1.26115)
+  - PromiseKit (6.7.1):
+    - PromiseKit/CorePromise (= 6.7.1)
+    - PromiseKit/Foundation (= 6.7.1)
+    - PromiseKit/UIKit (= 6.7.1)
+  - PromiseKit/CorePromise (6.7.1)
+  - PromiseKit/Foundation (6.7.1):
     - PromiseKit/CorePromise
-  - PromiseKit/UIKit (6.5.2):
+  - PromiseKit/UIKit (6.7.1):
     - PromiseKit/CorePromise
   - Starscream (3.0.6)
 
@@ -30,8 +30,8 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   ASMediaStream: 2058875c6f799b79073d371fe0b0847d86fada13
-  GoogleWebRTC: b73841295d587468f368d146144753b138ed8014
-  PromiseKit: 27c1601bfb73405871b805bcb8cf7e55c4dad3db
+  GoogleWebRTC: 7d833975fab5dcd21a89d2a97a375593b90cbc9b
+  PromiseKit: ef376fb8b4e92edfeb66bd403b983eaa07fbde0c
   Starscream: ef3ece99d765eeccb67de105bfa143f929026cf5
 
 PODFILE CHECKSUM: eee1821e9ba9f6f515bac7dcc0d6130261c8953b

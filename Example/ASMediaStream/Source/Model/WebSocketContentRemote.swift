@@ -8,15 +8,7 @@
 
 import Foundation
 
-// MARK: - Content interface
-
-protocol WebSocketContentRemote: Codable {
-
-}
-
-// MARK: - Content implementation
-
-struct SessionDescriptionContentRemote: WebSocketContentRemote {
+struct SessionDescriptionContentRemote: Codable {
     
     // MARK: - Public properties
     
@@ -30,7 +22,7 @@ struct SessionDescriptionContentRemote: WebSocketContentRemote {
     }
 }
 
-struct CandidateContentRemote: WebSocketContentRemote {
+struct CandidateContentRemote: Codable {
     
     // MARK: - Public properties
     
@@ -44,15 +36,15 @@ struct CandidateContentRemote: WebSocketContentRemote {
     }
 }
 
-struct JoinContentRemote: WebSocketContentRemote {
+struct JoinContentRemote: Codable {
     
     // MARK: - Public properties
     
-    let roomMembers: Int
+    let roomMemberIds: [String]
     
     // MARK: - Initialization
     
-    init(roomMembers: Int) {
-        self.roomMembers = roomMembers
+    init(roomMemberIds: [String]) {
+        self.roomMemberIds = roomMemberIds
     }
 }

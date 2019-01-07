@@ -9,26 +9,26 @@
 import Foundation
 
 enum WebSocketSessionError: Error {
-    case receiveMessageFailed(description: String)
-    case dataEncodingFailed
-    case dataDecodingFailed
-    case unsupportedMessage
-    case unsupportedSessionDescription
+    case encodingDataFailed
+    case decodingDataFailed
+    case sendingConfigurationFailed
+    case unsupportedConfigurationReceived
+    case unsupportedMessageReceived
 }
 
 extension WebSocketSessionError: LocalizedError {
     var errorDescription: String? {
         switch self {
-        case .receiveMessageFailed(let description):
-            return description
-        case .dataEncodingFailed:
+        case .encodingDataFailed:
             return "Nie udało się zakodować wiadomości"
-        case .dataDecodingFailed:
+        case .decodingDataFailed:
             return "Nie udało się odkodować wiadomości"
-        case .unsupportedMessage:
+        case .sendingConfigurationFailed:
+            return "Nie udało się wysłać konfiguracji połączenia"
+        case .unsupportedConfigurationReceived:
+            return "Otrzymana konfiguracja połączenia jest nie obsługiwana"
+        case .unsupportedMessageReceived:
             return "Otrzymana wiadomość jest nie obsługiwana"
-        case .unsupportedSessionDescription:
-            return "Otrzymana konfiguracja sesji jest nie obsługiwana"
         }
     }
 }

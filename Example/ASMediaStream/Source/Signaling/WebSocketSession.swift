@@ -54,7 +54,7 @@ extension WebSocketSession {
     
     private func sessionDescription(remote: SessionDescriptionRemote) throws -> RTCSessionDescription {
         guard let type = RTCSdpType(rawValue: remote.type) else {
-            throw WebSocketSessionError.unsupportedSessionDescription
+            throw WebSocketSessionError.unsupportedConfigurationReceived
         }
         return RTCSessionDescription(type: type, sdp: remote.sdp)
     }
@@ -76,7 +76,7 @@ extension WebSocketSession {
             if let message = String(data: jsonData, encoding: String.Encoding.utf8) {
                 self.socket.write(string: message, completion: completion)
             } else {
-                throw WebSocketSessionError.dataEncodingFailed
+                throw WebSocketSessionError.encodingDataFailed
             }
         } catch {
             self.delegate?.mediaStreamSession(self, didFailWithError: error)
@@ -115,18 +115,22 @@ extension WebSocketSession: ASMediaStreamSession {
     
     func send(_ request: ASSessionDescriptionRequest, completion: (() -> Void)?) {
         do {
+            guard let senderId = self.clientIdentifier else {
+                throw WebSocketSessionError.sendingConfigurationFailed
+            }
+            
             let sessionDescription = SessionDescriptionRemote(domain: request.sessionDescription)
             let content = SessionDescriptionContentRemote(sessionDescription: sessionDescription)
             let message: SessionDescriptionMessageRemote
             
             if let receiverId = request.receiverId {
                 message = SessionDescriptionMessageRemote(roomId: self.roomName,
-                                                          senderId: self.clientIdentifier,
+                                                          senderId: senderId,
                                                           receiverId: receiverId,
                                                           content: content)
             } else {
                 message = SessionDescriptionMessageRemote(roomId: self.roomName,
-                                                          senderId: self.clientIdentifier,
+                                                          senderId: senderId,
                                                           content: content)
             }
             
@@ -139,18 +143,22 @@ extension WebSocketSession: ASMediaStreamSession {
     
     func send(_ request: ASCandidateRequest, completion: (() -> Void)?) {
         do {
+            guard let senderId = self.clientIdentifier else {
+                throw WebSocketSessionError.sendingConfigurationFailed
+            }
+            
             let candidate = CandidateRemote(domain: request.candidate)
             let content = CandidateContentRemote(candidate: candidate)
             let message: CandidateMessageRemote
             
             if let receiverId = request.receiverId {
                 message = CandidateMessageRemote(roomId: self.roomName,
-                                                 senderId: self.clientIdentifier,
+                                                 senderId: senderId,
                                                  receiverId: receiverId,
                                                  content: content)
             } else {
                 message = CandidateMessageRemote(roomId: self.roomName,
-                                                 senderId: self.clientIdentifier,
+                                                 senderId: senderId,
                                                  content: content)
             }
             
@@ -176,54 +184,55 @@ extension WebSocketSession: WebSocketDelegate {
             self.changeState(to: .closed)
         }
     }
-    
+
     func websocketDidReceiveMessage(socket: WebSocketClient, text: String) {
         do {
             guard let data = text.data(using: .utf8) else {
-                throw WebSocketSessionError.dataDecodingFailed
+                throw WebSocketSessionError.decodingDataFailed
             }
             let jsonObject = try JSONSerialization.jsonObject(with: data, options: [])
             print("JSON Response: \(jsonObject)")
             
             if let messageDictionary = jsonObject as? [String: Any], let contentDictionary = messageDictionary["content"] as? [String: Any] {
-                let senderId = messageDictionary["senderId"] as? String
                 let rawValue = messageDictionary["type"] as? String
                 
                 switch WebSocketMessageTypeRemote(optionalValue: rawValue) {
                 case .join:
-                    let content: JoinContentRemote = try JSONAdapter().decodeToObject(from: contentDictionary)
-                    self.clientIdentifier = senderId
-                    self.changeState(to: .joined(roomMembers: content.roomMembers))
+                    let message: JoinMessageRemote = try JSONAdapter().decodeToObject(from: messageDictionary)
+                    let members = message.content?.roomMemberIds ?? []
+                    
+                    self.clientIdentifier = message.senderId
+                    self.changeState(to: .joined(members: members))
                 case .broadcast, .message:
                     let rawValue = contentDictionary["type"] as? String
                     
                     switch WebSocketContentTypeRemote(optionalValue: rawValue) {
                     case .sessionDescription:
-                        let content: SessionDescriptionContentRemote = try JSONAdapter().decodeToObject(from: contentDictionary)
-                        let sessionDescription = try self.sessionDescription(remote: content.sessionDescription)
-                        let response = ASSessionDescriptionResponse(senderId: senderId, sessionDescription: sessionDescription)
+                        let message: SessionDescriptionMessageRemote = try JSONAdapter().decodeToObject(from: messageDictionary)
+                        let sessionDescription = try self.sessionDescription(remote: message.content.sessionDescription)
+                        let response = ASSessionDescriptionResponse(senderId: message.senderId, sessionDescription: sessionDescription)
                         
                         self.delegate?.mediaStreamSession(self, didReceiveSessionDescriptionResponse: response)
                     case .candidate:
-                        let content: CandidateContentRemote = try JSONAdapter().decodeToObject(from: contentDictionary)
-                        let candidate = self.candidate(remote: content.candidate)
-                        let response = ASCandidateResponse(senderId: senderId, candidate: candidate)
+                        let message: CandidateMessageRemote = try JSONAdapter().decodeToObject(from: messageDictionary)
+                        let candidate = self.candidate(remote: message.content.candidate)
+                        let response = ASCandidateResponse(senderId: message.senderId, candidate: candidate)
                         
                         self.delegate?.mediaStreamSession(self, didReceiveCandidateResponse: response)
                     case .unknown:
-                        throw WebSocketSessionError.unsupportedMessage
+                        throw WebSocketSessionError.unsupportedMessageReceived
                     }
                 case .unknown:
-                    throw WebSocketSessionError.unsupportedMessage
+                    throw WebSocketSessionError.unsupportedMessageReceived
                 }
             } else {
-                throw WebSocketSessionError.unsupportedMessage
+                throw WebSocketSessionError.unsupportedMessageReceived
             }
         } catch {
             self.delegate?.mediaStreamSession(self, didFailWithError: error)
         }
     }
-    
+
     func websocketDidReceiveData(socket: WebSocketClient, data: Data) {
         
     }

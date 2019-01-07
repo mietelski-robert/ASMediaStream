@@ -10,7 +10,7 @@ import Foundation
 
 public enum ASMediaStreamSessionState {
     case open
-    case joined(roomMembers: Int)
+    case joined(members: [String])
     case closed
 }
 
@@ -19,8 +19,8 @@ extension ASMediaStreamSessionState: Equatable {
         switch (lhs, rhs) {
         case (.open, .open):
             return true
-        case (.joined(let value1), .joined(let value2)):
-            return value1 == value2
+        case (.joined(let array1), .joined(let array2)):
+            return array1 == array2
         case (.closed, .closed):
             return true
         default:
