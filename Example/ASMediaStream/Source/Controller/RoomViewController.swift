@@ -23,7 +23,7 @@ class RoomViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let viewController = segue.destination as? VideoViewController, let roomName = sender as? String else {
+        guard let viewController = segue.destination as? VideoPagerViewController, let roomName = sender as? String else {
             return
         }
         viewController.roomName = roomName
@@ -61,6 +61,6 @@ extension RoomViewController: UITableViewDelegate {
 
 extension RoomViewController: RoomTextInputViewCellDelegate {
     func roomTextInputViewCell(_ cell: RoomTextInputViewCell, shouldJoinRoomWithName name: String) {
-        self.performSegue(withIdentifier: "VideoViewController", sender: name)
+        self.performSegue(withIdentifier: "VideoPagerViewController", sender: name)
     }
 }

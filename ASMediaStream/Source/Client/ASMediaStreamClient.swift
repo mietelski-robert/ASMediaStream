@@ -151,11 +151,10 @@ extension ASMediaStreamClient {
     
     public func disconnect() {
         for peerConnection in self.peerConnectionDictionary.values {
-            peerConnection.close()
-            
             if let mediaStream = self.localStream {
                 peerConnection.remove(mediaStream)
             }
+            peerConnection.close()
         }
         
         self.audioTrackCasche = [:]
@@ -258,7 +257,7 @@ extension ASMediaStreamClient {
 
 extension ASMediaStreamClient {
     private func sendOffer(receiverId: String?, peerConnection: RTCPeerConnection?) {
-        let constraints = self.connectionFactory.makeStreamConstraints(isVideoEnabled: false, isAudioEnabled: false)
+        let constraints = self.connectionFactory.makeStreamConstraints(isVideoEnabled: self.isVideoEnabled, isAudioEnabled: self.isAudioEnabled)
         
         peerConnection?.offer(for: constraints) { [weak self, weak peerConnection] (sessionDescription, error) in
             guard let caller = self else { return }

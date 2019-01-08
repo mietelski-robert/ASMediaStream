@@ -32,7 +32,8 @@
 		660105DC21E258E400E19369 /* WebSocketContentTypeRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 660105DB21E258E400E19369 /* WebSocketContentTypeRemote.swift */; };
 		662AF8EA21E2703200D46FD0 /* RoomTextInputViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 662AF8E921E2703200D46FD0 /* RoomTextInputViewCell.swift */; };
 		662AF8EC21E2705300D46FD0 /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 662AF8EB21E2705300D46FD0 /* RoomViewController.swift */; };
-		662AF8EE21E2705C00D46FD0 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 662AF8ED21E2705C00D46FD0 /* VideoViewController.swift */; };
+		66D885AE21E390E5008AE4CC /* VideoPagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D885AD21E390E5008AE4CC /* VideoPagerViewController.swift */; };
+		66D885B021E39105008AE4CC /* VideoPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D885AF21E39105008AE4CC /* VideoPageViewController.swift */; };
 		E940BC2D2EC1E7F65C10E6D0 /* Pods_ASMediaStream_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6C4818484FCFD0B80E81D06 /* Pods_ASMediaStream_Tests.framework */; };
 /* End PBXBuildFile section */
 
@@ -77,11 +78,12 @@
 		660105DB21E258E400E19369 /* WebSocketContentTypeRemote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketContentTypeRemote.swift; sourceTree = "<group>"; };
 		662AF8E921E2703200D46FD0 /* RoomTextInputViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomTextInputViewCell.swift; sourceTree = "<group>"; };
 		662AF8EB21E2705300D46FD0 /* RoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomViewController.swift; sourceTree = "<group>"; };
-		662AF8ED21E2705C00D46FD0 /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
+		66D885AD21E390E5008AE4CC /* VideoPagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPagerViewController.swift; sourceTree = "<group>"; };
+		66D885AF21E39105008AE4CC /* VideoPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPageViewController.swift; sourceTree = "<group>"; };
 		85E604E1FA204DAE45159E0F /* Pods-ASMediaStream_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ASMediaStream_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-ASMediaStream_Example/Pods-ASMediaStream_Example.release.xcconfig"; sourceTree = "<group>"; };
 		8723997A5F9EBCA45FC8013A /* Pods-ASMediaStream_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ASMediaStream_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ASMediaStream_Example/Pods-ASMediaStream_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		8EE0606DDF4A673EDC78C6C2 /* Pods_ASMediaStream_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ASMediaStream_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9FBAB857EDF299B03A8C46CD /* ASMediaStream.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = ASMediaStream.podspec; path = ../ASMediaStream.podspec; sourceTree = "<group>"; };
+		9FBAB857EDF299B03A8C46CD /* ASMediaStream.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = ASMediaStream.podspec; path = ../ASMediaStream.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A6C4818484FCFD0B80E81D06 /* Pods_ASMediaStream_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ASMediaStream_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6D73ABD573F32284235DE44 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		D430B716DD8E3A0B5CDDBAB0 /* Pods-ASMediaStream_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ASMediaStream_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ASMediaStream_Tests/Pods-ASMediaStream_Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -258,8 +260,9 @@
 		662AF8E721E2701900D46FD0 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				66D885AD21E390E5008AE4CC /* VideoPagerViewController.swift */,
+				66D885AF21E39105008AE4CC /* VideoPageViewController.swift */,
 				662AF8EB21E2705300D46FD0 /* RoomViewController.swift */,
-				662AF8ED21E2705C00D46FD0 /* VideoViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -451,18 +454,19 @@
 				660105C721E2521200E19369 /* JSONAdapter.swift in Sources */,
 				660105D221E2569000E19369 /* CandidateRemote.swift in Sources */,
 				660105D821E2577000E19369 /* WebSocketMessageRemote.swift in Sources */,
-				662AF8EE21E2705C00D46FD0 /* VideoViewController.swift in Sources */,
 				6601059021E2481800E19369 /* AppDelegate.swift in Sources */,
 				6601059A21E2482100E19369 /* ASMediaStreamClientError+Extension.swift in Sources */,
 				660105DA21E2586B00E19369 /* WebSocketContentRemote.swift in Sources */,
 				660105C321E250D200E19369 /* NSLayoutConstraint+Extension.swift in Sources */,
 				660105C521E250D200E19369 /* Encodable+Extension.swift in Sources */,
 				660105C421E250D200E19369 /* Data+Extension.swift in Sources */,
+				66D885B021E39105008AE4CC /* VideoPageViewController.swift in Sources */,
 				660105BB21E24F7E00E19369 /* WebSocketSessionFactory.swift in Sources */,
 				660105B921E24DD800E19369 /* WebSocketSessionError.swift in Sources */,
 				660105C221E250D200E19369 /* UIVIew+Extension.swift in Sources */,
 				662AF8EA21E2703200D46FD0 /* RoomTextInputViewCell.swift in Sources */,
 				660105DC21E258E400E19369 /* WebSocketContentTypeRemote.swift in Sources */,
+				66D885AE21E390E5008AE4CC /* VideoPagerViewController.swift in Sources */,
 				660105B721E24D0900E19369 /* WebSocketSession.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -509,6 +513,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -565,6 +570,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -618,7 +624,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 9KDW35V6BS;
 				INFOPLIST_FILE = ASMediaStream/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = altconnect.mediaStream.example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -636,7 +642,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 9KDW35V6BS;
 				INFOPLIST_FILE = ASMediaStream/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = altconnect.mediaStream.example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -651,16 +657,13 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 9KDW35V6BS;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = Tests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
@@ -675,12 +678,9 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 9KDW35V6BS;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Tests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
