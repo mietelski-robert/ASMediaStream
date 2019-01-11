@@ -19,8 +19,10 @@ extension ASMediaStreamClientError: LocalizedError {
             return "Nie udało się włączyć mikrofonu"
         case .disableAudioFailed:
             return "Nie udało się wyłączyć mikrofonu"
-        case .alredyConnected:
-            return "Połączenie zostało już nawiązane"
+        case .joiningRoomFailed:
+            return "Nie udało się nawiązać połączenia"
+        case .openingChannelFailed:
+            return "Nie udało się otworzyć kanału wymiany danych"
         }
     }
 }

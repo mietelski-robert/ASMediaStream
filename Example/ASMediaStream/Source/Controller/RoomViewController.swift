@@ -23,10 +23,14 @@ class RoomViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let viewController = segue.destination as? VideoPagerViewController, let roomName = sender as? String else {
+        guard let navigationController = segue.destination as? UINavigationController else {
             return
         }
-        viewController.roomName = roomName
+        let rootViewController = navigationController.viewControllers.first
+        
+        if let viewController = rootViewController as? VideoPagerViewController, let roomName = sender as? String {
+            viewController.roomName = roomName
+        }
     }
 }
 

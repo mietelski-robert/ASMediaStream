@@ -47,6 +47,12 @@
 		5C431E72A92A416B85BB30CDB40EBB05 /* ASVideoCapturer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494BEBA21768E09639EEC975989F126B /* ASVideoCapturer.swift */; };
 		5FA920184E94E30EEFD3C7F97876F6DB /* race.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8DE6DDDB8F176A967274879091950E /* race.swift */; };
 		6587488C908EAD384369E3F71C6D594B /* ASMediaStreamClientState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED16D72F05A5745D02D589CA6795C58 /* ASMediaStreamClientState.swift */; };
+		666F33B921E73C62007EC3B6 /* ASVideoOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666F33B821E73C62007EC3B6 /* ASVideoOutput.swift */; };
+		666F33BB21E73CBE007EC3B6 /* ASAudioOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666F33BA21E73CBE007EC3B6 /* ASAudioOutput.swift */; };
+		666F33BD21E73DBC007EC3B6 /* ASDataOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666F33BC21E73DBC007EC3B6 /* ASDataOutput.swift */; };
+		666F33BF21E73EFD007EC3B6 /* ASMediaStreamContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666F33BE21E73EFD007EC3B6 /* ASMediaStreamContainer.swift */; };
+		666F33C121E74539007EC3B6 /* ASMediaStreamItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666F33C021E74539007EC3B6 /* ASMediaStreamItem.swift */; };
+		666F33C321E76B73007EC3B6 /* ASDataChannelPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666F33C221E76B73007EC3B6 /* ASDataChannelPair.swift */; };
 		6B9557471BA4B812089B8377909E043B /* after.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B2E9961A70B34472EEB4E4C50F7E55D /* after.m */; };
 		6CFBF08D5EFBC700A981B8A01B56A26F /* UIView+AnyPromise.h in Headers */ = {isa = PBXBuildFile; fileRef = D83C6EC7F47D35ED185C559C86406FE0 /* UIView+AnyPromise.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6ECE107A81D24789409A8D0D2523B4E1 /* afterlife.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197F25E6795EF4E254EF6E90A04041C4 /* afterlife.swift */; };
@@ -168,6 +174,12 @@
 		5DFF00EEF5EB906388DE27794507A9B3 /* Pods-ASMediaStream_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ASMediaStream_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		5DFF5E602244DA83DCACDB6B4D82BA55 /* Box.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Box.swift; path = Sources/Box.swift; sourceTree = "<group>"; };
 		62D53B529578489E181B1CA56E3424EB /* dispatch_promise.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = dispatch_promise.m; path = Sources/dispatch_promise.m; sourceTree = "<group>"; };
+		666F33B821E73C62007EC3B6 /* ASVideoOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASVideoOutput.swift; sourceTree = "<group>"; };
+		666F33BA21E73CBE007EC3B6 /* ASAudioOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASAudioOutput.swift; sourceTree = "<group>"; };
+		666F33BC21E73DBC007EC3B6 /* ASDataOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASDataOutput.swift; sourceTree = "<group>"; };
+		666F33BE21E73EFD007EC3B6 /* ASMediaStreamContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASMediaStreamContainer.swift; sourceTree = "<group>"; };
+		666F33C021E74539007EC3B6 /* ASMediaStreamItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASMediaStreamItem.swift; sourceTree = "<group>"; };
+		666F33C221E76B73007EC3B6 /* ASDataChannelPair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASDataChannelPair.swift; sourceTree = "<group>"; };
 		66DD95681F8E22DAC607A83E7B583430 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		720F34ECE58F88D394C906146E286A6D /* Pods-ASMediaStream_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ASMediaStream_Tests-umbrella.h"; sourceTree = "<group>"; };
 		74C26D71D4AD2B3796C1F48E868BEE75 /* ASVideoResolution.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ASVideoResolution.swift; sourceTree = "<group>"; };
@@ -289,6 +301,7 @@
 		09C0395DC67D4A4B56557200903D1359 /* ASMediaStream */ = {
 			isa = PBXGroup;
 			children = (
+				666F33B521E73BDA007EC3B6 /* Media */,
 				D09F0F772FBFF0A5394CADDBC2109EDB /* Capturer */,
 				A98873F77C8694CCF23A2DE296F59816 /* Client */,
 				CCE715CAF9C6F5B953CAACC20F945C47 /* Pod */,
@@ -397,6 +410,16 @@
 			);
 			name = "Pods-ASMediaStream_Example";
 			path = "Target Support Files/Pods-ASMediaStream_Example";
+			sourceTree = "<group>";
+		};
+		666F33B521E73BDA007EC3B6 /* Media */ = {
+			isa = PBXGroup;
+			children = (
+				666F33B821E73C62007EC3B6 /* ASVideoOutput.swift */,
+				666F33BA21E73CBE007EC3B6 /* ASAudioOutput.swift */,
+				666F33BC21E73DBC007EC3B6 /* ASDataOutput.swift */,
+			);
+			path = Media;
 			sourceTree = "<group>";
 		};
 		6A0AD1FF5EEE09FCDE8B5E4977F32881 /* Foundation */ = {
@@ -556,6 +579,9 @@
 				46CEB20C7ECC0FD412412C9DA2C84EA0 /* ASMediaStreamClientError.swift */,
 				4ED16D72F05A5745D02D589CA6795C58 /* ASMediaStreamClientState.swift */,
 				C0F41E2CB1822A0508E6B36328525A77 /* ASMediaStreamConnectionFactory.swift */,
+				666F33BE21E73EFD007EC3B6 /* ASMediaStreamContainer.swift */,
+				666F33C021E74539007EC3B6 /* ASMediaStreamItem.swift */,
+				666F33C221E76B73007EC3B6 /* ASDataChannelPair.swift */,
 			);
 			name = Client;
 			path = ASMediaStream/Source/Client;
@@ -769,7 +795,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0930;
-				LastUpgradeCheck = 1010;
+				LastUpgradeCheck = 0930;
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -800,20 +826,26 @@
 				1C28E447E1DACE8B978BCE9E793E7956 /* ASCandidateRequest.swift in Sources */,
 				7912405AF7704FBB868CED913A2F2C6C /* ASCandidateResponse.swift in Sources */,
 				1EBE5F6B5A40845F6801BF9CA687F630 /* ASMediaStream-dummy.m in Sources */,
+				666F33BD21E73DBC007EC3B6 /* ASDataOutput.swift in Sources */,
 				590F8CAFB0AEDB1D905C564D64C97800 /* ASMediaStreamClient.swift in Sources */,
 				215F937DAF43E1500F1A3B46095055FB /* ASMediaStreamClientDelegate.swift in Sources */,
 				515DE675EB11327658B6D0E935EF4F1C /* ASMediaStreamClientError.swift in Sources */,
 				6587488C908EAD384369E3F71C6D594B /* ASMediaStreamClientState.swift in Sources */,
+				666F33C321E76B73007EC3B6 /* ASDataChannelPair.swift in Sources */,
 				7E0CC4B696BBC6371626F47F71D3D343 /* ASMediaStreamConnectionFactory.swift in Sources */,
 				F9501B8105578837B548C2CA5DF6AC62 /* ASMediaStreamSession.swift in Sources */,
 				28FF540EE504BCE65E550D8CA6FB41A6 /* ASMediaStreamSessionDelegate.swift in Sources */,
 				CB7E9A8DBD6A2EFE2DBAB3C2E6951FE1 /* ASMediaStreamSessionFactory.swift in Sources */,
 				3F47D1266A69E9B84468D99453E50727 /* ASMediaStreamSessionState.swift in Sources */,
 				9846D0366509850BA0550351EA34CB5C /* ASSessionDescriptionRequest.swift in Sources */,
+				666F33B921E73C62007EC3B6 /* ASVideoOutput.swift in Sources */,
 				E602A5E8EF039872404B332AA24D8520 /* ASSessionDescriptionResponse.swift in Sources */,
 				5C431E72A92A416B85BB30CDB40EBB05 /* ASVideoCapturer.swift in Sources */,
+				666F33BF21E73EFD007EC3B6 /* ASMediaStreamContainer.swift in Sources */,
 				8B4B6698ABA668D095D53DD33455D811 /* ASVideoResolution.swift in Sources */,
+				666F33BB21E73CBE007EC3B6 /* ASAudioOutput.swift in Sources */,
 				1F51B2C120A815BAC66C6CAA58517954 /* ASVideoSettings.swift in Sources */,
+				666F33C121E74539007EC3B6 /* ASMediaStreamItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -973,7 +1005,6 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Release;

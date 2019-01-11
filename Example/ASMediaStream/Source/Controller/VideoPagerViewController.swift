@@ -25,23 +25,14 @@ class VideoPagerViewController: UIViewController {
     private var viewControllers: [UIViewController] = []
     
     private lazy var turnServer: RTCIceServer = {
-        return RTCIceServer(urlStrings: ["https://appr.tc"])
+        return RTCIceServer(urlStrings: ["turn:numb.viagenie.ca"], username: "nujo@prmail.top", credential: "n6kn4NUPrYUjJjQy")
     }()
     
     private lazy var stunServer: RTCIceServer = {
-        let urlStrings = ["stun:stun.sipgate.net:3478",
-                          "stun:stun2.l.google.com:19302",
-                          "stun:stun3.l.google.com:19302",
-                          "stun:stun4.l.google.com:19302"]
-        return RTCIceServer(urlStrings: urlStrings)
+        return RTCIceServer(urlStrings: ["stun:stun2.l.google.com:19302"])
     }()
     
-    private lazy var client: ASMediaStreamClient = {
-        let client = ASMediaStreamClient(iceServers: [self.stunServer], sessionFactory: WebSocketSessionFactory())
-        client.delegate = self
-        
-        return client
-    }()
+    private var client: ASMediaStreamClient?
     
     // MARK: - Life cycle
     
@@ -56,7 +47,9 @@ class VideoPagerViewController: UIViewController {
         } .then { _ in
             self.audioAuthorizationRequest()
         } .done { _ in
-            self.client.connectToRoom(name: self.roomName)
+            self.client = ASMediaStreamClient(iceServers: [self.stunServer], sessionFactory: WebSocketSessionFactory())
+            self.client?.delegate = self
+            self.client?.connectToRoom(name: self.roomName)
         } .catch { error in
             self.showDialog(title: "Wystąpił błąd", message: error.localizedDescription, cancelButtonTitle: "Ok")
         }
@@ -101,11 +94,13 @@ extension VideoPagerViewController {
 // MARK: - Page management
 
 extension VideoPagerViewController {
-    private func videoPageViewController(videoTrack: RTCVideoTrack) -> UIViewController {
+    private func videoPageViewController(clientId: String?, videoTrack: RTCVideoTrack?) -> UIViewController {
         let viewController = self.storyboard!.instantiateViewController(withIdentifier: "VideoPageViewControllerIdentifier")
         
         if let videoPageViewController = viewController as? VideoPageViewController {
             videoPageViewController.videoTrack = videoTrack
+            videoPageViewController.clientId = clientId
+            videoPageViewController.delegate = self
         }
         return viewController
     }
@@ -121,6 +116,10 @@ extension VideoPagerViewController {
             }
             return videoTracks.contains(videoTrack)
         }
+    }
+    
+    private func makeViewControllers(with output: ASVideoOutput) -> [UIViewController] {
+        return output.videoTracks.map { self.videoPageViewController(clientId: output.clientId, videoTrack: $0) }
     }
 }
 
@@ -212,80 +211,121 @@ extension VideoPagerViewController: UIPageViewControllerDelegate {
     }
 }
 
+// MARK: - VideoPageViewControllerDelegate
+
+extension VideoPagerViewController: VideoPageViewControllerDelegate {
+    func videoPageViewControllerSwitchCamera(in viewController: VideoPageViewController) {
+        if let clientId = viewController.clientId {
+            
+        } else {
+            self.client?.videoCapturer?.switchCamera()
+        }
+    }
+    
+    func videoPageViewController(_ viewController: VideoPageViewController, didChangeVideoEnabled isEnabled: Bool) {
+        if let clientId = viewController.clientId {
+            let data = "test".data(using: .utf8)
+            self.client?.sendData(data!, clientId: clientId)
+        } else {
+            
+        }
+    }
+    
+    func videoPageViewController(_ viewController: VideoPageViewController, didChangeAudioEnabled isEnabled: Bool) {
+
+    }
+    
+    func videoPageViewController(_ viewController: VideoPageViewController, didChangeFlashlightState isOn: Bool) {
+
+    }
+}
+
 // MARK: - ASMediaStreamClientDelegate
 
 extension VideoPagerViewController: ASMediaStreamClientDelegate {
-    func mediaStreamClient(_ client: ASMediaStreamClient, didReceiveLocalVideoTrack videoTrack: RTCVideoTrack) {
-        let viewController = self.videoPageViewController(videoTrack: videoTrack)
-        self.viewControllers.append(viewController)
-        
-        self.pageViewController?.setViewControllers([viewController],
-                                                    direction: .forward,
-                                                    animated: false,
-                                                    completion: nil)
-        client.videoCapturer?.startCapture()
-    }
-    
-    func mediaStreamClient(_ client: ASMediaStreamClient, didDiscardLocalVideoTrack videoTrack: RTCVideoTrack) {
-        for item in self.viewControllerItems(of: [videoTrack]) {
-            self.viewControllers.remove(at: item.offset)
-        }
-        client.videoCapturer?.stopCapture()
-        
-        let viewControllers: [UIViewController]
-        
-        if let viewController = self.viewControllers.first {
-            viewControllers = [viewController]
-        } else {
-            viewControllers = []
-        }
-        
-        self.pageViewController?.setViewControllers(viewControllers,
-                                                    direction: .reverse,
-                                                    animated: true,
-                                                    completion: nil)
-        self.currentPageIndex = 0
-    }
-    
-    func mediaStreamClient(_ client: ASMediaStreamClient, didReceiveLocalAudioTrack audioTrack: RTCAudioTrack) {
+    func mediaStreamClient(_ client: ASMediaStreamClient, didChangeState state: ASMediaStreamClientState) {
         
     }
     
-    func mediaStreamClient(_ client: ASMediaStreamClient, didDiscardLocalAudioTrack audioTrack: RTCAudioTrack) {
-        
-    }
-    
-    func mediaStreamClient(_ client: ASMediaStreamClient, didReceiveRemoteVideoTracks videoTracks: [RTCVideoTrack]) {
-        let viewControllers = videoTracks.map { self.videoPageViewController(videoTrack: $0) }
+    func mediaStreamClient(_ client: ASMediaStreamClient, didReceiveLocalVideo output: ASVideoOutput) {
+        let viewControllers = self.makeViewControllers(with: output)
         self.viewControllers.append(contentsOf: viewControllers)
         
         self.pageViewController?.setViewControllers([self.viewControllers[self.currentPageIndex]],
                                                     direction: .forward,
                                                     animated: false,
                                                     completion: nil)
+        client.videoCapturer?.startCapture()
     }
     
-    func mediaStreamClient(_ client: ASMediaStreamClient, didDiscardRemoteVideoTracks videoTracks: [RTCVideoTrack]) {
-        for item in self.viewControllerItems(of: videoTracks) {
-            self.viewControllers.remove(at: item.offset)
-        }
-        let viewControllers: [UIViewController]
+    func mediaStreamClient(_ client: ASMediaStreamClient, didDiscardLocalVideo output: ASVideoOutput) {
+//        for item in self.viewControllerItems(of: output.videoTracks) {
+//            self.viewControllers.remove(at: item.offset)
+//        }
+//        client.videoCapturer?.stopCapture()
+//
+//        let viewControllers: [UIViewController]
+//
+//        if let viewController = self.viewControllers.first {
+//            viewControllers = [viewController]
+//        } else {
+//            viewControllers = []
+//        }
+//
+//        self.pageViewController?.setViewControllers(viewControllers,
+//                                                    direction: .reverse,
+//                                                    animated: true,
+//                                                    completion: nil)
+//        self.currentPageIndex = 0
+    }
+    
+    func mediaStreamClient(_ client: ASMediaStreamClient, didReceiveLocalAudio output: ASAudioOutput) {
         
-        if let viewController = self.viewControllers.first {
-            viewControllers = [viewController]
-        } else {
-            viewControllers = []
-        }
+    }
+    
+    func mediaStreamClient(_ client: ASMediaStreamClient, didDiscardLocalAudio output: ASAudioOutput) {
         
-        self.pageViewController?.setViewControllers(viewControllers,
-                                                    direction: .reverse,
-                                                    animated: true,
+    }
+    
+    func mediaStreamClient(_ client: ASMediaStreamClient, didReceiveRemoteVideo output: ASVideoOutput) {
+        let viewControllers = self.makeViewControllers(with: output)
+        self.viewControllers.append(contentsOf: viewControllers)
+
+        self.pageViewController?.setViewControllers([self.viewControllers[self.currentPageIndex]],
+                                                    direction: .forward,
+                                                    animated: false,
                                                     completion: nil)
-        self.currentPageIndex = 0
     }
     
-    func mediaStreamClient(_ client: ASMediaStreamClient, didChangeState state: ASMediaStreamClientState) {
+    func mediaStreamClient(_ client: ASMediaStreamClient, didDiscardRemoteVideo output: ASVideoOutput) {
+//        for item in self.viewControllerItems(of: output.videoTracks) {
+//            self.viewControllers.remove(at: item.offset)
+//        }
+//        let viewControllers: [UIViewController]
+//
+//        if let viewController = self.viewControllers.first {
+//            viewControllers = [viewController]
+//        } else {
+//            viewControllers = []
+//        }
+//
+//        self.pageViewController?.setViewControllers(viewControllers,
+//                                                    direction: .reverse,
+//                                                    animated: true,
+//                                                    completion: nil)
+//        self.currentPageIndex = 0
+    }
+    
+    func mediaStreamClient(_ client: ASMediaStreamClient, didReceiveRemoteAudio output: ASAudioOutput) {
         
+    }
+    
+    func mediaStreamClient(_ client: ASMediaStreamClient, didDiscardRemoteAudio output: ASAudioOutput) {
+        
+    }
+    
+    func mediaStreamClient(_ client: ASMediaStreamClient, didReceiveData output: ASDataOutput) {
+        self.showDialog(title: "Otrzymano wiadomość", message: String(data: output.data, encoding: .utf8)!, cancelButtonTitle: "Ok")
     }
     
     func mediaStreamClient(_ client: ASMediaStreamClient, didFailWithError error: Error) {

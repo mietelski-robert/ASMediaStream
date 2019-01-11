@@ -48,6 +48,7 @@ public class ASVideoCapturer: NSObject {
         } else {
             self.position = .front
         }
+        self.stopCapture()
         self.startCapture()
     }
 }

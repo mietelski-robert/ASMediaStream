@@ -32,6 +32,7 @@
 		660105DC21E258E400E19369 /* WebSocketContentTypeRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 660105DB21E258E400E19369 /* WebSocketContentTypeRemote.swift */; };
 		662AF8EA21E2703200D46FD0 /* RoomTextInputViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 662AF8E921E2703200D46FD0 /* RoomTextInputViewCell.swift */; };
 		662AF8EC21E2705300D46FD0 /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 662AF8EB21E2705300D46FD0 /* RoomViewController.swift */; };
+		666F33B421E735E8007EC3B6 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666F33B321E735E8007EC3B6 /* UIColor+Extension.swift */; };
 		66D885AE21E390E5008AE4CC /* VideoPagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D885AD21E390E5008AE4CC /* VideoPagerViewController.swift */; };
 		66D885B021E39105008AE4CC /* VideoPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D885AF21E39105008AE4CC /* VideoPageViewController.swift */; };
 		E940BC2D2EC1E7F65C10E6D0 /* Pods_ASMediaStream_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6C4818484FCFD0B80E81D06 /* Pods_ASMediaStream_Tests.framework */; };
@@ -78,6 +79,7 @@
 		660105DB21E258E400E19369 /* WebSocketContentTypeRemote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketContentTypeRemote.swift; sourceTree = "<group>"; };
 		662AF8E921E2703200D46FD0 /* RoomTextInputViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomTextInputViewCell.swift; sourceTree = "<group>"; };
 		662AF8EB21E2705300D46FD0 /* RoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomViewController.swift; sourceTree = "<group>"; };
+		666F33B321E735E8007EC3B6 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		66D885AD21E390E5008AE4CC /* VideoPagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPagerViewController.swift; sourceTree = "<group>"; };
 		66D885AF21E39105008AE4CC /* VideoPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPageViewController.swift; sourceTree = "<group>"; };
 		85E604E1FA204DAE45159E0F /* Pods-ASMediaStream_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ASMediaStream_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-ASMediaStream_Example/Pods-ASMediaStream_Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 		6601059521E2482100E19369 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				666F33B321E735E8007EC3B6 /* UIColor+Extension.swift */,
 				6601059621E2482100E19369 /* ASMediaStreamClientError+Extension.swift */,
 				660105C821E254CA00E19369 /* WSError+Extension.swift */,
 				660105BF21E250D200E19369 /* Data+Extension.swift */,
@@ -463,6 +466,7 @@
 				66D885B021E39105008AE4CC /* VideoPageViewController.swift in Sources */,
 				660105BB21E24F7E00E19369 /* WebSocketSessionFactory.swift in Sources */,
 				660105B921E24DD800E19369 /* WebSocketSessionError.swift in Sources */,
+				666F33B421E735E8007EC3B6 /* UIColor+Extension.swift in Sources */,
 				660105C221E250D200E19369 /* UIVIew+Extension.swift in Sources */,
 				662AF8EA21E2703200D46FD0 /* RoomTextInputViewCell.swift in Sources */,
 				660105DC21E258E400E19369 /* WebSocketContentTypeRemote.swift in Sources */,

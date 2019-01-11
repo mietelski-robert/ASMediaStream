@@ -68,9 +68,9 @@ public class ASMediaStreamClient: NSObject {
     
     // MARK: - Private attributes
     
-    private var peerConnectionDictionary = [String: RTCPeerConnection]()
     private let connectionFactory = ASMediaStreamConnectionFactory()
     private let sessionFactory: ASMediaStreamSessionFactory
+    private var container = ASMediaStreamContainer()
     
     private var audioTrackCasche = [String: RTCAudioTrack]()
     private var videoTrackCasche = [String: RTCVideoTrack]()
@@ -122,7 +122,7 @@ extension ASMediaStreamClient {
     public func connectToRoom(name roomName: String) {
         do {
             guard self.state == .disconnected else {
-                throw ASMediaStreamClientError.alredyConnected
+                throw ASMediaStreamClientError.joiningRoomFailed
             }
             self.changeState(to: .connecting)
             
@@ -150,20 +150,22 @@ extension ASMediaStreamClient {
     }
     
     public func disconnect() {
-        for peerConnection in self.peerConnectionDictionary.values {
+        for item in self.container.items {
             if let mediaStream = self.localStream {
-                peerConnection.remove(mediaStream)
+                item.peerConnection?.remove(mediaStream)
             }
-            peerConnection.close()
+            item.peerConnection?.close()
+            item.dataChannelPair.sender?.close()
+            item.dataChannelPair.receiver?.close()
         }
-        
+
         self.audioTrackCasche = [:]
         self.videoTrackCasche = [:]
         self.session?.leave()
         
         self.changeState(to: .disconnected)
         
-        self.peerConnectionDictionary = [:]
+        self.container = ASMediaStreamContainer()
         self.localStream = nil
         self.session = nil
     }
@@ -195,7 +197,7 @@ extension ASMediaStreamClient {
         mediaStream.addVideoTrack(videoTrack)
         
         self.videoCapturer = ASVideoCapturer(capturer: capturer)
-        self.delegate?.mediaStreamClient(self, didReceiveLocalVideoTrack: videoTrack)
+        self.delegate?.mediaStreamClient(self, didReceiveLocalVideo: ASVideoOutput(videoTracks: [videoTrack]))
     }
     
     private func disableVideo(for mediaStream: RTCMediaStream) throws {
@@ -205,7 +207,7 @@ extension ASMediaStreamClient {
         mediaStream.removeVideoTrack(videoTrack)
         
         self.videoCapturer = nil
-        self.delegate?.mediaStreamClient(self, didDiscardLocalVideoTrack: videoTrack)
+        self.delegate?.mediaStreamClient(self, didDiscardLocalVideo: ASVideoOutput(videoTracks: [videoTrack]))
     }
 }
 
@@ -231,7 +233,7 @@ extension ASMediaStreamClient {
         let audioTrack = try self.getAudioTrack(for: mediaStream.streamId)
         mediaStream.addAudioTrack(audioTrack)
         
-        self.delegate?.mediaStreamClient(self, didReceiveLocalAudioTrack: audioTrack)
+        self.delegate?.mediaStreamClient(self, didReceiveLocalAudio: ASAudioOutput(audioTracks: [audioTrack]))
     }
     
     private func disableAudio(for mediaStream: RTCMediaStream) throws {
@@ -240,11 +242,42 @@ extension ASMediaStreamClient {
         }
         mediaStream.removeAudioTrack(audioTrack)
         
-        self.delegate?.mediaStreamClient(self, didDiscardLocalAudioTrack: audioTrack)
+        self.delegate?.mediaStreamClient(self, didDiscardLocalAudio: ASAudioOutput(audioTracks: [audioTrack]))
     }
 }
 
+// MARK: - Data management
+
 extension ASMediaStreamClient {
+    public func sendBinaryData(_ data: Data, clientId: String) {
+        let buffer = RTCDataBuffer(data: data, isBinary: true)
+        let item = self.container.item(identifier: clientId)
+        
+        item?.dataChannelPair.sender?.sendData(buffer)
+    }
+    
+    public func sendData(_ data: Data, clientId: String) {
+        let buffer = RTCDataBuffer(data: data, isBinary: false)
+        let item = self.container.item(identifier: clientId)
+        
+        item?.dataChannelPair.sender?.sendData(buffer)
+    }
+}
+
+// MARK: - Configuration
+
+extension ASMediaStreamClient {
+    private func makeMediaStreamItem(dataChannelLabel label: String) -> ASMediaStreamItem {
+        let peerConnection = self.connectionFactory.makePeerConnection(iceServers: self.iceServers, delegate: self)
+        let configuration = self.connectionFactory.makeDataChannelConfiguration()
+        
+        let dataChannel = peerConnection.dataChannel(forLabel: label, configuration: configuration)
+        dataChannel?.delegate = self
+        
+        return ASMediaStreamItem(peerConnection: peerConnection,
+                                 dataChannelPair: ASDataChannelPair(sender: nil, receiver: dataChannel))
+    }
+
     private func changeState(to state: ASMediaStreamClientState) {
         if state != self.state {
             self.state = state
@@ -312,13 +345,23 @@ extension ASMediaStreamClient: RTCPeerConnectionDelegate {
     
     public func peerConnection(_ peerConnection: RTCPeerConnection, didAdd stream: RTCMediaStream) {
         DispatchQueue.main.async {
-            self.delegate?.mediaStreamClient(self, didReceiveRemoteVideoTracks: stream.videoTracks)
+            let clientId = self.container.identifier(peerConnection: peerConnection)
+            let video = ASVideoOutput(clientId: clientId, videoTracks: stream.videoTracks)
+            let audio = ASAudioOutput(clientId: clientId, audioTracks: stream.audioTracks)
+            
+            self.delegate?.mediaStreamClient(self, didReceiveRemoteVideo: video)
+            self.delegate?.mediaStreamClient(self, didReceiveRemoteAudio: audio)
         }
     }
     
     public func peerConnection(_ peerConnection: RTCPeerConnection, didRemove stream: RTCMediaStream) {
         DispatchQueue.main.async {
-            self.delegate?.mediaStreamClient(self, didDiscardRemoteVideoTracks: stream.videoTracks)
+            let clientId = self.container.identifier(peerConnection: peerConnection)
+            let video = ASVideoOutput(clientId: clientId, videoTracks: stream.videoTracks)
+            let audio = ASAudioOutput(clientId: clientId, audioTracks: stream.audioTracks)
+            
+            self.delegate?.mediaStreamClient(self, didDiscardRemoteVideo: video)
+            self.delegate?.mediaStreamClient(self, didDiscardRemoteAudio: audio)
         }
     }
     
@@ -337,7 +380,7 @@ extension ASMediaStreamClient: RTCPeerConnectionDelegate {
     public func peerConnection(_ peerConnection: RTCPeerConnection, didGenerate candidate: RTCIceCandidate) {
         DispatchQueue.main.async {
             if let state = self.session?.state, case .joined(_) = state {
-                let receiverId = self.peerConnectionDictionary.first(where: { $1 === peerConnection })?.key
+                let receiverId = self.container.identifier(peerConnection: peerConnection)
                 self.session?.send(ASCandidateRequest(receiverId: receiverId, candidate: candidate))
             }
         }
@@ -348,7 +391,33 @@ extension ASMediaStreamClient: RTCPeerConnectionDelegate {
     }
     
     public func peerConnection(_ peerConnection: RTCPeerConnection, didOpen dataChannel: RTCDataChannel) {
-        
+        DispatchQueue.main.async {
+            if let identifier = self.container.identifier(peerConnection: peerConnection) {
+                let previousItem = self.container.item(identifier: identifier)
+                let dataChannelPair = ASDataChannelPair(sender: dataChannel, receiver: previousItem?.dataChannelPair.receiver)
+                
+                self.container.setItem(ASMediaStreamItem(peerConnection: peerConnection, dataChannelPair: dataChannelPair),
+                                       forIdentifier: identifier)
+            } else {
+                self.delegate?.mediaStreamClient(self, didFailWithError: ASMediaStreamClientError.openingChannelFailed)
+            }
+        }
+    }
+}
+
+// MARK: - RTCDataChannelDelegate
+
+extension ASMediaStreamClient: RTCDataChannelDelegate {
+    public func dataChannelDidChangeState(_ dataChannel: RTCDataChannel) {
+
+    }
+    
+    public func dataChannel(_ dataChannel: RTCDataChannel, didReceiveMessageWith buffer: RTCDataBuffer) {
+        DispatchQueue.main.async {
+            let clientId = self.container.identifier(receiver: dataChannel)
+            let data = ASDataOutput(clientId: clientId, data: buffer.data)
+            self.delegate?.mediaStreamClient(self, didReceiveData: data)
+        }
     }
 }
 
@@ -361,13 +430,13 @@ extension ASMediaStreamClient: ASMediaStreamSessionDelegate {
             self.changeState(to: .connected)
         case .joined(let members):
             for identifier in members {
-                let peerConnection = self.connectionFactory.makePeerConnection(iceServers: self.iceServers, delegate: self)
-                self.peerConnectionDictionary[identifier] = peerConnection
+                let item = self.makeMediaStreamItem(dataChannelLabel: identifier)
                 
                 if let mediaStream = self.localStream {
-                    peerConnection.add(mediaStream)
+                    item.peerConnection?.add(mediaStream)
                 }
-                self.sendOffer(receiverId: identifier, peerConnection: peerConnection)
+                self.container.setItem(item, forIdentifier: identifier)
+                self.sendOffer(receiverId: identifier, peerConnection: item.peerConnection)
             }
         case .closed:
             self.disconnect()
@@ -375,33 +444,33 @@ extension ASMediaStreamClient: ASMediaStreamSessionDelegate {
     }
     
     public func mediaStreamSession(_ session: ASMediaStreamSession, didReceiveSessionDescriptionResponse response: ASSessionDescriptionResponse) {
-        let peerConnection: RTCPeerConnection
+        let item: ASMediaStreamItem
         
-        if let currentPeerConnection = self.peerConnectionDictionary[response.senderId] {
-            peerConnection = currentPeerConnection
+        if let currentItem = self.container.item(identifier: response.senderId) {
+            item = currentItem
         } else {
-            peerConnection = self.connectionFactory.makePeerConnection(iceServers: self.iceServers, delegate: self)
-            self.peerConnectionDictionary[response.senderId] = peerConnection
+            item = self.makeMediaStreamItem(dataChannelLabel: response.senderId)
             
             if let mediaStream = self.localStream {
-                peerConnection.add(mediaStream)
+                item.peerConnection?.add(mediaStream)
             }
+            self.container.setItem(item, forIdentifier: response.senderId)
         }
         
-        peerConnection.setRemoteDescription(response.sessionDescription) { [weak self, weak peerConnection] error in
+        item.peerConnection?.setRemoteDescription(response.sessionDescription) { [weak self] error in
             guard let caller = self else { return }
             
             if let error = error {
                 caller.delegate?.mediaStreamClient(caller, didFailWithError: error)
             } else if response.sessionDescription.type == .offer {
-                caller.sendAnswer(receiverId: response.senderId, peerConnection: peerConnection)
+                caller.sendAnswer(receiverId: response.senderId, peerConnection: item.peerConnection)
             }
         }
     }
     
     public func mediaStreamSession(_ session: ASMediaStreamSession, didReceiveCandidateResponse response: ASCandidateResponse) {
-        let peerConnection = self.peerConnectionDictionary[response.senderId]
-        peerConnection?.add(response.candidate)
+        let item = self.container.item(identifier: response.senderId)
+        item?.peerConnection?.add(response.candidate)
     }
     
     public func mediaStreamSession(_ session: ASMediaStreamSession, didFailWithError error: Error) {
