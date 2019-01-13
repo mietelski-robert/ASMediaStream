@@ -32,6 +32,10 @@ public class ASMediaStreamConnectionFactory {
         return configuration
     }
     
+    public func makeDataChannelConfiguration() -> RTCDataChannelConfiguration {
+        return RTCDataChannelConfiguration()
+    }
+    
     public func makePeerConnectionConstraints() -> RTCMediaConstraints {
         return RTCMediaConstraints(mandatoryConstraints: nil, optionalConstraints: ["DtlsSrtpKeyAgreement": "true"])
     }

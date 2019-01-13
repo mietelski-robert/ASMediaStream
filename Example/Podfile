@@ -8,6 +8,7 @@ target 'ASMediaStream_Example' do
   pod 'ASMediaStream', :path => '../'
   pod 'PromiseKit'
   pod 'Starscream'
+  pod 'SnapKit'
 
   target 'ASMediaStream_Tests' do
     inherit! :search_paths

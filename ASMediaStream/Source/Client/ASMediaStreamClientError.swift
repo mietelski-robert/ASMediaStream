@@ -13,5 +13,7 @@ public enum ASMediaStreamClientError: Error {
     case disableVideoFailed
     case enableAudioFailed
     case disableAudioFailed
-    case alredyConnected
+    case joiningRoomFailed
+    case openingChannelFailed
+    case sendingDataFailed
 }

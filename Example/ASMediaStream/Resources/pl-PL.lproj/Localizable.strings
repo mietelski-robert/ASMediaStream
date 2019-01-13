@@ -1,0 +1,32 @@
+/* 
+  Localizable.strings
+  ASMediaStream
+
+  Created by Robert Mietelski on 11.01.2019.
+  Copyright © 2018 Robert Mietelski. All rights reserved.
+*/
+
+"error.title" = "Wystąpił błąd";
+"error.audioPermission" = "Nie masz uprawnień do mikrofonu";
+"error.videoPermission" = "Nie masz uprawnień do aparatu";
+"error.ok" = "Ok";
+
+"error.enableVideoFailed" = "Nie udało się włączyć aparatu";
+"error.disableVideoFailed" = "Nie udało się wyłączyć aparatu";
+"error.enableAudioFailed" = "Nie udało się włączyć mikrofonu";
+"error.disableAudioFailed" = "Nie udało się wyłączyć mikrofonu";
+"error.joiningRoomFailed" = "Nie udało się nawiązać połączenia";
+"error.openingChannelFailed" = "Nie udało się otworzyć kanału wymiany danych";
+"error.sendingDataFailed" = "Nie udało się wysłać danych";
+
+"error.encodingDataFailed" = "Nie udało się zakodować wiadomości";
+"error.decodingDataFailed" = "Nie udało się odkodować wiadomości";
+"error.sendingConfigurationFailed" = "Nie udało się wysłać konfiguracji połączenia";
+"error.unsupportedConfigurationReceived" = "Otrzymana konfiguracja połączenia jest nieobsługiwana";
+"error.unsupportedMessageReceived" = "Otrzymana wiadomość jest nie obsługiwana";
+
+"error.torchUnavailable" = "Nie udało się uruchomić flasha";
+
+"join.roomName" = "Wpisz nazwę pokoju";
+"join.roomNamePlaceholder" = "Nazwa pokoju";
+"join.submit" = "DOŁĄCZ";

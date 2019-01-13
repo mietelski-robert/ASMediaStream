@@ -1,0 +1,32 @@
+/* 
+  Localizable.strings
+  ASMediaStream
+
+  Created by Robert Mietelski on 11.01.2019.
+  Copyright © 2018 Robert Mietelski. All rights reserved.
+*/
+
+"error.title" = "Error occured";
+"error.audioPermission" = "You don't have permission to the microphone";
+"error.videoPermission" = "You don't have permission to the camera";
+"error.ok" = "Ok";
+
+"error.enableVideoFailed" = "Unable to turn on camera";
+"error.disableVideoFailed" = "Unable to turn off camera";
+"error.enableAudioFailed" = "Unable to turn on microphone";
+"error.disableAudioFailed" = "Unable to turn off microphone";
+"error.joiningRoomFailed" = "Unable to connect with room";
+"error.openingChannelFailed" = "Unable to open data channel";
+"error.sendingDataFailed" = "Unable to send data";
+
+"error.encodingDataFailed" = "Unable to encode message";
+"error.decodingDataFailed" = "Unable to decode message";
+"error.sendingConfigurationFailed" = "Unable to send connection configuration";
+"error.unsupportedConfigurationReceived" = "Received connection configuration is unsupported";
+"error.unsupportedMessageReceived" = "Received message is unsupported";
+
+"error.torchUnavailable" = "Unable to turn on flashlight";
+
+"join.roomName" = "Enter room name";
+"join.roomNamePlaceholder" = "Room name";
+"join.submit" = "JOIN";

@@ -12,15 +12,19 @@ extension ASMediaStreamClientError: LocalizedError {
     public var errorDescription: String? {
         switch self {
         case .enableVideoFailed:
-            return "Nie udało się włączyć aparatu"
+            return NSLocalizedString("error.enableVideoFailed", comment: "")
         case .disableVideoFailed:
-            return "Nie udało się wyłączyć aparatu"
+            return NSLocalizedString("error.disableVideoFailed", comment: "")
         case .enableAudioFailed:
-            return "Nie udało się włączyć mikrofonu"
+            return NSLocalizedString("error.enableAudioFailed", comment: "")
         case .disableAudioFailed:
-            return "Nie udało się wyłączyć mikrofonu"
-        case .alredyConnected:
-            return "Połączenie zostało już nawiązane"
+            return NSLocalizedString("error.disableAudioFailed", comment: "")
+        case .joiningRoomFailed:
+            return NSLocalizedString("error.joiningRoomFailed", comment: "")
+        case .openingChannelFailed:
+            return NSLocalizedString("error.openingChannelFailed", comment: "")
+        case .sendingDataFailed:
+            return NSLocalizedString("error.sendingDataFailed", comment: "")
         }
     }
 }
