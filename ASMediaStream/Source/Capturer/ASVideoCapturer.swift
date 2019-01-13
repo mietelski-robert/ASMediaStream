@@ -12,9 +12,16 @@ public class ASVideoCapturer: NSObject {
     
     // MARK: - Private properties
     
-    private var settings: ASVideoSettings
-    private var capturer: RTCCameraVideoCapturer
-    private var position: AVCaptureDevice.Position
+    public private(set) var settings: ASVideoSettings
+    public private(set) var capturer: RTCCameraVideoCapturer
+    public private(set) var position: AVCaptureDevice.Position
+    
+    public var torchMode: AVCaptureDevice.TorchMode {
+        guard let device = AVCaptureDevice.default(for: AVMediaType.video), device.hasTorch else {
+            return .off
+        }
+        return device.torchMode
+    }
     
     // MARK: - Initialization
     
@@ -40,6 +47,25 @@ public class ASVideoCapturer: NSObject {
     
     public func stopCapture() {
         self.capturer.stopCapture()
+    }
+    
+    public func turnOnTorch() throws {
+        guard let device = AVCaptureDevice.default(for: AVMediaType.video), device.hasTorch, self.position == .back else {
+            throw ASVideoCapturerError.torchUnavailable
+        }
+        try device.lockForConfiguration()
+        try device.setTorchModeOn(level: 1.0)
+        device.torchMode = .on
+        device.unlockForConfiguration()
+    }
+    
+    public func turnOffTorch() throws {
+        guard let device = AVCaptureDevice.default(for: AVMediaType.video), device.hasTorch, self.position == .back else {
+            throw ASVideoCapturerError.torchUnavailable
+        }
+        try device.lockForConfiguration()
+        device.torchMode = .off
+        device.unlockForConfiguration()
     }
     
     public func switchCamera() {

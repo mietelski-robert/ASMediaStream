@@ -5,11 +5,24 @@
 [![License](https://img.shields.io/cocoapods/l/ASMediaStream.svg?style=flat)](https://cocoapods.org/pods/ASMediaStream)
 [![Platform](https://img.shields.io/cocoapods/p/ASMediaStream.svg?style=flat)](https://cocoapods.org/pods/ASMediaStream)
 
+## Screenshots
+
+![Screenshot](./Screenshot/screenshots.png)
+
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
+## Features
+
+- [x] Group Video
+- [x] Send data
+
 ## Requirements
+
+- iOS 11.0+
+- Xcode 10.0+
+- Swift 4.0+
 
 ## Installation
 
@@ -22,7 +35,7 @@ pod 'ASMediaStream'
 
 ## Author
 
-mietelski.robert@gmail.com, mietelski.robert@gmail.com
+Robert Mietelski, mietelski.robert@gmail.com
 
 ## License
 

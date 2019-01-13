@@ -20,15 +20,15 @@ extension WebSocketSessionError: LocalizedError {
     var errorDescription: String? {
         switch self {
         case .encodingDataFailed:
-            return "Nie udało się zakodować wiadomości"
+            return NSLocalizedString("error.encodingDataFailed", comment: "")
         case .decodingDataFailed:
-            return "Nie udało się odkodować wiadomości"
+            return NSLocalizedString("error.decodingDataFailed", comment: "")
         case .sendingConfigurationFailed:
-            return "Nie udało się wysłać konfiguracji połączenia"
+            return NSLocalizedString("error.sendingConfigurationFailed", comment: "")
         case .unsupportedConfigurationReceived:
-            return "Otrzymana konfiguracja połączenia jest nie obsługiwana"
+            return NSLocalizedString("error.unsupportedConfigurationReceived", comment: "")
         case .unsupportedMessageReceived:
-            return "Otrzymana wiadomość jest nie obsługiwana"
+            return NSLocalizedString("error.unsupportedMessageReceived", comment: "")
         }
     }
 }

@@ -3,7 +3,7 @@
 //  ASMediaStream_Example
 //
 //  Created by Robert Mietelski on 07.01.2019.
-//  Copyright © 2019 CocoaPods. All rights reserved.
+//  Copyright © 2019 Robert Mietelski. All rights reserved.
 //
 
 import UIKit
@@ -11,18 +11,28 @@ import ASMediaStream
 import WebRTC
 import PromiseKit
 
-class VideoPagerViewController: UIViewController {
+class VideoPagerViewController: ViewController {
 
+    // MARK: - Outlets
+    
+    @IBOutlet weak var stackView: UIStackView!
+    @IBOutlet weak var videoButton: UIButton!
+    @IBOutlet weak var audioButton: UIButton!
+    @IBOutlet weak var switchCameraButton: UIButton!
+    @IBOutlet weak var cameraFlashButton: UIButton!
+    @IBOutlet weak var videoWrapperView: UIView!
+    
     // MARK: - Public properties
+    
+    private(set) var pageViewController: UIPageViewController?
+    private(set) var currentPageIndex: Int = 0
     
     var roomName: String = ""
     
     // MARK: - Private properties
     
-    private var pageViewController: UIPageViewController?
-    private var currentPageIndex: Int = 0
-    
     private var viewControllers: [UIViewController] = []
+    private var videoRenderer: RTCVideoRenderer!
     
     private lazy var turnServer: RTCIceServer = {
         return RTCIceServer(urlStrings: ["turn:numb.viagenie.ca"], username: "nujo@prmail.top", credential: "n6kn4NUPrYUjJjQy")
@@ -40,6 +50,8 @@ class VideoPagerViewController: UIViewController {
         super.viewDidLoad()
         
         self.setupNavigationBar()
+        self.setupButtons()
+        self.setupVideoView()
         self.setupPageControl()
         
         firstly {
@@ -47,11 +59,13 @@ class VideoPagerViewController: UIViewController {
         } .then { _ in
             self.audioAuthorizationRequest()
         } .done { _ in
-            self.client = ASMediaStreamClient(iceServers: [self.stunServer], sessionFactory: WebSocketSessionFactory())
+            self.client = ASMediaStreamClient(iceServers: [self.stunServer, self.turnServer], sessionFactory: WebSocketSessionFactory())
             self.client?.delegate = self
             self.client?.connectToRoom(name: self.roomName)
         } .catch { error in
-            self.showDialog(title: "Wystąpił błąd", message: error.localizedDescription, cancelButtonTitle: "Ok")
+            self.showDialog(title: NSLocalizedString("error.title", comment: ""),
+                            message: error.localizedDescription,
+                            cancelButtonTitle: NSLocalizedString("error.ok", comment: ""))
         }
     }
     
@@ -74,20 +88,120 @@ class VideoPagerViewController: UIViewController {
             self.pageViewController?.dataSource = self
         }
     }
+    
+    // MARK: - Actions
+    
+    @IBAction func enableVideoAction(_ sender: UIButton) {
+        let isEnabled = !sender.isSelected
+        
+        sender.isSelected = isEnabled
+        self.client?.isVideoEnabled = isEnabled
+    }
+    
+    @IBAction func enableAudioAction(_ sender: UIButton) {
+        let isEnabled = !sender.isSelected
+        
+        sender.isSelected = isEnabled
+        self.client?.isAudioEnabled = isEnabled
+    }
+    
+    @IBAction func switchCameraAction(_ sender: UIButton) {
+        self.client?.videoCapturer?.switchCamera()
+    }
+    
+    @IBAction func turnOnFlashlightAction(_ sender: UIButton) {
+        let isOn = !sender.isSelected
+        
+        do {
+            if isOn {
+                try self.client?.videoCapturer?.turnOnTorch()
+            } else {
+                try self.client?.videoCapturer?.turnOffTorch()
+            }
+            self.switchCameraButton.isEnabled = !isOn
+            sender.isSelected = isOn
+        } catch {
+            self.showDialog(title: NSLocalizedString("error.title", comment: ""),
+                            message: error.localizedDescription,
+                            cancelButtonTitle: NSLocalizedString("error.ok", comment: ""))
+        }
+    }
+    
+    @objc func showMore() {
+        self.stackView.isHidden = !self.stackView.isHidden
+    }
+    
+    @objc func dismissViewController() {
+        self.dismiss(animated: true)
+    }
 }
 
 // MARK: - Setup
 
 extension VideoPagerViewController {
     private func setupNavigationBar() {
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done,
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "back"),
+                                                                style: UIBarButtonItemStyle.plain,
                                                                 target: self,
                                                                 action: #selector(dismissViewController))
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "more"),
+                                                                 style: UIBarButtonItemStyle.plain,
+                                                                 target: self,
+                                                                 action: #selector(showMore))
+    }
+    
+    private func setupButtons() {
+        let imageEdgeInsets = UIEdgeInsets(top: 12.5, left: 12.5, bottom: 12.5, right: 12.5)
+        let image = UIColor.white.image(size: CGSize(width: 60.0, height: 60.0), radius: 30.0)
+        
+        self.videoButton.setBackgroundImage(image, for: UIControlState.normal)
+        self.audioButton.setBackgroundImage(image, for: UIControlState.normal)
+        self.switchCameraButton.setBackgroundImage(image, for: UIControlState.normal)
+        self.cameraFlashButton.setBackgroundImage(image, for: UIControlState.normal)
+        
+        self.videoButton.imageEdgeInsets = imageEdgeInsets
+        self.audioButton.imageEdgeInsets = imageEdgeInsets
+        self.switchCameraButton.imageEdgeInsets = imageEdgeInsets
+        self.cameraFlashButton.imageEdgeInsets = imageEdgeInsets
+        
+        self.videoButton.imageView?.contentMode = .scaleAspectFit
+        self.audioButton.imageView?.contentMode = .scaleAspectFit
+        self.switchCameraButton.imageView?.contentMode = .scaleAspectFit
+        self.cameraFlashButton.imageView?.contentMode = .scaleAspectFit
+    }
+    
+    private func setupVideoView() {
+        let currentVideoView: UIView
+        
+        #if RTC_SUPPORTS_METAL
+            let videoView = RTCMTLVideoView(frame: .zero)
+            videoView.videoContentMode = .scaleAspectFill
+            videoView.delegate = self
+            self.videoRenderer = videoView
+            currentVideoView = videoView
+        #else
+            let videoView = RTCEAGLVideoView(frame: .zero)
+            videoView.delegate = self
+        
+            self.videoRenderer = videoView
+            currentVideoView = videoView
+        #endif
+        
+        currentVideoView.translatesAutoresizingMaskIntoConstraints = false
+        self.videoWrapperView.addSubview(currentVideoView)
+        
+        currentVideoView.snp.makeConstraints { maker in
+            maker.top.equalTo(self.videoWrapperView.snp.top)
+            maker.bottom.equalTo(self.videoWrapperView.snp.bottom)
+            maker.centerX.equalTo(self.videoWrapperView.snp.centerX)
+            maker.height.equalTo(currentVideoView.snp.width).multipliedBy(640.0 / 480.0)
+        }
     }
     
     private func setupPageControl() {
         UIPageControl.appearance().pageIndicatorTintColor = .lightGray
-        UIPageControl.appearance().currentPageIndicatorTintColor = .black
+        UIPageControl.appearance().currentPageIndicatorTintColor = .white
     }
 }
 
@@ -100,7 +214,6 @@ extension VideoPagerViewController {
         if let videoPageViewController = viewController as? VideoPageViewController {
             videoPageViewController.videoTrack = videoTrack
             videoPageViewController.clientId = clientId
-            videoPageViewController.delegate = self
         }
         return viewController
     }
@@ -137,7 +250,7 @@ extension VideoPagerViewController {
                 } else {
                     let error = NSError(domain: "PermissionDomain",
                                         code: 1,
-                                        userInfo: [NSLocalizedDescriptionKey: "Nie masz uprawnień do aparatu."])
+                                        userInfo: [NSLocalizedDescriptionKey: NSLocalizedString("error.videoPermission", comment: "")])
                     promise.reject(error)
                 }
             }
@@ -155,11 +268,19 @@ extension VideoPagerViewController {
                 } else {
                     let error = NSError(domain: "PermissionDomain",
                                         code: 2,
-                                        userInfo: [NSLocalizedDescriptionKey: "Nie masz uprawnień do mikrofonu."])
+                                        userInfo: [NSLocalizedDescriptionKey: NSLocalizedString("error.audioPermission", comment: "")])
                     promise.reject(error)
                 }
             }
         }
+    }
+}
+
+// MARK: - RTCVideoViewDelegate
+
+extension VideoPagerViewController: RTCVideoViewDelegate {
+    func videoView(_ videoView: RTCVideoRenderer, didChangeVideoSize size: CGSize) {
+        
     }
 }
 
@@ -211,35 +332,6 @@ extension VideoPagerViewController: UIPageViewControllerDelegate {
     }
 }
 
-// MARK: - VideoPageViewControllerDelegate
-
-extension VideoPagerViewController: VideoPageViewControllerDelegate {
-    func videoPageViewControllerSwitchCamera(in viewController: VideoPageViewController) {
-        if let clientId = viewController.clientId {
-            
-        } else {
-            self.client?.videoCapturer?.switchCamera()
-        }
-    }
-    
-    func videoPageViewController(_ viewController: VideoPageViewController, didChangeVideoEnabled isEnabled: Bool) {
-        if let clientId = viewController.clientId {
-            let data = "test".data(using: .utf8)
-            self.client?.sendData(data!, clientId: clientId)
-        } else {
-            
-        }
-    }
-    
-    func videoPageViewController(_ viewController: VideoPageViewController, didChangeAudioEnabled isEnabled: Bool) {
-
-    }
-    
-    func videoPageViewController(_ viewController: VideoPageViewController, didChangeFlashlightState isOn: Bool) {
-
-    }
-}
-
 // MARK: - ASMediaStreamClientDelegate
 
 extension VideoPagerViewController: ASMediaStreamClientDelegate {
@@ -248,35 +340,18 @@ extension VideoPagerViewController: ASMediaStreamClientDelegate {
     }
     
     func mediaStreamClient(_ client: ASMediaStreamClient, didReceiveLocalVideo output: ASVideoOutput) {
-        let viewControllers = self.makeViewControllers(with: output)
-        self.viewControllers.append(contentsOf: viewControllers)
-        
-        self.pageViewController?.setViewControllers([self.viewControllers[self.currentPageIndex]],
-                                                    direction: .forward,
-                                                    animated: false,
-                                                    completion: nil)
+        guard let videoTrack = output.videoTracks.first else {
+            return
+        }
+        videoTrack.add(self.videoRenderer)
         client.videoCapturer?.startCapture()
     }
     
     func mediaStreamClient(_ client: ASMediaStreamClient, didDiscardLocalVideo output: ASVideoOutput) {
-//        for item in self.viewControllerItems(of: output.videoTracks) {
-//            self.viewControllers.remove(at: item.offset)
-//        }
-//        client.videoCapturer?.stopCapture()
-//
-//        let viewControllers: [UIViewController]
-//
-//        if let viewController = self.viewControllers.first {
-//            viewControllers = [viewController]
-//        } else {
-//            viewControllers = []
-//        }
-//
-//        self.pageViewController?.setViewControllers(viewControllers,
-//                                                    direction: .reverse,
-//                                                    animated: true,
-//                                                    completion: nil)
-//        self.currentPageIndex = 0
+        for videoTrack in output.videoTracks {
+            videoTrack.remove(self.videoRenderer)
+        }
+        client.videoCapturer?.stopCapture()
     }
     
     func mediaStreamClient(_ client: ASMediaStreamClient, didReceiveLocalAudio output: ASAudioOutput) {
@@ -298,22 +373,22 @@ extension VideoPagerViewController: ASMediaStreamClientDelegate {
     }
     
     func mediaStreamClient(_ client: ASMediaStreamClient, didDiscardRemoteVideo output: ASVideoOutput) {
-//        for item in self.viewControllerItems(of: output.videoTracks) {
-//            self.viewControllers.remove(at: item.offset)
-//        }
-//        let viewControllers: [UIViewController]
-//
-//        if let viewController = self.viewControllers.first {
-//            viewControllers = [viewController]
-//        } else {
-//            viewControllers = []
-//        }
-//
-//        self.pageViewController?.setViewControllers(viewControllers,
-//                                                    direction: .reverse,
-//                                                    animated: true,
-//                                                    completion: nil)
-//        self.currentPageIndex = 0
+        for item in self.viewControllerItems(of: output.videoTracks) {
+            self.viewControllers.remove(at: item.offset)
+        }
+        let viewControllers: [UIViewController]
+
+        if let viewController = self.viewControllers.first {
+            viewControllers = [viewController]
+        } else {
+            viewControllers = []
+        }
+
+        self.pageViewController?.setViewControllers(viewControllers,
+                                                    direction: .reverse,
+                                                    animated: true,
+                                                    completion: nil)
+        self.currentPageIndex = 0
     }
     
     func mediaStreamClient(_ client: ASMediaStreamClient, didReceiveRemoteAudio output: ASAudioOutput) {
@@ -325,10 +400,12 @@ extension VideoPagerViewController: ASMediaStreamClientDelegate {
     }
     
     func mediaStreamClient(_ client: ASMediaStreamClient, didReceiveData output: ASDataOutput) {
-        self.showDialog(title: "Otrzymano wiadomość", message: String(data: output.data, encoding: .utf8)!, cancelButtonTitle: "Ok")
+
     }
     
     func mediaStreamClient(_ client: ASMediaStreamClient, didFailWithError error: Error) {
-        self.showDialog(title: "Wystąpił błąd", message: error.localizedDescription, cancelButtonTitle: "Ok")
+        self.showDialog(title: NSLocalizedString("error.title", comment: ""),
+                        message: error.localizedDescription,
+                        cancelButtonTitle: NSLocalizedString("error.ok", comment: ""))
     }
 }

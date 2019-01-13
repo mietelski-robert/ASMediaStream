@@ -251,16 +251,22 @@ extension ASMediaStreamClient {
 extension ASMediaStreamClient {
     public func sendBinaryData(_ data: Data, clientId: String) {
         let buffer = RTCDataBuffer(data: data, isBinary: true)
-        let item = self.container.item(identifier: clientId)
         
-        item?.dataChannelPair.sender?.sendData(buffer)
+        if let item = self.container.item(identifier: clientId) {
+            item.dataChannelPair.sender?.sendData(buffer)
+        } else {
+            self.delegate?.mediaStreamClient(self, didFailWithError: ASMediaStreamClientError.sendingDataFailed)
+        }
     }
     
     public func sendData(_ data: Data, clientId: String) {
         let buffer = RTCDataBuffer(data: data, isBinary: false)
-        let item = self.container.item(identifier: clientId)
-        
-        item?.dataChannelPair.sender?.sendData(buffer)
+
+        if let item = self.container.item(identifier: clientId) {
+            item.dataChannelPair.sender?.sendData(buffer)
+        } else {
+            self.delegate?.mediaStreamClient(self, didFailWithError: ASMediaStreamClientError.sendingDataFailed)
+        }
     }
 }
 
