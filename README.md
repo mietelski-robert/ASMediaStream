@@ -7,7 +7,7 @@
 
 ## Screenshots
 
-![Screenshot](./Screenshot/screenshots.png)
+![Screenshot](./Screens/screenshots.png)
 
 ## Example
 

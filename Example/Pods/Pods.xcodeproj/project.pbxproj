@@ -9,10 +9,11 @@
 /* Begin PBXBuildFile section */
 		029F6B0F080379DA618FE9C34A30FCA1 /* hang.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2D3F3A42102D5318536BF2F0EFAFEC /* hang.swift */; };
 		02ADE6F4095DC5D7799F0B43657E6B60 /* ConstraintInsetTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFC15CF3D343C6391D94A311C073F03 /* ConstraintInsetTarget.swift */; };
+		0319ABDC47713CCB327ADB3A34CA9360 /* ASSessionDescriptionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE86FAA624488B11F17D7E39CE59F90 /* ASSessionDescriptionResponse.swift */; };
 		05F854602B749A2E38D790D3712EC5A3 /* NSTask+AnyPromise.m in Sources */ = {isa = PBXBuildFile; fileRef = 35C733ACF3C4578C421074EADB704A99 /* NSTask+AnyPromise.m */; };
-		08BAA51994CA49BDADAAFDB2608040A6 /* ASMediaStream-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 78CAE8F11771BBCEA479B40621563B33 /* ASMediaStream-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		08F7D917A620F637B7AC438AC9BC2ECC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 908E902E026C5C22904CF9014A5604AD /* Foundation.framework */; };
 		091C448FA4E91126AE17BD2F55D32580 /* Debugging.swift in Sources */ = {isa = PBXBuildFile; fileRef = F599C0B2D961FDBD9E72C1C369C91EE7 /* Debugging.swift */; };
+		0CD388E69E1CB2C3F77D7DA47F43EC0D /* ASMediaStreamClientState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED0774542B268371C9997008B150571 /* ASMediaStreamClientState.swift */; };
 		0DAE5348078EFF762939CAD002C28087 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E5C5769DB311216EC3B2255D0F8F0C /* Box.swift */; };
 		0DCC6C86ECBB87833F1B8968B7CA2030 /* after.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EC4347FD2339694D45498C9E3B6971 /* after.swift */; };
 		0E60D66253B75F3B1D1D71E2B79CA92D /* Pods-ASMediaStream_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 720F34ECE58F88D394C906146E286A6D /* Pods-ASMediaStream_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -20,76 +21,74 @@
 		100B06956E9E6EF5C03BD83ECBF5CA1B /* NSURLSession+AnyPromise.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C6033BFFEE7C9934224071ECA9D8E5C /* NSURLSession+AnyPromise.m */; };
 		114A93AE5C9E5971AD24407A72031951 /* ConstraintMakerExtendable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C48F779A936EBAFCFD19788B786641C /* ConstraintMakerExtendable.swift */; };
 		1309C1BB4F3221D4310DC2DBC2F52A64 /* after.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A64E146175DB680BC76C15DBE7D9312 /* after.m */; };
-		142FFE9560140E42769D05FD9E7D70BA /* ASCandidateResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F98A891D9885175C20F40D9860DAD5 /* ASCandidateResponse.swift */; };
 		149DA3E5BD5F8D4F1D01E63ED4C8DFD5 /* Starscream-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DDDD565A782C8172284C7D77F02864A /* Starscream-dummy.m */; };
+		19D1E7447EECE8FF2EC68D4707B19F8B /* ASVideoOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59DAEEF9D1417A0F781B27A7927D04E /* ASVideoOutput.swift */; };
 		1B59470931DE699BE06E6057CE7A1361 /* ConstraintMakerFinalizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A416649D03915F3E36B47A6FC7F11B1 /* ConstraintMakerFinalizable.swift */; };
 		1F0C6A4E30AE32B00719348D538F686E /* LayoutConstraintItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FDDB8A63087912AD81972EF389948C /* LayoutConstraintItem.swift */; };
-		2109A58E55ECB565C623485FC084DDEE /* ASSessionDescriptionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFA2E2298B8224256E9D5408FD6EA09 /* ASSessionDescriptionResponse.swift */; };
+		20D7DF3E6F90514D38D3401A448F89C1 /* ASVideoCapturer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC763F12ED1D5B0B27C15AD447AF5FF /* ASVideoCapturer.swift */; };
 		2340B955056C2B14BDD30FE2B53CADF1 /* WebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E378C201244DE1822226FBC665DF14 /* WebSocket.swift */; };
-		235AC9DD84339CC133A3C9DBDA449FAD /* ASMediaStreamClientDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A322738E331F940ED47C304F96720DDE /* ASMediaStreamClientDelegate.swift */; };
 		23D01A238E5FAA2A81A99135C51A85EF /* ConstraintOffsetTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7C7BA44503FDBC0C080709FA6D8E75 /* ConstraintOffsetTarget.swift */; };
 		253B2D5749526908E72E2022457E9EFB /* ConstraintMakerEditable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC0ED3C58C27FE2DB12642F688A97F9 /* ConstraintMakerEditable.swift */; };
 		25B724023FB5FBA390DD8F5F797AD5E1 /* AnyPromise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72474C9FF46975AACC72C5B6EA6D9CBB /* AnyPromise.swift */; };
 		26A10439B14844DE9A65C04FEE2F830E /* Deprecations.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9990F77A62FC25E929766F60EB0A6E /* Deprecations.swift */; };
 		2AD8EC52FB6A60429B85B0739DB2D69A /* Guarantee.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2A1285F0973B9FE227071D2D7D1880 /* Guarantee.swift */; };
-		2CCD0312C2388DDDA13546A071873148 /* ASVideoCapturer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F1372725480C4ACCBDDE9DBFEB4617 /* ASVideoCapturer.swift */; };
 		2D58B960DAB6B26E6E562EA1BDC7A614 /* ConstraintRelatableTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E39A5948BD4E07D2B01C89F6DC7675 /* ConstraintRelatableTarget.swift */; };
-		3488972D59682B4F4A28692DEFBD431B /* ASMediaStreamClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0CF57F93F5535EAC6548C59316DD37 /* ASMediaStreamClient.swift */; };
 		37793249C4112BCC76981C7A683CCB10 /* ConstraintInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE67C8E2622C459888A8F03C04E3F55 /* ConstraintInsets.swift */; };
+		3904395BE6E02D55E259723153A8854C /* ASMediaStreamSessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FF2F183BCA5BBD0B43CC708786C466 /* ASMediaStreamSessionDelegate.swift */; };
 		39A84F23AC73115EC862E5A1D5CB05F8 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB8B3805FD58DD12264060E1487FD73 /* Configuration.swift */; };
 		39B7CF4F11EF0E2C33B12CEA2D3E7F0E /* when.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F77A3F6E4E38813929E780F1FAFE0A6 /* when.swift */; };
 		3E9A80D10BF6A053DB0B81976AE8D134 /* race.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A037A0ABBF0DB0191DB1A1FFC936C7 /* race.swift */; };
-		3FAE7B205ABCD4B0FE2D92F34C1866B2 /* ASMediaStreamItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C3DC55C33698090FD71D4B57365E4F /* ASMediaStreamItem.swift */; };
+		40459453124AEE91BFD25D9B86F8D69E /* ASMediaStream-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 71361E32D4FE9B0243E9ACC8A9EA7C15 /* ASMediaStream-dummy.m */; };
 		419EB67F18F7E51FA93D082854B2B273 /* ConstraintLayoutGuide+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CE8650393449EE76C8B4A674A7DC4D /* ConstraintLayoutGuide+Extensions.swift */; };
+		422977D0EB2AA7C02A9A003E3B93B3BD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 908E902E026C5C22904CF9014A5604AD /* Foundation.framework */; };
+		4573106368CA47711540253D5549B064 /* ASMediaStream-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0B9D1216F8BD3CC004AFC19D264520EC /* ASMediaStream-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		490D823BA3BDD6B61E063FF84B2C34DB /* SnapKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A7D80D19A63DDAF4BA0BF5E5D0AE623 /* SnapKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4A6BDE60B33AA644B8214CAEBAD1367B /* PMKFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = 7401750A9C34B0DDC5922D6AE64D6F28 /* PMKFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4AF323AF913514CAA1A30BF9F8E7276E /* ASMediaStreamSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724B237ED6DD0AB4924B2962934857BB /* ASMediaStreamSession.swift */; };
 		4DA3EE50BA8CE9DC3632272A7240EE2E /* Process+Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72143377C6A78494749CBB857B4BEA05 /* Process+Promise.swift */; };
 		4FEEB21D273E3018707AAD46361ADFFA /* NSURLSession+AnyPromise.h in Headers */ = {isa = PBXBuildFile; fileRef = 53D531EBEE0A984259A79603BDBC0B34 /* NSURLSession+AnyPromise.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		50AFF8D777E966626CDFA5349B8F78EE /* ConstraintAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433BC673B0A9500D007BDAE1F78256A3 /* ConstraintAttributes.swift */; };
 		52F15DC8010CCD17726A2F782D16758C /* ConstraintConstantTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E26C9C4CE8E71952B1FBA6451F8330 /* ConstraintConstantTarget.swift */; };
-		53EC967566129B3597FA0231E0FE2559 /* ASVideoCapturerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789051245592BD377DF5D3C861EE8CC4 /* ASVideoCapturerError.swift */; };
 		57E63D4B6761979246BB8316D8C76450 /* UIView+AnyPromise.m in Sources */ = {isa = PBXBuildFile; fileRef = 07CA567E127CFC7CD0852E65214FE19C /* UIView+AnyPromise.m */; };
+		5A881032F3BCD51F6E223F00144497DE /* ASCandidateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8BE66614B53186143A68606D87A17B /* ASCandidateRequest.swift */; };
 		60F026DF351A201443867F5F50A83A5E /* UIView+AnyPromise.h in Headers */ = {isa = PBXBuildFile; fileRef = 0FBB6B538D2C487FEFA6BBB4B88AD4D0 /* UIView+AnyPromise.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		62308D092909DD2794DE4070FAE2AD0F /* PromiseKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D639AB5B13F93BB4C4F1391A0CD60FA9 /* PromiseKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6628771821E93A98003CD196 /* ASAudioOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6628771521E93A98003CD196 /* ASAudioOutput.swift */; };
-		6628771921E93A98003CD196 /* ASDataOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6628771621E93A98003CD196 /* ASDataOutput.swift */; };
-		6628771A21E93A98003CD196 /* ASVideoOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6628771721E93A98003CD196 /* ASVideoOutput.swift */; };
+		6284DE48292DAB1FC7F87E33082F4899 /* ASMediaStreamSessionFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F9415A3F699DDDE31F3DBC2256EF1B /* ASMediaStreamSessionFactory.swift */; };
 		6AC86BB1EBD542E92483FEF62BB4B078 /* ConstraintDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = C618E270E985FE996C7F3029BD2E79BF /* ConstraintDSL.swift */; };
-		6E2E619722EBE917E74E42A210DED181 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 908E902E026C5C22904CF9014A5604AD /* Foundation.framework */; };
 		6E75EF4FF817FD9734DED6C747E36248 /* UIViewPropertyAnimator+Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB56BD2BC56D8871AA8164143115C0C /* UIViewPropertyAnimator+Promise.swift */; };
-		6F059C3D210D4C1FB27D793CB6451DAC /* ASMediaStreamConnectionFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B996DE2491E837BE94AE1BA8CA93A76C /* ASMediaStreamConnectionFactory.swift */; };
 		6F562F98D641B0BF6884D166104A4046 /* PMKUIKit.h in Headers */ = {isa = PBXBuildFile; fileRef = C3EFA9F07179380AABB47786C522EE5C /* PMKUIKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6F93BADD020516DFB0209657DE7AB0EB /* ConstraintPriority.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9511EE63FB7637645665EDFC19BAFDDB /* ConstraintPriority.swift */; };
+		709DC81542D1C1D81AED6B3BC96EBA8D /* ASDataChannelPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7AE7807E008F9B30E7F2653DFDEF045 /* ASDataChannelPair.swift */; };
 		71007DC586771C73119D286A73E4EC74 /* ConstraintPriorityTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449F3269C329B52B308242DA8484B9E6 /* ConstraintPriorityTarget.swift */; };
+		711C81A9C99A88B393073A872FD4C734 /* ASMediaStreamClientError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4AE37969626D04C92C0EA7362CBE0E /* ASMediaStreamClientError.swift */; };
 		71D49A80349D6831955DCB5DFD9738D7 /* ConstraintMakerRelatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369A4CEE9E512EA1E58C1E967BAA0771 /* ConstraintMakerRelatable.swift */; };
 		74486067D905C38549C160C5D8C3CEA7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 908E902E026C5C22904CF9014A5604AD /* Foundation.framework */; };
 		7714897712AB450962D4B473BF7C593B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC2C02191C153C1554B35DEE8B2D09D4 /* UIKit.framework */; };
 		778A1848E2D8B588F50CA6B4E1897B91 /* Constraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAC935655BBA9DE9745FB1637698CF7 /* Constraint.swift */; };
 		7AD9FEFE886FC5EB24999D535299EA84 /* Compression.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB52A9E77C4A8F5FC92777971B30AA5B /* Compression.swift */; };
+		7BC894AC08732BC675C1E80B3EB4EE3A /* ASDataOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2F17BCE7992D8BBAAD7BCC171ADFB5 /* ASDataOutput.swift */; };
 		7D43051DE41F7E344B444B54E3E37C6D /* NSNotificationCenter+AnyPromise.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F8BC7B707A1C04AFCDCD936D8CA731 /* NSNotificationCenter+AnyPromise.m */; };
+		7E856415EC75B54600D9B8480959C42D /* ASVideoCapturerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5157A47A80E803F4E7876C56F1075EE5 /* ASVideoCapturerError.swift */; };
 		82BB525CF0EA90EC01E2A40CF22B0628 /* Resolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C81FD43F6FF5DD206A1097A18DEEFE5 /* Resolver.swift */; };
-		840A6CDC6BB97EB8F7958C4DA8836418 /* ASMediaStreamSessionFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C815E1CE3E841C15F8D69EC2998B89 /* ASMediaStreamSessionFactory.swift */; };
 		85E224B35663D2410312621C4A6499F1 /* SnapKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 06570B14FC0A3FE716C5877CD93B6B17 /* SnapKit-dummy.m */; };
 		8785F25C4C7C917A9EF902073742A17C /* ConstraintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9319609B59AAEF88516FC1CD8F508BA9 /* ConstraintView.swift */; };
 		87A7A6674599FEECB7B1BD11C1ADF2BE /* afterlife.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B82277258553EB25C004F46548EC36 /* afterlife.swift */; };
 		884903D851832608D994FE770E9AE24C /* Typealiases.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7DF2C4F4D292EAC87CD871019A67D0 /* Typealiases.swift */; };
 		88F7F5C859E1CAFD34E182C83AC5D8CD /* SSLClientCertificate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8743F7A0A9FAA219E6972A07A98BA85 /* SSLClientCertificate.swift */; };
 		89BF4F03BC9EA61B807E4A99785B9668 /* ConstraintRelation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971D1D0607A6F6DF33CCEC1E4DC9F61B /* ConstraintRelation.swift */; };
-		8A841133C5562B760CED2AD0967B49BF /* ASSessionDescriptionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52CC64E1BE1E8453F42902461461E01 /* ASSessionDescriptionRequest.swift */; };
+		8BED84282B1D57B75B3F3171B94760DA /* ASAudioOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC567B4C681D6F4990688B4621F5C77 /* ASAudioOutput.swift */; };
 		8CEB93EBB7105B26BC2093A6F2AB664E /* UIViewController+AnyPromise.h in Headers */ = {isa = PBXBuildFile; fileRef = AC33FDF5B1669EF177E7F651ED52424A /* UIViewController+AnyPromise.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8E433AB4651F5989AD036E0630EFF631 /* ASVideoSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DCAF3BB40A6F5A8A67DECA14231515 /* ASVideoSettings.swift */; };
+		8F7B1B949C540155D128AC8B9BE9B70F /* ASVideoResolution.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BE629F6589E5C8355F26E359FBEC49 /* ASVideoResolution.swift */; };
 		93316A47054AB6AAF75FFC6E72330CE6 /* ConstraintLayoutSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73126C421D558ADEE9A5C63DA6DF1E30 /* ConstraintLayoutSupport.swift */; };
 		95411058A7E19DA14D580F75FBB0DD29 /* ConstraintMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD0FAA36DB14CF4F59DA0B1D64A3455 /* ConstraintMaker.swift */; };
-		96AC88F91EAF35B345DB7610C362A7E6 /* ASMediaStreamSessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FED64BDB03CB079C098EFD554E5A959 /* ASMediaStreamSessionDelegate.swift */; };
 		97584535A275E3EBCA81A50FB3FE4248 /* NSNotificationCenter+AnyPromise.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C64005D678ED0153AF8E98FB454381B /* NSNotificationCenter+AnyPromise.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		982A73F377008FFC988C2DCD2AB73C13 /* race.m in Sources */ = {isa = PBXBuildFile; fileRef = DC01C2BB84532CB0099D553E9E397AA3 /* race.m */; };
 		9C4311DC94E6CC29AC4799CE8BF5E3ED /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 908E902E026C5C22904CF9014A5604AD /* Foundation.framework */; };
 		9FC15393FED9938EA84F0B5874BF114F /* ConstraintDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A2DB091469968376ABC310D4DDEB5F /* ConstraintDescription.swift */; };
-		A2C12F9FDFC93EA9718C8B21C0D2EE93 /* ASMediaStreamClientError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F968780E0390F3EA5F2B0F874FC06E94 /* ASMediaStreamClientError.swift */; };
-		A59ACEF007812C2529733FC33EF55373 /* ASCandidateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C97AE390ED5B85755FD857C38E69A3 /* ASCandidateRequest.swift */; };
-		A73AD1466C4C7B29D07B51B06530654D /* ASVideoResolution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47258C9708CCA5532E329A28F8841534 /* ASVideoResolution.swift */; };
+		A41A1FC0768C024A85F90F52032FD8B2 /* ASMediaStreamSessionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B553EE4A16E50F39340A9FE82F65845B /* ASMediaStreamSessionState.swift */; };
 		A8AB5C72B2B9112822AB7B2A1BBB8ED2 /* Pods-ASMediaStream_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C9080E78B68CEBC04990ADAE420666EF /* Pods-ASMediaStream_Example-dummy.m */; };
 		A8E50FB1C7A4F4C817B498E79F95B2FB /* ConstraintMultiplierTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C49B5E776D319DEA28753D33377B0A /* ConstraintMultiplierTarget.swift */; };
-		A936B6901CB31FA4786157AA3AF86D73 /* ASMediaStreamSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6348E6F4569D75ED69AB82F5A23A6AD /* ASMediaStreamSession.swift */; };
 		ADB761033C34971683EB80472102DB86 /* hang.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AD87F057BBAAEDBF45F510BD00C8E62 /* hang.m */; };
 		AECD91F06738DE53D65936BF729160D5 /* Pods-ASMediaStream_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B6825C38D4EDE052E5CDB7115405FBF4 /* Pods-ASMediaStream_Tests-dummy.m */; };
 		AEED58708538AC1D5C91939688FA3465 /* ConstraintView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69296AA7CF988B92E51D169C3C382163 /* ConstraintView+Extensions.swift */; };
@@ -100,7 +99,9 @@
 		B882F5322FF20B0281E612139893C92B /* firstly.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95D728CD18C258ADEEACD5AF0151CAE /* firstly.swift */; };
 		BAC4633E9486616A807752D48A59EC48 /* NSObject+Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB3622D5C243D91D96F583FBB8E8E7B /* NSObject+Promise.swift */; };
 		BDC2CD75380AFF4031144895120A7C24 /* dispatch_promise.m in Sources */ = {isa = PBXBuildFile; fileRef = 34FE9919A44986578082869266DE16C3 /* dispatch_promise.m */; };
+		BFDF1D512C13D84EC72AA5B666652FDC /* ASMediaStreamItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496AE775EE12C5662D9FBF1B18E8DB36 /* ASMediaStreamItem.swift */; };
 		C1045F482A53D5ECC63ECB44D4CA0579 /* UILayoutSupport+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3DD8C8D4E0B8FB9478B8700E1DB027 /* UILayoutSupport+Extensions.swift */; };
+		C25EEE63F270DF99B31F38416B051F5D /* ASMediaStreamClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216B49E9061513E9D6660849E139EB58 /* ASMediaStreamClient.swift */; };
 		C8EC9280A1B5A71C3F4D1145BBEA1D8C /* LogEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7FF4519A8B7E4B618A408F3EAC94E4 /* LogEvent.swift */; };
 		CAF282F22998001CB7641D5E47236D10 /* Pods-ASMediaStream_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = CA50FDA8D5E9F8509FE7771A0CA503F6 /* Pods-ASMediaStream_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CB1E72A04D08995703BF78DC5AE807C4 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = E185D21623C5F231653B892679C2684B /* Error.swift */; };
@@ -115,22 +116,21 @@
 		D96489A78BC6F8C5F76904090ABCFCEF /* ConstraintItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E862073AC53EE1083DE50FC6D1DA7C /* ConstraintItem.swift */; };
 		D96ED58FE223682569B4F646DBD14F05 /* Thenable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B03C1959C7D4D07FA1D790BAE6123B /* Thenable.swift */; };
 		DAC40E849E16DC17C173F90778C20DE2 /* fwd.h in Headers */ = {isa = PBXBuildFile; fileRef = CE6B4428344C52415D89F697F4074601 /* fwd.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DC2C5D19ABC9DEA3B66D383ABEA1FF72 /* ASMediaStreamClientState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FB173AA3F329551EC164D9387308D7 /* ASMediaStreamClientState.swift */; };
-		E204E5FE9717E49A47A422B175B40026 /* ASMediaStream-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D137C584F04D5BE49860F932C57ADA27 /* ASMediaStream-dummy.m */; };
+		E08540BA0BB32C308D73C27790AC69A1 /* ASMediaStreamContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BF050F61EDE31965CA816783FD590C /* ASMediaStreamContainer.swift */; };
+		E734AF0FE333D207F1DF84BA3AFFB459 /* ASMediaStreamClientDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3784ECF7AAD34622A3DFBDE13D91AC05 /* ASMediaStreamClientDelegate.swift */; };
 		E78032213B7171C4FD26B8C2AA76300B /* ConstraintLayoutGuideDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD85BCCDCE5C7C86F1F8BB1E8CDF5DF /* ConstraintLayoutGuideDSL.swift */; };
 		EADE7B0BB33EAFFF5DB388853CB7104A /* ConstraintViewDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA11C97078034C5FF06C47627DF4984 /* ConstraintViewDSL.swift */; };
+		EBCE87F10B2154E0C21A01E5F949719F /* ASCandidateResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484A19010F44EE6374FD8A171ADBD7EC /* ASCandidateResponse.swift */; };
 		ED81F1A8C3797352889DE8A477DD2E1D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 908E902E026C5C22904CF9014A5604AD /* Foundation.framework */; };
 		EE30DF2A3EFEE730CA27C2F3147D40DC /* AnyPromise.m in Sources */ = {isa = PBXBuildFile; fileRef = 2646C80D9BA2DA34053439FF9F7F7289 /* AnyPromise.m */; };
 		F07D7A474A309A8A24D03DFC0AAAEC8A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 908E902E026C5C22904CF9014A5604AD /* Foundation.framework */; };
-		F14C22F6A9160BEC6D1D9E06BA9354C0 /* ASDataChannelPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57770AF0B4A01A47ED5454A245C8A5B /* ASDataChannelPair.swift */; };
 		F15A11436BFB1CDBBF116266BC150EE3 /* ConstraintConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D540C208FC24F4A532B50061D36F32AA /* ConstraintConfig.swift */; };
 		F15C4F1F8E21D1F671109B4D5E5FF8A2 /* LayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0B6DC9C3B2CBDA6EA56DE6B674A20D /* LayoutConstraint.swift */; };
 		F2C61B3AD2008A0A7177C434D39C0880 /* AnyPromise.h in Headers */ = {isa = PBXBuildFile; fileRef = B119ADE50AC44CDCA9C330B0E9C98FC6 /* AnyPromise.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F70B480CD76525E242D031AEEAF8AC16 /* ASMediaStreamConnectionFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B924D063B57DD7988A9C5199E2F3CFC2 /* ASMediaStreamConnectionFactory.swift */; };
 		F7726F5B59E5EED8FA7B795DDC9FB56E /* UIViewController+AnyPromise.m in Sources */ = {isa = PBXBuildFile; fileRef = B93B8F3F6DF172AAA817C504D82E1008 /* UIViewController+AnyPromise.m */; };
 		F929A294E1EE33EA9DD633CA2CEABE7E /* ConstraintLayoutGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D9D1736944402383FCC89EFDC30AD7 /* ConstraintLayoutGuide.swift */; };
-		F98883E0959DCC5F57E74A736550FA62 /* ASVideoSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75CEF37D893A9B1EE8D6E5ABC2762B1 /* ASVideoSettings.swift */; };
-		FAD211CAE94DED436485929E80235820 /* ASMediaStreamContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9DF6DECCE269E6912A44736A71AABE /* ASMediaStreamContainer.swift */; };
-		FB64F0329E28EBF92546D9599D77054B /* ASMediaStreamSessionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F29872FA14C55BBEE1D897F473F1467 /* ASMediaStreamSessionState.swift */; };
+		FC67B251DA6B3FC1138A77EA400B2CB2 /* ASSessionDescriptionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C56C8FEFF18249E1BB4E81EBE14F68 /* ASSessionDescriptionRequest.swift */; };
 		FD6801C634C12222831797456EBEC4A0 /* ConstraintLayoutSupportDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0BF0F33CA5449BB1B67E70E4D64B0F /* ConstraintLayoutSupportDSL.swift */; };
 		FDE806B85DF8D6E73F2D3387B7A68356 /* Starscream-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = ACE1ECF30DCAF82C9E465DA5007030C9 /* Starscream-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
@@ -168,169 +168,169 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 5995E7FE8D4808E7A7960468903D7946;
+			remoteGlobalIDString = 6EA38C23E1A8E8DC6CC4C991C555C4B6;
 			remoteInfo = ASMediaStream;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		00FF2C0BE171BB10C2327E1C8C708EF5 /* Pods-ASMediaStream_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ASMediaStream_Example.release.xcconfig"; sourceTree = "<group>"; };
-		062C32B837ABDE5695F38FB7036F760B /* ASMediaStream.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; path = ASMediaStream.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		05BF050F61EDE31965CA816783FD590C /* ASMediaStreamContainer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ASMediaStreamContainer.swift; sourceTree = "<group>"; };
 		06570B14FC0A3FE716C5877CD93B6B17 /* SnapKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SnapKit-dummy.m"; sourceTree = "<group>"; };
-		0677F1D7E3813E7C3D4B33F42E4474A4 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		06B03C1959C7D4D07FA1D790BAE6123B /* Thenable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Thenable.swift; path = Sources/Thenable.swift; sourceTree = "<group>"; };
 		07CA567E127CFC7CD0852E65214FE19C /* UIView+AnyPromise.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+AnyPromise.m"; path = "Extensions/UIKit/Sources/UIView+AnyPromise.m"; sourceTree = "<group>"; };
 		08FE16AB17915EF053D710EA4F0264C3 /* Pods-ASMediaStream_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ASMediaStream_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		0A416649D03915F3E36B47A6FC7F11B1 /* ConstraintMakerFinalizable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMakerFinalizable.swift; path = Source/ConstraintMakerFinalizable.swift; sourceTree = "<group>"; };
+		0B9D1216F8BD3CC004AFC19D264520EC /* ASMediaStream-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ASMediaStream-umbrella.h"; sourceTree = "<group>"; };
 		0FBB6B538D2C487FEFA6BBB4B88AD4D0 /* UIView+AnyPromise.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView+AnyPromise.h"; path = "Extensions/UIKit/Sources/UIView+AnyPromise.h"; sourceTree = "<group>"; };
 		10BF44936A2E6DA9A229C16590A701E5 /* SnapKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SnapKit-prefix.pch"; sourceTree = "<group>"; };
 		11FCE90699CFC4E59E910DBAE74D074D /* SSLSecurity.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SSLSecurity.swift; path = Sources/Starscream/SSLSecurity.swift; sourceTree = "<group>"; };
 		1BA8CD60665E16627952E0F6279E1B9C /* ConstraintMakerPriortizable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMakerPriortizable.swift; path = Source/ConstraintMakerPriortizable.swift; sourceTree = "<group>"; };
 		1D22241090D9BBC285AC4460B1E8F856 /* Pods-ASMediaStream_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ASMediaStream_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		1DDDD565A782C8172284C7D77F02864A /* Starscream-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Starscream-dummy.m"; sourceTree = "<group>"; };
+		216B49E9061513E9D6660849E139EB58 /* ASMediaStreamClient.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ASMediaStreamClient.swift; sourceTree = "<group>"; };
+		21FF2F183BCA5BBD0B43CC708786C466 /* ASMediaStreamSessionDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ASMediaStreamSessionDelegate.swift; sourceTree = "<group>"; };
 		25E26C9C4CE8E71952B1FBA6451F8330 /* ConstraintConstantTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintConstantTarget.swift; path = Source/ConstraintConstantTarget.swift; sourceTree = "<group>"; };
 		2646C80D9BA2DA34053439FF9F7F7289 /* AnyPromise.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AnyPromise.m; path = Sources/AnyPromise.m; sourceTree = "<group>"; };
 		268AECC1C989819C253E03556A2091EB /* PromiseKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = PromiseKit.modulemap; sourceTree = "<group>"; };
 		27B1C51BCCD1CB0804B60DDF96F9D202 /* Pods-ASMediaStream_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ASMediaStream_Example-frameworks.sh"; sourceTree = "<group>"; };
 		27EC4347FD2339694D45498C9E3B6971 /* after.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = after.swift; path = Sources/after.swift; sourceTree = "<group>"; };
 		2A7C7BA44503FDBC0C080709FA6D8E75 /* ConstraintOffsetTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintOffsetTarget.swift; path = Source/ConstraintOffsetTarget.swift; sourceTree = "<group>"; };
-		2B76FDAF4DCFFC74C9D652D52E16355F /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		2BAE2FCC816C57D39438B3EF4A0CF0F0 /* Pods-ASMediaStream_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ASMediaStream_Tests-frameworks.sh"; sourceTree = "<group>"; };
 		2C3DD8C8D4E0B8FB9478B8700E1DB027 /* UILayoutSupport+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UILayoutSupport+Extensions.swift"; path = "Source/UILayoutSupport+Extensions.swift"; sourceTree = "<group>"; };
 		2C6033BFFEE7C9934224071ECA9D8E5C /* NSURLSession+AnyPromise.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSURLSession+AnyPromise.m"; path = "Extensions/Foundation/Sources/NSURLSession+AnyPromise.m"; sourceTree = "<group>"; };
+		2E4AE37969626D04C92C0EA7362CBE0E /* ASMediaStreamClientError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ASMediaStreamClientError.swift; sourceTree = "<group>"; };
 		31275BC93BB383272C086F2383FCDD42 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		33164A45F7B68F51A9FFDCCC673EAF94 /* CustomStringConvertible.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CustomStringConvertible.swift; path = Sources/CustomStringConvertible.swift; sourceTree = "<group>"; };
+		332DD5B6D45D5644BF4CAA61DF670F3D /* ASMediaStream.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = ASMediaStream.modulemap; sourceTree = "<group>"; };
 		34FE9919A44986578082869266DE16C3 /* dispatch_promise.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = dispatch_promise.m; path = Sources/dispatch_promise.m; sourceTree = "<group>"; };
-		350D857B230E81E4BE7C47698FED7821 /* Starscream.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Starscream.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		350D857B230E81E4BE7C47698FED7821 /* Starscream.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Starscream.framework; path = Starscream.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		35C733ACF3C4578C421074EADB704A99 /* NSTask+AnyPromise.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSTask+AnyPromise.m"; path = "Extensions/Foundation/Sources/NSTask+AnyPromise.m"; sourceTree = "<group>"; };
 		369A4CEE9E512EA1E58C1E967BAA0771 /* ConstraintMakerRelatable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMakerRelatable.swift; path = Source/ConstraintMakerRelatable.swift; sourceTree = "<group>"; };
 		3714D9D7D63A73C438BDD50DA1731383 /* SnapKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SnapKit.xcconfig; sourceTree = "<group>"; };
-		3B9DF6DECCE269E6912A44736A71AABE /* ASMediaStreamContainer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ASMediaStreamContainer.swift; sourceTree = "<group>"; };
+		3784ECF7AAD34622A3DFBDE13D91AC05 /* ASMediaStreamClientDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ASMediaStreamClientDelegate.swift; sourceTree = "<group>"; };
 		3C81FD43F6FF5DD206A1097A18DEEFE5 /* Resolver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Resolver.swift; path = Sources/Resolver.swift; sourceTree = "<group>"; };
-		3EE09CF4C850EEB3C4573F2C656667A9 /* PromiseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PromiseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3F0CF57F93F5535EAC6548C59316DD37 /* ASMediaStreamClient.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ASMediaStreamClient.swift; sourceTree = "<group>"; };
+		3E19A204A32D04A7F5FAB5CBBDF99DA3 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		3EE09CF4C850EEB3C4573F2C656667A9 /* PromiseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = PromiseKit.framework; path = PromiseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3FC567B4C681D6F4990688B4621F5C77 /* ASAudioOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ASAudioOutput.swift; sourceTree = "<group>"; };
 		3FD0FAA36DB14CF4F59DA0B1D64A3455 /* ConstraintMaker.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMaker.swift; path = Source/ConstraintMaker.swift; sourceTree = "<group>"; };
-		3FED64BDB03CB079C098EFD554E5A959 /* ASMediaStreamSessionDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ASMediaStreamSessionDelegate.swift; sourceTree = "<group>"; };
 		404DC43F7CE82EDC341A0C3BCC33AC08 /* PromiseKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PromiseKit-umbrella.h"; sourceTree = "<group>"; };
 		433BC673B0A9500D007BDAE1F78256A3 /* ConstraintAttributes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintAttributes.swift; path = Source/ConstraintAttributes.swift; sourceTree = "<group>"; };
 		445412CA4BF72A869F6629CF356C6ADD /* when.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = when.m; path = Sources/when.m; sourceTree = "<group>"; };
 		449F3269C329B52B308242DA8484B9E6 /* ConstraintPriorityTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintPriorityTarget.swift; path = Source/ConstraintPriorityTarget.swift; sourceTree = "<group>"; };
-		47258C9708CCA5532E329A28F8841534 /* ASVideoResolution.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ASVideoResolution.swift; sourceTree = "<group>"; };
-		485AE9E2ABCCC3A1483E1ADCB87F9280 /* ASMediaStream.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ASMediaStream.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		484A19010F44EE6374FD8A171ADBD7EC /* ASCandidateResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ASCandidateResponse.swift; sourceTree = "<group>"; };
+		485AE9E2ABCCC3A1483E1ADCB87F9280 /* ASMediaStream.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = ASMediaStream.framework; path = ASMediaStream.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		496AE775EE12C5662D9FBF1B18E8DB36 /* ASMediaStreamItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ASMediaStreamItem.swift; sourceTree = "<group>"; };
 		5070933FD697D93893E2C908780DF6C8 /* Promise.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Promise.swift; path = Sources/Promise.swift; sourceTree = "<group>"; };
+		5157A47A80E803F4E7876C56F1075EE5 /* ASVideoCapturerError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ASVideoCapturerError.swift; sourceTree = "<group>"; };
 		51841B2355987ADE6229F3856F041A0C /* Pods-ASMediaStream_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ASMediaStream_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		53D531EBEE0A984259A79603BDBC0B34 /* NSURLSession+AnyPromise.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSURLSession+AnyPromise.h"; path = "Extensions/Foundation/Sources/NSURLSession+AnyPromise.h"; sourceTree = "<group>"; };
-		5886072AD28D132F34F72BC401E718BB /* Pods_ASMediaStream_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ASMediaStream_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5886072AD28D132F34F72BC401E718BB /* Pods_ASMediaStream_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_ASMediaStream_Example.framework; path = "Pods-ASMediaStream_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A533DDF6B895DBD32B82BA2345D1E39 /* SnapKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SnapKit.modulemap; sourceTree = "<group>"; };
 		5DFF00EEF5EB906388DE27794507A9B3 /* Pods-ASMediaStream_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ASMediaStream_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		64C3DC55C33698090FD71D4B57365E4F /* ASMediaStreamItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ASMediaStreamItem.swift; sourceTree = "<group>"; };
+		5ED0774542B268371C9997008B150571 /* ASMediaStreamClientState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ASMediaStreamClientState.swift; sourceTree = "<group>"; };
+		5EE86FAA624488B11F17D7E39CE59F90 /* ASSessionDescriptionResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ASSessionDescriptionResponse.swift; sourceTree = "<group>"; };
 		64E378C201244DE1822226FBC665DF14 /* WebSocket.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WebSocket.swift; path = Sources/Starscream/WebSocket.swift; sourceTree = "<group>"; };
-		6628771521E93A98003CD196 /* ASAudioOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASAudioOutput.swift; sourceTree = "<group>"; };
-		6628771621E93A98003CD196 /* ASDataOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASDataOutput.swift; sourceTree = "<group>"; };
-		6628771721E93A98003CD196 /* ASVideoOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASVideoOutput.swift; sourceTree = "<group>"; };
 		66DD95681F8E22DAC607A83E7B583430 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		67AEB9ED4EBCD65AF0245152C84DB51C /* SnapKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		67AEB9ED4EBCD65AF0245152C84DB51C /* SnapKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SnapKit.framework; path = SnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		69296AA7CF988B92E51D169C3C382163 /* ConstraintView+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ConstraintView+Extensions.swift"; path = "Source/ConstraintView+Extensions.swift"; sourceTree = "<group>"; };
 		697F2A16C0A0E331949AE9FB3E33AFD8 /* Catchable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Catchable.swift; path = Sources/Catchable.swift; sourceTree = "<group>"; };
 		6A64E146175DB680BC76C15DBE7D9312 /* after.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = after.m; path = Sources/after.m; sourceTree = "<group>"; };
+		6CC763F12ED1D5B0B27C15AD447AF5FF /* ASVideoCapturer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ASVideoCapturer.swift; sourceTree = "<group>"; };
+		71361E32D4FE9B0243E9ACC8A9EA7C15 /* ASMediaStream-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ASMediaStream-dummy.m"; sourceTree = "<group>"; };
 		720F34ECE58F88D394C906146E286A6D /* Pods-ASMediaStream_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ASMediaStream_Tests-umbrella.h"; sourceTree = "<group>"; };
 		72143377C6A78494749CBB857B4BEA05 /* Process+Promise.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Process+Promise.swift"; path = "Extensions/Foundation/Sources/Process+Promise.swift"; sourceTree = "<group>"; };
 		72474C9FF46975AACC72C5B6EA6D9CBB /* AnyPromise.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AnyPromise.swift; path = Sources/AnyPromise.swift; sourceTree = "<group>"; };
+		724B237ED6DD0AB4924B2962934857BB /* ASMediaStreamSession.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ASMediaStreamSession.swift; sourceTree = "<group>"; };
+		72D97A134E7FB21001783D19016AC36E /* ASMediaStream.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; path = ASMediaStream.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		73126C421D558ADEE9A5C63DA6DF1E30 /* ConstraintLayoutSupport.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintLayoutSupport.swift; path = Source/ConstraintLayoutSupport.swift; sourceTree = "<group>"; };
-		73F98A891D9885175C20F40D9860DAD5 /* ASCandidateResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ASCandidateResponse.swift; sourceTree = "<group>"; };
 		7401750A9C34B0DDC5922D6AE64D6F28 /* PMKFoundation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PMKFoundation.h; path = Extensions/Foundation/Sources/PMKFoundation.h; sourceTree = "<group>"; };
 		7584C84FEA03F5374A632E23B09580A6 /* Starscream.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Starscream.xcconfig; sourceTree = "<group>"; };
 		77A037A0ABBF0DB0191DB1A1FFC936C7 /* race.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = race.swift; path = Sources/race.swift; sourceTree = "<group>"; };
-		789051245592BD377DF5D3C861EE8CC4 /* ASVideoCapturerError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ASVideoCapturerError.swift; sourceTree = "<group>"; };
 		78ADE36E9B78DBC03690B9850DEC8F7D /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		78CAE8F11771BBCEA479B40621563B33 /* ASMediaStream-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ASMediaStream-umbrella.h"; sourceTree = "<group>"; };
 		79A2DB091469968376ABC310D4DDEB5F /* ConstraintDescription.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintDescription.swift; path = Source/ConstraintDescription.swift; sourceTree = "<group>"; };
-		7B732D98D4B5B6C7B3BC484177424972 /* ASMediaStream-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ASMediaStream-prefix.pch"; sourceTree = "<group>"; };
 		7C48F779A936EBAFCFD19788B786641C /* ConstraintMakerExtendable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMakerExtendable.swift; path = Source/ConstraintMakerExtendable.swift; sourceTree = "<group>"; };
 		7C64005D678ED0153AF8E98FB454381B /* NSNotificationCenter+AnyPromise.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSNotificationCenter+AnyPromise.h"; path = "Extensions/Foundation/Sources/NSNotificationCenter+AnyPromise.h"; sourceTree = "<group>"; };
 		7CAC935655BBA9DE9745FB1637698CF7 /* Constraint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Constraint.swift; path = Source/Constraint.swift; sourceTree = "<group>"; };
 		7F77A3F6E4E38813929E780F1FAFE0A6 /* when.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = when.swift; path = Sources/when.swift; sourceTree = "<group>"; };
 		7FD85BCCDCE5C7C86F1F8BB1E8CDF5DF /* ConstraintLayoutGuideDSL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintLayoutGuideDSL.swift; path = Source/ConstraintLayoutGuideDSL.swift; sourceTree = "<group>"; };
-		7FFA2E2298B8224256E9D5408FD6EA09 /* ASSessionDescriptionResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ASSessionDescriptionResponse.swift; sourceTree = "<group>"; };
 		83E862073AC53EE1083DE50FC6D1DA7C /* ConstraintItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintItem.swift; path = Source/ConstraintItem.swift; sourceTree = "<group>"; };
 		84F8BC7B707A1C04AFCDCD936D8CA731 /* NSNotificationCenter+AnyPromise.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSNotificationCenter+AnyPromise.m"; path = "Extensions/Foundation/Sources/NSNotificationCenter+AnyPromise.m"; sourceTree = "<group>"; };
 		88E5C5769DB311216EC3B2255D0F8F0C /* Box.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Box.swift; path = Sources/Box.swift; sourceTree = "<group>"; };
 		8AD87F057BBAAEDBF45F510BD00C8E62 /* hang.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = hang.m; path = Sources/hang.m; sourceTree = "<group>"; };
-		8BE320AA091A1D9B3B061436343E6C88 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		908E902E026C5C22904CF9014A5604AD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		9319609B59AAEF88516FC1CD8F508BA9 /* ConstraintView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintView.swift; path = Source/ConstraintView.swift; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9511EE63FB7637645665EDFC19BAFDDB /* ConstraintPriority.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintPriority.swift; path = Source/ConstraintPriority.swift; sourceTree = "<group>"; };
 		95D9D1736944402383FCC89EFDC30AD7 /* ConstraintLayoutGuide.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintLayoutGuide.swift; path = Source/ConstraintLayoutGuide.swift; sourceTree = "<group>"; };
 		971D1D0607A6F6DF33CCEC1E4DC9F61B /* ConstraintRelation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintRelation.swift; path = Source/ConstraintRelation.swift; sourceTree = "<group>"; };
 		9A7D80D19A63DDAF4BA0BF5E5D0AE623 /* SnapKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SnapKit-umbrella.h"; sourceTree = "<group>"; };
+		9C2F17BCE7992D8BBAAD7BCC171ADFB5 /* ASDataOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ASDataOutput.swift; sourceTree = "<group>"; };
 		9D0BF0F33CA5449BB1B67E70E4D64B0F /* ConstraintLayoutSupportDSL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintLayoutSupportDSL.swift; path = Source/ConstraintLayoutSupportDSL.swift; sourceTree = "<group>"; };
 		9DA11C97078034C5FF06C47627DF4984 /* ConstraintViewDSL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintViewDSL.swift; path = Source/ConstraintViewDSL.swift; sourceTree = "<group>"; };
 		9EB8B3805FD58DD12264060E1487FD73 /* Configuration.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Configuration.swift; path = Sources/Configuration.swift; sourceTree = "<group>"; };
 		9ED8A77AECF49DA47F85E6890466A914 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9F29872FA14C55BBEE1D897F473F1467 /* ASMediaStreamSessionState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ASMediaStreamSessionState.swift; sourceTree = "<group>"; };
 		9FB3622D5C243D91D96F583FBB8E8E7B /* NSObject+Promise.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSObject+Promise.swift"; path = "Extensions/Foundation/Sources/NSObject+Promise.swift"; sourceTree = "<group>"; };
-		A322738E331F940ED47C304F96720DDE /* ASMediaStreamClientDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ASMediaStreamClientDelegate.swift; sourceTree = "<group>"; };
 		A4E5326B621608DE8D56468D3CAE4229 /* Pods-ASMediaStream_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ASMediaStream_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		A6CE8650393449EE76C8B4A674A7DC4D /* ConstraintLayoutGuide+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ConstraintLayoutGuide+Extensions.swift"; path = "Source/ConstraintLayoutGuide+Extensions.swift"; sourceTree = "<group>"; };
 		A805D3C1A0E49FF5E542A121CDA875A9 /* WebRTC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebRTC.framework; path = Frameworks/frameworks/WebRTC.framework; sourceTree = "<group>"; };
-		A9832D0309019CCCBC277DD28C75CB46 /* ASMediaStream.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ASMediaStream.xcconfig; sourceTree = "<group>"; };
 		AA1C86100ED94C0A31FDA3997D117260 /* Starscream-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Starscream-prefix.pch"; sourceTree = "<group>"; };
 		AC33FDF5B1669EF177E7F651ED52424A /* UIViewController+AnyPromise.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIViewController+AnyPromise.h"; path = "Extensions/UIKit/Sources/UIViewController+AnyPromise.h"; sourceTree = "<group>"; };
 		AC7FF4519A8B7E4B618A408F3EAC94E4 /* LogEvent.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LogEvent.swift; path = Sources/LogEvent.swift; sourceTree = "<group>"; };
 		ACE1ECF30DCAF82C9E465DA5007030C9 /* Starscream-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Starscream-umbrella.h"; sourceTree = "<group>"; };
 		B119ADE50AC44CDCA9C330B0E9C98FC6 /* AnyPromise.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AnyPromise.h; path = Sources/AnyPromise.h; sourceTree = "<group>"; };
 		B1FDDB8A63087912AD81972EF389948C /* LayoutConstraintItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LayoutConstraintItem.swift; path = Source/LayoutConstraintItem.swift; sourceTree = "<group>"; };
-		B57770AF0B4A01A47ED5454A245C8A5B /* ASDataChannelPair.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ASDataChannelPair.swift; sourceTree = "<group>"; };
+		B553EE4A16E50F39340A9FE82F65845B /* ASMediaStreamSessionState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ASMediaStreamSessionState.swift; sourceTree = "<group>"; };
 		B5CE4DAA182262357BC5640D86EA506B /* Pods-ASMediaStream_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-ASMediaStream_Example.modulemap"; sourceTree = "<group>"; };
-		B5F1372725480C4ACCBDDE9DBFEB4617 /* ASVideoCapturer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ASVideoCapturer.swift; sourceTree = "<group>"; };
 		B663E1ECE4DE08C16AF2D2E7D1EC9622 /* join.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = join.m; path = Sources/join.m; sourceTree = "<group>"; };
 		B6825C38D4EDE052E5CDB7115405FBF4 /* Pods-ASMediaStream_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ASMediaStream_Tests-dummy.m"; sourceTree = "<group>"; };
 		B6E39A5948BD4E07D2B01C89F6DC7675 /* ConstraintRelatableTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintRelatableTarget.swift; path = Source/ConstraintRelatableTarget.swift; sourceTree = "<group>"; };
 		B7E38FDAE75BA0F76FB728E9161B87B8 /* Starscream.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Starscream.modulemap; sourceTree = "<group>"; };
 		B8DE8FADD670895B488D114FB4310509 /* Pods-ASMediaStream_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ASMediaStream_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		B924D063B57DD7988A9C5199E2F3CFC2 /* ASMediaStreamConnectionFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ASMediaStreamConnectionFactory.swift; sourceTree = "<group>"; };
 		B93B8F3F6DF172AAA817C504D82E1008 /* UIViewController+AnyPromise.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+AnyPromise.m"; path = "Extensions/UIKit/Sources/UIViewController+AnyPromise.m"; sourceTree = "<group>"; };
-		B996DE2491E837BE94AE1BA8CA93A76C /* ASMediaStreamConnectionFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ASMediaStreamConnectionFactory.swift; sourceTree = "<group>"; };
-		B9F8DB801634865EEEBE35FBABF824B0 /* ASMediaStream.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = ASMediaStream.modulemap; sourceTree = "<group>"; };
+		B9DCAF3BB40A6F5A8A67DECA14231515 /* ASVideoSettings.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ASVideoSettings.swift; sourceTree = "<group>"; };
 		BA0B6DC9C3B2CBDA6EA56DE6B674A20D /* LayoutConstraint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LayoutConstraint.swift; path = Source/LayoutConstraint.swift; sourceTree = "<group>"; };
 		BC2C02191C153C1554B35DEE8B2D09D4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		BD8BE66614B53186143A68606D87A17B /* ASCandidateRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ASCandidateRequest.swift; sourceTree = "<group>"; };
 		C3421977E100BDEE92A311CD0D8C5396 /* UIView+Promise.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIView+Promise.swift"; path = "Extensions/UIKit/Sources/UIView+Promise.swift"; sourceTree = "<group>"; };
 		C3EFA9F07179380AABB47786C522EE5C /* PMKUIKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PMKUIKit.h; path = Extensions/UIKit/Sources/PMKUIKit.h; sourceTree = "<group>"; };
-		C4C97AE390ED5B85755FD857C38E69A3 /* ASCandidateRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ASCandidateRequest.swift; sourceTree = "<group>"; };
-		C52CC64E1BE1E8453F42902461461E01 /* ASSessionDescriptionRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ASSessionDescriptionRequest.swift; sourceTree = "<group>"; };
-		C5C815E1CE3E841C15F8D69EC2998B89 /* ASMediaStreamSessionFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ASMediaStreamSessionFactory.swift; sourceTree = "<group>"; };
 		C618E270E985FE996C7F3029BD2E79BF /* ConstraintDSL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintDSL.swift; path = Source/ConstraintDSL.swift; sourceTree = "<group>"; };
-		C6348E6F4569D75ED69AB82F5A23A6AD /* ASMediaStreamSession.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ASMediaStreamSession.swift; sourceTree = "<group>"; };
-		C75CEF37D893A9B1EE8D6E5ABC2762B1 /* ASVideoSettings.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ASVideoSettings.swift; sourceTree = "<group>"; };
 		C8743F7A0A9FAA219E6972A07A98BA85 /* SSLClientCertificate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SSLClientCertificate.swift; path = Sources/Starscream/SSLClientCertificate.swift; sourceTree = "<group>"; };
+		C8AB80F019DF59C57F86255E76B13D62 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C9080E78B68CEBC04990ADAE420666EF /* Pods-ASMediaStream_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ASMediaStream_Example-dummy.m"; sourceTree = "<group>"; };
 		CA50FDA8D5E9F8509FE7771A0CA503F6 /* Pods-ASMediaStream_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ASMediaStream_Example-umbrella.h"; sourceTree = "<group>"; };
 		CA7DF2C4F4D292EAC87CD871019A67D0 /* Typealiases.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Typealiases.swift; path = Source/Typealiases.swift; sourceTree = "<group>"; };
 		CC059CFEF3DF76CB925FA3C8CB355D61 /* Pods-ASMediaStream_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-ASMediaStream_Tests.modulemap"; sourceTree = "<group>"; };
 		CE6B4428344C52415D89F697F4074601 /* fwd.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = fwd.h; path = Sources/fwd.h; sourceTree = "<group>"; };
 		D077731BA5EE9A44D97E2294D4863B82 /* PromiseKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "PromiseKit-dummy.m"; sourceTree = "<group>"; };
-		D137C584F04D5BE49860F932C57ADA27 /* ASMediaStream-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ASMediaStream-dummy.m"; sourceTree = "<group>"; };
 		D3EA362676F0B0E3DE5E2E3C9EC1EA0F /* PromiseKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PromiseKit-prefix.pch"; sourceTree = "<group>"; };
 		D540C208FC24F4A532B50061D36F32AA /* ConstraintConfig.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintConfig.swift; path = Source/ConstraintConfig.swift; sourceTree = "<group>"; };
+		D59DAEEF9D1417A0F781B27A7927D04E /* ASVideoOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ASVideoOutput.swift; sourceTree = "<group>"; };
 		D5B82277258553EB25C004F46548EC36 /* afterlife.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = afterlife.swift; path = Extensions/Foundation/Sources/afterlife.swift; sourceTree = "<group>"; };
 		D639AB5B13F93BB4C4F1391A0CD60FA9 /* PromiseKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PromiseKit.h; path = Sources/PromiseKit.h; sourceTree = "<group>"; };
+		D6C56C8FEFF18249E1BB4E81EBE14F68 /* ASSessionDescriptionRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ASSessionDescriptionRequest.swift; sourceTree = "<group>"; };
+		D6F9415A3F699DDDE31F3DBC2256EF1B /* ASMediaStreamSessionFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ASMediaStreamSessionFactory.swift; sourceTree = "<group>"; };
 		D95D728CD18C258ADEEACD5AF0151CAE /* firstly.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = firstly.swift; path = Sources/firstly.swift; sourceTree = "<group>"; };
 		DC01C2BB84532CB0099D553E9E397AA3 /* race.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = race.m; path = Sources/race.m; sourceTree = "<group>"; };
 		DD2A1285F0973B9FE227071D2D7D1880 /* Guarantee.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Guarantee.swift; path = Sources/Guarantee.swift; sourceTree = "<group>"; };
 		DF7588DF2D192098C5ECC3E9211BF06A /* PromiseKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = PromiseKit.xcconfig; sourceTree = "<group>"; };
-		DFE3223C8CEE5C35B2B318DD08AC0DE1 /* Pods_ASMediaStream_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ASMediaStream_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DFE3223C8CEE5C35B2B318DD08AC0DE1 /* Pods_ASMediaStream_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_ASMediaStream_Tests.framework; path = "Pods-ASMediaStream_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E185D21623C5F231653B892679C2684B /* Error.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Error.swift; path = Sources/Error.swift; sourceTree = "<group>"; };
+		E1BE629F6589E5C8355F26E359FBEC49 /* ASVideoResolution.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ASVideoResolution.swift; sourceTree = "<group>"; };
 		E2EF4C006554C293A1584950B3787351 /* Pods-ASMediaStream_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ASMediaStream_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		E367AD70989C06D08B1BEF6DF91CAD5B /* NSTask+AnyPromise.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSTask+AnyPromise.h"; path = "Extensions/Foundation/Sources/NSTask+AnyPromise.h"; sourceTree = "<group>"; };
 		E4C49B5E776D319DEA28753D33377B0A /* ConstraintMultiplierTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMultiplierTarget.swift; path = Source/ConstraintMultiplierTarget.swift; sourceTree = "<group>"; };
 		E790A942A41F9DAA7F5E2A3968EF057E /* NSURLSession+Promise.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSURLSession+Promise.swift"; path = "Extensions/Foundation/Sources/NSURLSession+Promise.swift"; sourceTree = "<group>"; };
+		E809791BC69FF9CA10961648101BB5A8 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
 		E89303141F756E829E1FF8C6635DFEB5 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EBAA9E4AB2AD26EF107859D704032A26 /* ASMediaStream-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ASMediaStream-prefix.pch"; sourceTree = "<group>"; };
 		EE46B754348074BD0453C4F530C50895 /* Pods-ASMediaStream_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ASMediaStream_Example-resources.sh"; sourceTree = "<group>"; };
 		EEC8CC6714EAB8595F3ED3980E74FEB3 /* Pods-ASMediaStream_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ASMediaStream_Tests-resources.sh"; sourceTree = "<group>"; };
-		F1FB173AA3F329551EC164D9387308D7 /* ASMediaStreamClientState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ASMediaStreamClientState.swift; sourceTree = "<group>"; };
 		F404E4DEA8DD38CFE995CF45B1820962 /* NSNotificationCenter+Promise.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSNotificationCenter+Promise.swift"; path = "Extensions/Foundation/Sources/NSNotificationCenter+Promise.swift"; sourceTree = "<group>"; };
+		F4B017ED597445EF23A44D2AA992F2E9 /* ASMediaStream.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ASMediaStream.xcconfig; sourceTree = "<group>"; };
 		F599C0B2D961FDBD9E72C1C369C91EE7 /* Debugging.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Debugging.swift; path = Source/Debugging.swift; sourceTree = "<group>"; };
-		F968780E0390F3EA5F2B0F874FC06E94 /* ASMediaStreamClientError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ASMediaStreamClientError.swift; sourceTree = "<group>"; };
+		F7AE7807E008F9B30E7F2653DFDEF045 /* ASDataChannelPair.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ASDataChannelPair.swift; sourceTree = "<group>"; };
 		FB52A9E77C4A8F5FC92777971B30AA5B /* Compression.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Compression.swift; path = Sources/Starscream/Compression.swift; sourceTree = "<group>"; };
 		FC2D3F3A42102D5318536BF2F0EFAFEC /* hang.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = hang.swift; path = Sources/hang.swift; sourceTree = "<group>"; };
 		FC9990F77A62FC25E929766F60EB0A6E /* Deprecations.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Deprecations.swift; path = Sources/Deprecations.swift; sourceTree = "<group>"; };
@@ -341,6 +341,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		02D710A13EE7AA7DDD64A95BB5380F80 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				422977D0EB2AA7C02A9A003E3B93B3BD /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5477D0887059D6F630FBDD0D65B68CAD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -374,14 +382,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CC436FEA8C6BB12063B231A9DD75E39B /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				6E2E619722EBE917E74E42A210DED181 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		E058E93410E39ECF2BC17F08D36B391B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -393,18 +393,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		006E884569C03ECC9E8FB23A6118D3F5 /* Capturer */ = {
-			isa = PBXGroup;
-			children = (
-				B5F1372725480C4ACCBDDE9DBFEB4617 /* ASVideoCapturer.swift */,
-				789051245592BD377DF5D3C861EE8CC4 /* ASVideoCapturerError.swift */,
-				47258C9708CCA5532E329A28F8841534 /* ASVideoResolution.swift */,
-				C75CEF37D893A9B1EE8D6E5ABC2762B1 /* ASVideoSettings.swift */,
-			);
-			name = Capturer;
-			path = ASMediaStream/Source/Capturer;
-			sourceTree = "<group>";
-		};
 		081DEF19D1913DE56C432F241BDFC90A /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
@@ -422,6 +410,26 @@
 				72143377C6A78494749CBB857B4BEA05 /* Process+Promise.swift */,
 			);
 			name = Foundation;
+			sourceTree = "<group>";
+		};
+		0CCDBA6D221B921A12F500C4FD6B7BB6 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				72D97A134E7FB21001783D19016AC36E /* ASMediaStream.podspec */,
+				3E19A204A32D04A7F5FAB5CBBDF99DA3 /* LICENSE */,
+				E809791BC69FF9CA10961648101BB5A8 /* README.md */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		0ECD748219803448FC8B9650829560E6 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				484A19010F44EE6374FD8A171ADBD7EC /* ASCandidateResponse.swift */,
+				5EE86FAA624488B11F17D7E39CE59F90 /* ASSessionDescriptionResponse.swift */,
+			);
+			name = Response;
+			path = Response;
 			sourceTree = "<group>";
 		};
 		10DEDCB394BAA0C7FEDEBE330207B074 /* iOS */ = {
@@ -457,14 +465,16 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		34B71972506F226512F13DFD5D7AA32E /* Pod */ = {
+		3FFC125D535B9859D769FF6905ECA98C /* Capturer */ = {
 			isa = PBXGroup;
 			children = (
-				062C32B837ABDE5695F38FB7036F760B /* ASMediaStream.podspec */,
-				0677F1D7E3813E7C3D4B33F42E4474A4 /* LICENSE */,
-				2B76FDAF4DCFFC74C9D652D52E16355F /* README.md */,
+				6CC763F12ED1D5B0B27C15AD447AF5FF /* ASVideoCapturer.swift */,
+				5157A47A80E803F4E7876C56F1075EE5 /* ASVideoCapturerError.swift */,
+				E1BE629F6589E5C8355F26E359FBEC49 /* ASVideoResolution.swift */,
+				B9DCAF3BB40A6F5A8A67DECA14231515 /* ASVideoSettings.swift */,
 			);
-			name = Pod;
+			name = Capturer;
+			path = ASMediaStream/Source/Capturer;
 			sourceTree = "<group>";
 		};
 		4091B5E8BB1DB570E5761D6D02711B45 /* CorePromise */ = {
@@ -509,22 +519,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		52D1E5DF59D1FB68318503F52C014682 /* Client */ = {
-			isa = PBXGroup;
-			children = (
-				B57770AF0B4A01A47ED5454A245C8A5B /* ASDataChannelPair.swift */,
-				3F0CF57F93F5535EAC6548C59316DD37 /* ASMediaStreamClient.swift */,
-				A322738E331F940ED47C304F96720DDE /* ASMediaStreamClientDelegate.swift */,
-				F968780E0390F3EA5F2B0F874FC06E94 /* ASMediaStreamClientError.swift */,
-				F1FB173AA3F329551EC164D9387308D7 /* ASMediaStreamClientState.swift */,
-				B996DE2491E837BE94AE1BA8CA93A76C /* ASMediaStreamConnectionFactory.swift */,
-				3B9DF6DECCE269E6912A44736A71AABE /* ASMediaStreamContainer.swift */,
-				64C3DC55C33698090FD71D4B57365E4F /* ASMediaStreamItem.swift */,
-			);
-			name = Client;
-			path = ASMediaStream/Source/Client;
-			sourceTree = "<group>";
-		};
 		540FDBE4BA3DF2087D5A93A542BA2AD0 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -537,6 +531,16 @@
 			);
 			name = "Support Files";
 			path = "../Target Support Files/Starscream";
+			sourceTree = "<group>";
+		};
+		56734B8BDA7E8554F9AFA1FC17EF039B /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				BD8BE66614B53186143A68606D87A17B /* ASCandidateRequest.swift */,
+				D6C56C8FEFF18249E1BB4E81EBE14F68 /* ASSessionDescriptionRequest.swift */,
+			);
+			name = Request;
+			path = Request;
 			sourceTree = "<group>";
 		};
 		6210065837208EB094CA719C302CEB58 /* Pods-ASMediaStream_Example */ = {
@@ -557,17 +561,6 @@
 			path = "Target Support Files/Pods-ASMediaStream_Example";
 			sourceTree = "<group>";
 		};
-		6628771421E93A98003CD196 /* Media */ = {
-			isa = PBXGroup;
-			children = (
-				6628771521E93A98003CD196 /* ASAudioOutput.swift */,
-				6628771621E93A98003CD196 /* ASDataOutput.swift */,
-				6628771721E93A98003CD196 /* ASVideoOutput.swift */,
-			);
-			name = Media;
-			path = ASMediaStream/Source/Media;
-			sourceTree = "<group>";
-		};
 		6CBF451466D8D0EEF448908086E75C60 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -577,13 +570,18 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		7725F6110A7906B4AAF0F316126B652C /* Request */ = {
+		7431B0B50755455656202C06CDEA1B80 /* ASMediaStream */ = {
 			isa = PBXGroup;
 			children = (
-				C4C97AE390ED5B85755FD857C38E69A3 /* ASCandidateRequest.swift */,
-				C52CC64E1BE1E8453F42902461461E01 /* ASSessionDescriptionRequest.swift */,
+				3FFC125D535B9859D769FF6905ECA98C /* Capturer */,
+				EEE82CCA9BAD56E9786616F1A0824E15 /* Client */,
+				F315E93387E2BFB62B159340A13C76C5 /* Media */,
+				0CCDBA6D221B921A12F500C4FD6B7BB6 /* Pod */,
+				EE31E20BADD1AB8332D09261BB825BC3 /* Session */,
+				D133878CDE3A77C4F8DC4E2D88E14F30 /* Support Files */,
 			);
-			path = Request;
+			name = ASMediaStream;
+			path = ../..;
 			sourceTree = "<group>";
 		};
 		7B807F302249BE461A3B37E35381E04F /* UIKit */ = {
@@ -604,20 +602,12 @@
 			isa = PBXGroup;
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
-				8BC56CFA64C7C37372E98D14F8D9BCE9 /* Development Pods */,
+				FAD7E6E1BD04B7942A160F776177617E /* Development Pods */,
 				433CD3331B6C3787F473C941B61FC68F /* Frameworks */,
 				18AE39FE45D3B0C411BA97955D4664CA /* Pods */,
 				2854599D3710496CD5CDFCB9DA67739E /* Products */,
 				6CBF451466D8D0EEF448908086E75C60 /* Targets Support Files */,
 			);
-			sourceTree = "<group>";
-		};
-		8BC56CFA64C7C37372E98D14F8D9BCE9 /* Development Pods */ = {
-			isa = PBXGroup;
-			children = (
-				C5C02BFF662523780D53C193829E41E2 /* ASMediaStream */,
-			);
-			name = "Development Pods";
 			sourceTree = "<group>";
 		};
 		900D1CBB60327276FFD8F8C02B8839A4 /* Support Files */ = {
@@ -643,6 +633,7 @@
 				64E378C201244DE1822226FBC665DF14 /* WebSocket.swift */,
 				540FDBE4BA3DF2087D5A93A542BA2AD0 /* Support Files */,
 			);
+			name = Starscream;
 			path = Starscream;
 			sourceTree = "<group>";
 		};
@@ -678,29 +669,6 @@
 			path = "Target Support Files/Pods-ASMediaStream_Tests";
 			sourceTree = "<group>";
 		};
-		A57A249F8624158C99F82C082BC937AF /* Response */ = {
-			isa = PBXGroup;
-			children = (
-				73F98A891D9885175C20F40D9860DAD5 /* ASCandidateResponse.swift */,
-				7FFA2E2298B8224256E9D5408FD6EA09 /* ASSessionDescriptionResponse.swift */,
-			);
-			path = Response;
-			sourceTree = "<group>";
-		};
-		A6747B618DB77978D1E1FF53E977A3E7 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				B9F8DB801634865EEEBE35FBABF824B0 /* ASMediaStream.modulemap */,
-				A9832D0309019CCCBC277DD28C75CB46 /* ASMediaStream.xcconfig */,
-				D137C584F04D5BE49860F932C57ADA27 /* ASMediaStream-dummy.m */,
-				7B732D98D4B5B6C7B3BC484177424972 /* ASMediaStream-prefix.pch */,
-				78CAE8F11771BBCEA479B40621563B33 /* ASMediaStream-umbrella.h */,
-				8BE320AA091A1D9B3B061436343E6C88 /* Info.plist */,
-			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/ASMediaStream";
-			sourceTree = "<group>";
-		};
 		B8C44D393BB8D07E599BB0CAC9BD1388 /* PromiseKit */ = {
 			isa = PBXGroup;
 			children = (
@@ -709,6 +677,7 @@
 				900D1CBB60327276FFD8F8C02B8839A4 /* Support Files */,
 				7B807F302249BE461A3B37E35381E04F /* UIKit */,
 			);
+			name = PromiseKit;
 			path = PromiseKit;
 			sourceTree = "<group>";
 		};
@@ -751,6 +720,7 @@
 				2C3DD8C8D4E0B8FB9478B8700E1DB027 /* UILayoutSupport+Extensions.swift */,
 				9A0AF4957CDD1DBC24E67741B5983942 /* Support Files */,
 			);
+			name = SnapKit;
 			path = SnapKit;
 			sourceTree = "<group>";
 		};
@@ -759,21 +729,8 @@
 			children = (
 				CF09AEB66C2FC321F385E2302D62C19B /* Frameworks */,
 			);
+			name = GoogleWebRTC;
 			path = GoogleWebRTC;
-			sourceTree = "<group>";
-		};
-		C5C02BFF662523780D53C193829E41E2 /* ASMediaStream */ = {
-			isa = PBXGroup;
-			children = (
-				6628771421E93A98003CD196 /* Media */,
-				006E884569C03ECC9E8FB23A6118D3F5 /* Capturer */,
-				52D1E5DF59D1FB68318503F52C014682 /* Client */,
-				34B71972506F226512F13DFD5D7AA32E /* Pod */,
-				EA9F68516F21ACB3215AB55B0D566D04 /* Session */,
-				A6747B618DB77978D1E1FF53E977A3E7 /* Support Files */,
-			);
-			name = ASMediaStream;
-			path = ../..;
 			sourceTree = "<group>";
 		};
 		CF09AEB66C2FC321F385E2302D62C19B /* Frameworks */ = {
@@ -784,23 +741,80 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		EA9F68516F21ACB3215AB55B0D566D04 /* Session */ = {
+		D133878CDE3A77C4F8DC4E2D88E14F30 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				C6348E6F4569D75ED69AB82F5A23A6AD /* ASMediaStreamSession.swift */,
-				3FED64BDB03CB079C098EFD554E5A959 /* ASMediaStreamSessionDelegate.swift */,
-				C5C815E1CE3E841C15F8D69EC2998B89 /* ASMediaStreamSessionFactory.swift */,
-				9F29872FA14C55BBEE1D897F473F1467 /* ASMediaStreamSessionState.swift */,
-				7725F6110A7906B4AAF0F316126B652C /* Request */,
-				A57A249F8624158C99F82C082BC937AF /* Response */,
+				332DD5B6D45D5644BF4CAA61DF670F3D /* ASMediaStream.modulemap */,
+				F4B017ED597445EF23A44D2AA992F2E9 /* ASMediaStream.xcconfig */,
+				71361E32D4FE9B0243E9ACC8A9EA7C15 /* ASMediaStream-dummy.m */,
+				EBAA9E4AB2AD26EF107859D704032A26 /* ASMediaStream-prefix.pch */,
+				0B9D1216F8BD3CC004AFC19D264520EC /* ASMediaStream-umbrella.h */,
+				C8AB80F019DF59C57F86255E76B13D62 /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/ASMediaStream";
+			sourceTree = "<group>";
+		};
+		EE31E20BADD1AB8332D09261BB825BC3 /* Session */ = {
+			isa = PBXGroup;
+			children = (
+				724B237ED6DD0AB4924B2962934857BB /* ASMediaStreamSession.swift */,
+				21FF2F183BCA5BBD0B43CC708786C466 /* ASMediaStreamSessionDelegate.swift */,
+				D6F9415A3F699DDDE31F3DBC2256EF1B /* ASMediaStreamSessionFactory.swift */,
+				B553EE4A16E50F39340A9FE82F65845B /* ASMediaStreamSessionState.swift */,
+				56734B8BDA7E8554F9AFA1FC17EF039B /* Request */,
+				0ECD748219803448FC8B9650829560E6 /* Response */,
 			);
 			name = Session;
 			path = ASMediaStream/Source/Session;
 			sourceTree = "<group>";
 		};
+		EEE82CCA9BAD56E9786616F1A0824E15 /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				F7AE7807E008F9B30E7F2653DFDEF045 /* ASDataChannelPair.swift */,
+				216B49E9061513E9D6660849E139EB58 /* ASMediaStreamClient.swift */,
+				3784ECF7AAD34622A3DFBDE13D91AC05 /* ASMediaStreamClientDelegate.swift */,
+				2E4AE37969626D04C92C0EA7362CBE0E /* ASMediaStreamClientError.swift */,
+				5ED0774542B268371C9997008B150571 /* ASMediaStreamClientState.swift */,
+				B924D063B57DD7988A9C5199E2F3CFC2 /* ASMediaStreamConnectionFactory.swift */,
+				05BF050F61EDE31965CA816783FD590C /* ASMediaStreamContainer.swift */,
+				496AE775EE12C5662D9FBF1B18E8DB36 /* ASMediaStreamItem.swift */,
+			);
+			name = Client;
+			path = ASMediaStream/Source/Client;
+			sourceTree = "<group>";
+		};
+		F315E93387E2BFB62B159340A13C76C5 /* Media */ = {
+			isa = PBXGroup;
+			children = (
+				3FC567B4C681D6F4990688B4621F5C77 /* ASAudioOutput.swift */,
+				9C2F17BCE7992D8BBAAD7BCC171ADFB5 /* ASDataOutput.swift */,
+				D59DAEEF9D1417A0F781B27A7927D04E /* ASVideoOutput.swift */,
+			);
+			name = Media;
+			path = ASMediaStream/Source/Media;
+			sourceTree = "<group>";
+		};
+		FAD7E6E1BD04B7942A160F776177617E /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7431B0B50755455656202C06CDEA1B80 /* ASMediaStream */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		377F6BAFC700FEC6FE8283B24DE88E63 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4573106368CA47711540253D5549B064 /* ASMediaStream-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		46307597EFBE99D7228D19AAA18603B7 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -833,14 +847,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E93EEE2FECEB32342ED3D52B42875B3E /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				08BAA51994CA49BDADAAFDB2608040A6 /* ASMediaStream-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		EE3516FDD49D855F70A0CEB6BC8E7C9E /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -862,23 +868,6 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		5995E7FE8D4808E7A7960468903D7946 /* ASMediaStream */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 67D3F6D858743D55742900466550F7C8 /* Build configuration list for PBXNativeTarget "ASMediaStream" */;
-			buildPhases = (
-				3A4DF288C7076C1B28D0A41BE57DA249 /* Sources */,
-				CC436FEA8C6BB12063B231A9DD75E39B /* Frameworks */,
-				E93EEE2FECEB32342ED3D52B42875B3E /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = ASMediaStream;
-			productName = ASMediaStream;
-			productReference = 485AE9E2ABCCC3A1483E1ADCB87F9280 /* ASMediaStream.framework */;
-			productType = "com.apple.product-type.framework";
-		};
 		694CA9E791A3B9612F519DB530703677 /* Pods-ASMediaStream_Tests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6ADAD099BCE15A5FE1AE7FAD55102574 /* Build configuration list for PBXNativeTarget "Pods-ASMediaStream_Tests" */;
@@ -895,6 +884,23 @@
 			name = "Pods-ASMediaStream_Tests";
 			productName = "Pods-ASMediaStream_Tests";
 			productReference = DFE3223C8CEE5C35B2B318DD08AC0DE1 /* Pods_ASMediaStream_Tests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		6EA38C23E1A8E8DC6CC4C991C555C4B6 /* ASMediaStream */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7F02E33A33F3C4197405C91A0881FB12 /* Build configuration list for PBXNativeTarget "ASMediaStream" */;
+			buildPhases = (
+				34D80A9D2EA1CCCE241ED0CB9AE245D4 /* Sources */,
+				02D710A13EE7AA7DDD64A95BB5380F80 /* Frameworks */,
+				377F6BAFC700FEC6FE8283B24DE88E63 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ASMediaStream;
+			productName = ASMediaStream;
+			productReference = 485AE9E2ABCCC3A1483E1ADCB87F9280 /* ASMediaStream.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		833F3E227063CC5A7466B8C77BF0BED7 /* SnapKit */ = {
@@ -976,7 +982,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0930;
-				LastUpgradeCheck = 1010;
+				LastUpgradeCheck = 0930;
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -990,7 +996,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5995E7FE8D4808E7A7960468903D7946 /* ASMediaStream */,
+				6EA38C23E1A8E8DC6CC4C991C555C4B6 /* ASMediaStream */,
 				CDA9FE58B4B04164483D30E4DDDA69F2 /* Pods-ASMediaStream_Example */,
 				694CA9E791A3B9612F519DB530703677 /* Pods-ASMediaStream_Tests */,
 				B7C8EC249F0F09642F6DF7F51C72FBCB /* PromiseKit */,
@@ -1099,34 +1105,34 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3A4DF288C7076C1B28D0A41BE57DA249 /* Sources */ = {
+		34D80A9D2EA1CCCE241ED0CB9AE245D4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A59ACEF007812C2529733FC33EF55373 /* ASCandidateRequest.swift in Sources */,
-				142FFE9560140E42769D05FD9E7D70BA /* ASCandidateResponse.swift in Sources */,
-				F14C22F6A9160BEC6D1D9E06BA9354C0 /* ASDataChannelPair.swift in Sources */,
-				E204E5FE9717E49A47A422B175B40026 /* ASMediaStream-dummy.m in Sources */,
-				3488972D59682B4F4A28692DEFBD431B /* ASMediaStreamClient.swift in Sources */,
-				235AC9DD84339CC133A3C9DBDA449FAD /* ASMediaStreamClientDelegate.swift in Sources */,
-				A2C12F9FDFC93EA9718C8B21C0D2EE93 /* ASMediaStreamClientError.swift in Sources */,
-				DC2C5D19ABC9DEA3B66D383ABEA1FF72 /* ASMediaStreamClientState.swift in Sources */,
-				6F059C3D210D4C1FB27D793CB6451DAC /* ASMediaStreamConnectionFactory.swift in Sources */,
-				FAD211CAE94DED436485929E80235820 /* ASMediaStreamContainer.swift in Sources */,
-				3FAE7B205ABCD4B0FE2D92F34C1866B2 /* ASMediaStreamItem.swift in Sources */,
-				A936B6901CB31FA4786157AA3AF86D73 /* ASMediaStreamSession.swift in Sources */,
-				96AC88F91EAF35B345DB7610C362A7E6 /* ASMediaStreamSessionDelegate.swift in Sources */,
-				840A6CDC6BB97EB8F7958C4DA8836418 /* ASMediaStreamSessionFactory.swift in Sources */,
-				FB64F0329E28EBF92546D9599D77054B /* ASMediaStreamSessionState.swift in Sources */,
-				8A841133C5562B760CED2AD0967B49BF /* ASSessionDescriptionRequest.swift in Sources */,
-				2109A58E55ECB565C623485FC084DDEE /* ASSessionDescriptionResponse.swift in Sources */,
-				2CCD0312C2388DDDA13546A071873148 /* ASVideoCapturer.swift in Sources */,
-				6628771A21E93A98003CD196 /* ASVideoOutput.swift in Sources */,
-				53EC967566129B3597FA0231E0FE2559 /* ASVideoCapturerError.swift in Sources */,
-				6628771821E93A98003CD196 /* ASAudioOutput.swift in Sources */,
-				A73AD1466C4C7B29D07B51B06530654D /* ASVideoResolution.swift in Sources */,
-				F98883E0959DCC5F57E74A736550FA62 /* ASVideoSettings.swift in Sources */,
-				6628771921E93A98003CD196 /* ASDataOutput.swift in Sources */,
+				8BED84282B1D57B75B3F3171B94760DA /* ASAudioOutput.swift in Sources */,
+				5A881032F3BCD51F6E223F00144497DE /* ASCandidateRequest.swift in Sources */,
+				EBCE87F10B2154E0C21A01E5F949719F /* ASCandidateResponse.swift in Sources */,
+				709DC81542D1C1D81AED6B3BC96EBA8D /* ASDataChannelPair.swift in Sources */,
+				7BC894AC08732BC675C1E80B3EB4EE3A /* ASDataOutput.swift in Sources */,
+				40459453124AEE91BFD25D9B86F8D69E /* ASMediaStream-dummy.m in Sources */,
+				C25EEE63F270DF99B31F38416B051F5D /* ASMediaStreamClient.swift in Sources */,
+				E734AF0FE333D207F1DF84BA3AFFB459 /* ASMediaStreamClientDelegate.swift in Sources */,
+				711C81A9C99A88B393073A872FD4C734 /* ASMediaStreamClientError.swift in Sources */,
+				0CD388E69E1CB2C3F77D7DA47F43EC0D /* ASMediaStreamClientState.swift in Sources */,
+				F70B480CD76525E242D031AEEAF8AC16 /* ASMediaStreamConnectionFactory.swift in Sources */,
+				E08540BA0BB32C308D73C27790AC69A1 /* ASMediaStreamContainer.swift in Sources */,
+				BFDF1D512C13D84EC72AA5B666652FDC /* ASMediaStreamItem.swift in Sources */,
+				4AF323AF913514CAA1A30BF9F8E7276E /* ASMediaStreamSession.swift in Sources */,
+				3904395BE6E02D55E259723153A8854C /* ASMediaStreamSessionDelegate.swift in Sources */,
+				6284DE48292DAB1FC7F87E33082F4899 /* ASMediaStreamSessionFactory.swift in Sources */,
+				A41A1FC0768C024A85F90F52032FD8B2 /* ASMediaStreamSessionState.swift in Sources */,
+				FC67B251DA6B3FC1138A77EA400B2CB2 /* ASSessionDescriptionRequest.swift in Sources */,
+				0319ABDC47713CCB327ADB3A34CA9360 /* ASSessionDescriptionResponse.swift in Sources */,
+				20D7DF3E6F90514D38D3401A448F89C1 /* ASVideoCapturer.swift in Sources */,
+				7E856415EC75B54600D9B8480959C42D /* ASVideoCapturerError.swift in Sources */,
+				19D1E7447EECE8FF2EC68D4707B19F8B /* ASVideoOutput.swift in Sources */,
+				8F7B1B949C540155D128AC8B9BE9B70F /* ASVideoResolution.swift in Sources */,
+				8E433AB4651F5989AD036E0630EFF631 /* ASVideoSettings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1158,7 +1164,7 @@
 		47D1060C698ADD98CEC916DBEE988D4E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = ASMediaStream;
-			target = 5995E7FE8D4808E7A7960468903D7946 /* ASMediaStream */;
+			target = 6EA38C23E1A8E8DC6CC4C991C555C4B6 /* ASMediaStream */;
 			targetProxy = E5C481D219C0B8B57E2871F850D3741F /* PBXContainerItemProxy */;
 		};
 		80604FB71C2827D698B0B9D000D31A8E /* PBXTargetDependency */ = {
@@ -1236,7 +1242,6 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Release;
@@ -1294,6 +1299,73 @@
 				MODULEMAP_FILE = "Target Support Files/PromiseKit/PromiseKit.modulemap";
 				PRODUCT_MODULE_NAME = PromiseKit;
 				PRODUCT_NAME = PromiseKit;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		4DA74BE9254836EB0CA250DC8065AD54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F4B017ED597445EF23A44D2AA992F2E9 /* ASMediaStream.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/ASMediaStream/ASMediaStream-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/ASMediaStream/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/ASMediaStream/ASMediaStream.modulemap";
+				PRODUCT_MODULE_NAME = ASMediaStream;
+				PRODUCT_NAME = ASMediaStream;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		6695B185BBA3D58412CFE266F0FAFDD7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F4B017ED597445EF23A44D2AA992F2E9 /* ASMediaStream.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/ASMediaStream/ASMediaStream-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/ASMediaStream/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/ASMediaStream/ASMediaStream.modulemap";
+				PRODUCT_MODULE_NAME = ASMediaStream;
+				PRODUCT_NAME = ASMediaStream;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
@@ -1365,41 +1437,6 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		7F4D48C386FAC3ABB9F6B3B62CCAC959 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = A9832D0309019CCCBC277DD28C75CB46 /* ASMediaStream.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_BITCODE = NO;
-				GCC_PREFIX_HEADER = "Target Support Files/ASMediaStream/ASMediaStream-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/ASMediaStream/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/ASMediaStream/ASMediaStream.modulemap";
-				PRODUCT_MODULE_NAME = ASMediaStream;
-				PRODUCT_NAME = ASMediaStream;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1575,40 +1612,6 @@
 			};
 			name = Release;
 		};
-		D141B51A99D11DB8A23AF2FD044A27BF /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = A9832D0309019CCCBC277DD28C75CB46 /* ASMediaStream.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_BITCODE = NO;
-				GCC_PREFIX_HEADER = "Target Support Files/ASMediaStream/ASMediaStream-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/ASMediaStream/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/ASMediaStream/ASMediaStream.modulemap";
-				PRODUCT_MODULE_NAME = ASMediaStream;
-				PRODUCT_NAME = ASMediaStream;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 		F627F38AE415B8824474BA1AD9760389 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3714D9D7D63A73C438BDD50DA1731383 /* SnapKit.xcconfig */;
@@ -1730,20 +1733,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		67D3F6D858743D55742900466550F7C8 /* Build configuration list for PBXNativeTarget "ASMediaStream" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D141B51A99D11DB8A23AF2FD044A27BF /* Debug */,
-				7F4D48C386FAC3ABB9F6B3B62CCAC959 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		6ADAD099BCE15A5FE1AE7FAD55102574 /* Build configuration list for PBXNativeTarget "Pods-ASMediaStream_Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6F6B10565276E7CAA9AA1BA9E2181CB4 /* Debug */,
 				FCAA4A9606B477DF65901C0629ACDD34 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7F02E33A33F3C4197405C91A0881FB12 /* Build configuration list for PBXNativeTarget "ASMediaStream" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6695B185BBA3D58412CFE266F0FAFDD7 /* Debug */,
+				4DA74BE9254836EB0CA250DC8065AD54 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -18,8 +18,6 @@
 		660105B921E24DD800E19369 /* WebSocketSessionError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 660105B821E24DD800E19369 /* WebSocketSessionError.swift */; };
 		660105BB21E24F7E00E19369 /* WebSocketSessionFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 660105BA21E24F7E00E19369 /* WebSocketSessionFactory.swift */; };
 		660105C121E250D200E19369 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 660105BC21E250D200E19369 /* UIViewController+Extension.swift */; };
-		660105C221E250D200E19369 /* UIVIew+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 660105BD21E250D200E19369 /* UIVIew+Extension.swift */; };
-		660105C321E250D200E19369 /* NSLayoutConstraint+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 660105BE21E250D200E19369 /* NSLayoutConstraint+Extension.swift */; };
 		660105C421E250D200E19369 /* Data+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 660105BF21E250D200E19369 /* Data+Extension.swift */; };
 		660105C521E250D200E19369 /* Encodable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 660105C021E250D200E19369 /* Encodable+Extension.swift */; };
 		660105C721E2521200E19369 /* JSONAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 660105C621E2521200E19369 /* JSONAdapter.swift */; };
@@ -30,8 +28,10 @@
 		660105D821E2577000E19369 /* WebSocketMessageRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 660105D721E2577000E19369 /* WebSocketMessageRemote.swift */; };
 		660105DA21E2586B00E19369 /* WebSocketContentRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 660105D921E2586B00E19369 /* WebSocketContentRemote.swift */; };
 		660105DC21E258E400E19369 /* WebSocketContentTypeRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 660105DB21E258E400E19369 /* WebSocketContentTypeRemote.swift */; };
-		662AF8EA21E2703200D46FD0 /* RoomTextInputViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 662AF8E921E2703200D46FD0 /* RoomTextInputViewCell.swift */; };
 		662AF8EC21E2705300D46FD0 /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 662AF8EB21E2705300D46FD0 /* RoomViewController.swift */; };
+		666DB48121EBB791002E423B /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666DB47F21EBB791002E423B /* NavigationController.swift */; };
+		666DB48221EBB791002E423B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666DB48021EBB791002E423B /* ViewController.swift */; };
+		666DB48521EBB7B8002E423B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 666DB48321EBB7B8002E423B /* Localizable.strings */; };
 		666F33B421E735E8007EC3B6 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666F33B321E735E8007EC3B6 /* UIColor+Extension.swift */; };
 		66D885AE21E390E5008AE4CC /* VideoPagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D885AD21E390E5008AE4CC /* VideoPagerViewController.swift */; };
 		66D885B021E39105008AE4CC /* VideoPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D885AF21E39105008AE4CC /* VideoPageViewController.swift */; };
@@ -65,8 +65,6 @@
 		660105B821E24DD800E19369 /* WebSocketSessionError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketSessionError.swift; sourceTree = "<group>"; };
 		660105BA21E24F7E00E19369 /* WebSocketSessionFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketSessionFactory.swift; sourceTree = "<group>"; };
 		660105BC21E250D200E19369 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
-		660105BD21E250D200E19369 /* UIVIew+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIVIew+Extension.swift"; sourceTree = "<group>"; };
-		660105BE21E250D200E19369 /* NSLayoutConstraint+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint+Extension.swift"; sourceTree = "<group>"; };
 		660105BF21E250D200E19369 /* Data+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Data+Extension.swift"; sourceTree = "<group>"; };
 		660105C021E250D200E19369 /* Encodable+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Encodable+Extension.swift"; sourceTree = "<group>"; };
 		660105C621E2521200E19369 /* JSONAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONAdapter.swift; sourceTree = "<group>"; };
@@ -77,8 +75,11 @@
 		660105D721E2577000E19369 /* WebSocketMessageRemote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketMessageRemote.swift; sourceTree = "<group>"; };
 		660105D921E2586B00E19369 /* WebSocketContentRemote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketContentRemote.swift; sourceTree = "<group>"; };
 		660105DB21E258E400E19369 /* WebSocketContentTypeRemote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketContentTypeRemote.swift; sourceTree = "<group>"; };
-		662AF8E921E2703200D46FD0 /* RoomTextInputViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomTextInputViewCell.swift; sourceTree = "<group>"; };
 		662AF8EB21E2705300D46FD0 /* RoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomViewController.swift; sourceTree = "<group>"; };
+		666DB47F21EBB791002E423B /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		666DB48021EBB791002E423B /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		666DB48421EBB7B8002E423B /* pl-PL */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pl-PL"; path = "pl-PL.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		666DB48621EBB7BD002E423B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		666F33B321E735E8007EC3B6 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		66D885AD21E390E5008AE4CC /* VideoPagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPagerViewController.swift; sourceTree = "<group>"; };
 		66D885AF21E39105008AE4CC /* VideoPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPageViewController.swift; sourceTree = "<group>"; };
@@ -207,7 +208,6 @@
 				660105CE21E2560500E19369 /* Model */,
 				660105B521E24B7900E19369 /* Signaling */,
 				662AF8E721E2701900D46FD0 /* Controller */,
-				662AF8E821E2702300D46FD0 /* View */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -220,8 +220,6 @@
 				660105C821E254CA00E19369 /* WSError+Extension.swift */,
 				660105BF21E250D200E19369 /* Data+Extension.swift */,
 				660105C021E250D200E19369 /* Encodable+Extension.swift */,
-				660105BE21E250D200E19369 /* NSLayoutConstraint+Extension.swift */,
-				660105BD21E250D200E19369 /* UIVIew+Extension.swift */,
 				660105BC21E250D200E19369 /* UIViewController+Extension.swift */,
 			);
 			path = Extension;
@@ -230,6 +228,7 @@
 		660105A521E2485500E19369 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				666DB48321EBB7B8002E423B /* Localizable.strings */,
 				6601059D21E2484F00E19369 /* LaunchScreen.xib */,
 				6601059F21E2484F00E19369 /* Main.storyboard */,
 				660105A121E2484F00E19369 /* Images.xcassets */,
@@ -266,16 +265,10 @@
 				66D885AD21E390E5008AE4CC /* VideoPagerViewController.swift */,
 				66D885AF21E39105008AE4CC /* VideoPageViewController.swift */,
 				662AF8EB21E2705300D46FD0 /* RoomViewController.swift */,
+				666DB47F21EBB791002E423B /* NavigationController.swift */,
+				666DB48021EBB791002E423B /* ViewController.swift */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		662AF8E821E2702300D46FD0 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				662AF8E921E2703200D46FD0 /* RoomTextInputViewCell.swift */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -349,6 +342,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"pl-PL",
 			);
 			mainGroup = 607FACC71AFB9204008FA782;
 			productRefGroup = 607FACD11AFB9204008FA782 /* Products */;
@@ -367,6 +361,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				660105A421E2484F00E19369 /* Images.xcassets in Resources */,
+				666DB48521EBB7B8002E423B /* Localizable.strings in Resources */,
 				660105A221E2484F00E19369 /* LaunchScreen.xib in Resources */,
 				660105A321E2484F00E19369 /* Main.storyboard in Resources */,
 			);
@@ -410,6 +405,7 @@
 				"${BUILT_PRODUCTS_DIR}/ASMediaStream/ASMediaStream.framework",
 				"${PODS_ROOT}/GoogleWebRTC/Frameworks/frameworks/WebRTC.framework",
 				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -417,6 +413,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ASMediaStream.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WebRTC.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -453,6 +450,7 @@
 				660105D021E2562A00E19369 /* SessionDescriptionRemote.swift in Sources */,
 				660105D421E2571000E19369 /* WebSocketMessageTypeRemote.swift in Sources */,
 				662AF8EC21E2705300D46FD0 /* RoomViewController.swift in Sources */,
+				666DB48221EBB791002E423B /* ViewController.swift in Sources */,
 				660105C121E250D200E19369 /* UIViewController+Extension.swift in Sources */,
 				660105C721E2521200E19369 /* JSONAdapter.swift in Sources */,
 				660105D221E2569000E19369 /* CandidateRemote.swift in Sources */,
@@ -460,17 +458,15 @@
 				6601059021E2481800E19369 /* AppDelegate.swift in Sources */,
 				6601059A21E2482100E19369 /* ASMediaStreamClientError+Extension.swift in Sources */,
 				660105DA21E2586B00E19369 /* WebSocketContentRemote.swift in Sources */,
-				660105C321E250D200E19369 /* NSLayoutConstraint+Extension.swift in Sources */,
 				660105C521E250D200E19369 /* Encodable+Extension.swift in Sources */,
 				660105C421E250D200E19369 /* Data+Extension.swift in Sources */,
 				66D885B021E39105008AE4CC /* VideoPageViewController.swift in Sources */,
 				660105BB21E24F7E00E19369 /* WebSocketSessionFactory.swift in Sources */,
 				660105B921E24DD800E19369 /* WebSocketSessionError.swift in Sources */,
 				666F33B421E735E8007EC3B6 /* UIColor+Extension.swift in Sources */,
-				660105C221E250D200E19369 /* UIVIew+Extension.swift in Sources */,
-				662AF8EA21E2703200D46FD0 /* RoomTextInputViewCell.swift in Sources */,
 				660105DC21E258E400E19369 /* WebSocketContentTypeRemote.swift in Sources */,
 				66D885AE21E390E5008AE4CC /* VideoPagerViewController.swift in Sources */,
+				666DB48121EBB791002E423B /* NavigationController.swift in Sources */,
 				660105B721E24D0900E19369 /* WebSocketSession.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -508,6 +504,15 @@
 				660105A021E2484F00E19369 /* Base */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		666DB48321EBB7B8002E423B /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				666DB48421EBB7B8002E423B /* pl-PL */,
+				666DB48621EBB7BD002E423B /* en */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
