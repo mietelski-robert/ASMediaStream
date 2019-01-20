@@ -12,13 +12,13 @@ public struct ASVideoOutput {
 
     // MARK: - Public properties
     
-    public var clientId: String?
+    public var peerId: String?
     public var videoTracks: [RTCVideoTrack]
     
     // MARK: - Initialization
     
-    public init(clientId: String? = nil, videoTracks: [RTCVideoTrack]) {
-        self.clientId = clientId
+    public init(peerId: String? = nil, videoTracks: [RTCVideoTrack]) {
+        self.peerId = peerId
         self.videoTracks = videoTracks
     }
 }

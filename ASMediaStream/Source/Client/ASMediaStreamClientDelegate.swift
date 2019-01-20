@@ -18,6 +18,7 @@ public protocol ASMediaStreamClientDelegate: class {
     func mediaStreamClient(_ client: ASMediaStreamClient, didDiscardRemoteVideo output: ASVideoOutput)
     func mediaStreamClient(_ client: ASMediaStreamClient, didReceiveRemoteAudio output: ASAudioOutput)
     func mediaStreamClient(_ client: ASMediaStreamClient, didDiscardRemoteAudio output: ASAudioOutput)
+    func mediaStreamClient(_ client: ASMediaStreamClient, didOpenDataChannelWithPeer peerId: String)
     func mediaStreamClient(_ client: ASMediaStreamClient, didReceiveData output: ASDataOutput)
     func mediaStreamClient(_ client: ASMediaStreamClient, didFailWithError error: Error)
 }

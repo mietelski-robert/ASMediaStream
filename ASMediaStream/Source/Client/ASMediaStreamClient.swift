@@ -249,20 +249,20 @@ extension ASMediaStreamClient {
 // MARK: - Data management
 
 extension ASMediaStreamClient {
-    public func sendBinaryData(_ data: Data, clientId: String) {
+    public func sendBinaryData(_ data: Data, peerId: String) {
         let buffer = RTCDataBuffer(data: data, isBinary: true)
         
-        if let item = self.container.item(identifier: clientId) {
+        if let item = self.container.item(identifier: peerId) {
             item.dataChannelPair.sender?.sendData(buffer)
         } else {
             self.delegate?.mediaStreamClient(self, didFailWithError: ASMediaStreamClientError.sendingDataFailed)
         }
     }
     
-    public func sendData(_ data: Data, clientId: String) {
+    public func sendData(_ data: Data, peerId: String) {
         let buffer = RTCDataBuffer(data: data, isBinary: false)
 
-        if let item = self.container.item(identifier: clientId) {
+        if let item = self.container.item(identifier: peerId) {
             item.dataChannelPair.sender?.sendData(buffer)
         } else {
             self.delegate?.mediaStreamClient(self, didFailWithError: ASMediaStreamClientError.sendingDataFailed)
@@ -351,9 +351,9 @@ extension ASMediaStreamClient: RTCPeerConnectionDelegate {
     
     public func peerConnection(_ peerConnection: RTCPeerConnection, didAdd stream: RTCMediaStream) {
         DispatchQueue.main.async {
-            let clientId = self.container.identifier(peerConnection: peerConnection)
-            let video = ASVideoOutput(clientId: clientId, videoTracks: stream.videoTracks)
-            let audio = ASAudioOutput(clientId: clientId, audioTracks: stream.audioTracks)
+            let identifier = self.container.identifier(peerConnection: peerConnection)
+            let video = ASVideoOutput(peerId: identifier, videoTracks: stream.videoTracks)
+            let audio = ASAudioOutput(peerId: identifier, audioTracks: stream.audioTracks)
             
             self.delegate?.mediaStreamClient(self, didReceiveRemoteVideo: video)
             self.delegate?.mediaStreamClient(self, didReceiveRemoteAudio: audio)
@@ -362,9 +362,9 @@ extension ASMediaStreamClient: RTCPeerConnectionDelegate {
     
     public func peerConnection(_ peerConnection: RTCPeerConnection, didRemove stream: RTCMediaStream) {
         DispatchQueue.main.async {
-            let clientId = self.container.identifier(peerConnection: peerConnection)
-            let video = ASVideoOutput(clientId: clientId, videoTracks: stream.videoTracks)
-            let audio = ASAudioOutput(clientId: clientId, audioTracks: stream.audioTracks)
+            let identifier = self.container.identifier(peerConnection: peerConnection)
+            let video = ASVideoOutput(peerId: identifier, videoTracks: stream.videoTracks)
+            let audio = ASAudioOutput(peerId: identifier, audioTracks: stream.audioTracks)
             
             self.delegate?.mediaStreamClient(self, didDiscardRemoteVideo: video)
             self.delegate?.mediaStreamClient(self, didDiscardRemoteAudio: audio)
@@ -401,9 +401,10 @@ extension ASMediaStreamClient: RTCPeerConnectionDelegate {
             if let identifier = self.container.identifier(peerConnection: peerConnection) {
                 let previousItem = self.container.item(identifier: identifier)
                 let dataChannelPair = ASDataChannelPair(sender: dataChannel, receiver: previousItem?.dataChannelPair.receiver)
+                let item = ASMediaStreamItem(peerConnection: peerConnection, dataChannelPair: dataChannelPair)
                 
-                self.container.setItem(ASMediaStreamItem(peerConnection: peerConnection, dataChannelPair: dataChannelPair),
-                                       forIdentifier: identifier)
+                self.container.setItem(item, forIdentifier: identifier)
+                self.delegate?.mediaStreamClient(self, didOpenDataChannelWithPeer: identifier)
             } else {
                 self.delegate?.mediaStreamClient(self, didFailWithError: ASMediaStreamClientError.openingChannelFailed)
             }
@@ -420,8 +421,8 @@ extension ASMediaStreamClient: RTCDataChannelDelegate {
     
     public func dataChannel(_ dataChannel: RTCDataChannel, didReceiveMessageWith buffer: RTCDataBuffer) {
         DispatchQueue.main.async {
-            let clientId = self.container.identifier(receiver: dataChannel)
-            let data = ASDataOutput(clientId: clientId, data: buffer.data)
+            let identifier = self.container.identifier(receiver: dataChannel)
+            let data = ASDataOutput(peerId: identifier, data: buffer.data)
             self.delegate?.mediaStreamClient(self, didReceiveData: data)
         }
     }

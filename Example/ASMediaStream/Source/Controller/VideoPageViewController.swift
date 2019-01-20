@@ -19,7 +19,7 @@ class VideoPageViewController: UIViewController {
     // MARK: - Public properties
 
     var videoTrack: RTCVideoTrack?
-    var clientId: String?
+    var peerId: String?
     
     // MARK: - Private properties
     

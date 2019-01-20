@@ -13,7 +13,7 @@ public protocol ASMediaStreamSession: class {
     // MARK: - Public attributes
     
     var roomName: String { get }
-    var clientIdentifier: String? { get }
+    var peerId: String? { get }
     var serverUrl: URL { get }
     var state: ASMediaStreamSessionState { get }
     

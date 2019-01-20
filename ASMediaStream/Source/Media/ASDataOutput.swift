@@ -12,13 +12,13 @@ public struct ASDataOutput {
 
     // MARK: - Public properties
     
-    public var clientId: String?
+    public var peerId: String?
     public var data: Data
     
     // MARK: - Initialization
     
-    public init(clientId: String? = nil, data: Data) {
-        self.clientId = clientId
+    public init(peerId: String? = nil, data: Data) {
+        self.peerId = peerId
         self.data = data
     }
 }

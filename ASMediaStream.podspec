@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ASMediaStream'
-  s.version          = '1.0.0'
+  s.version          = '1.0.1'
   s.summary          = 'Library to make an audio video call.'
 
 # This description is used to generate tags and improve search results.

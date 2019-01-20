@@ -15,7 +15,7 @@ class WebSocketSession: NSObject {
     // MARK: - Public attributes
     
     private(set) var roomName: String
-    private(set) var clientIdentifier: String?
+    private(set) var peerId: String?
     private(set) var serverUrl: URL
     private(set) var state: ASMediaStreamSessionState = .closed
     
@@ -115,7 +115,7 @@ extension WebSocketSession: ASMediaStreamSession {
     
     func send(_ request: ASSessionDescriptionRequest, completion: (() -> Void)?) {
         do {
-            guard let senderId = self.clientIdentifier else {
+            guard let senderId = self.peerId else {
                 throw WebSocketSessionError.sendingConfigurationFailed
             }
             
@@ -143,7 +143,7 @@ extension WebSocketSession: ASMediaStreamSession {
     
     func send(_ request: ASCandidateRequest, completion: (() -> Void)?) {
         do {
-            guard let senderId = self.clientIdentifier else {
+            guard let senderId = self.peerId else {
                 throw WebSocketSessionError.sendingConfigurationFailed
             }
             
@@ -201,7 +201,7 @@ extension WebSocketSession: WebSocketDelegate {
                     let message: JoinMessageRemote = try JSONAdapter().decodeToObject(from: messageDictionary)
                     let members = message.content?.roomMemberIds ?? []
                     
-                    self.clientIdentifier = message.senderId
+                    self.peerId = message.senderId
                     self.changeState(to: .joined(members: members))
                 case .broadcast, .message:
                     let rawValue = contentDictionary["type"] as? String

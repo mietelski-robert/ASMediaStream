@@ -208,12 +208,12 @@ extension VideoPagerViewController {
 // MARK: - Page management
 
 extension VideoPagerViewController {
-    private func videoPageViewController(clientId: String?, videoTrack: RTCVideoTrack?) -> UIViewController {
+    private func videoPageViewController(peerId: String?, videoTrack: RTCVideoTrack?) -> UIViewController {
         let viewController = self.storyboard!.instantiateViewController(withIdentifier: "VideoPageViewControllerIdentifier")
         
         if let videoPageViewController = viewController as? VideoPageViewController {
             videoPageViewController.videoTrack = videoTrack
-            videoPageViewController.clientId = clientId
+            videoPageViewController.peerId = peerId
         }
         return viewController
     }
@@ -232,7 +232,7 @@ extension VideoPagerViewController {
     }
     
     private func makeViewControllers(with output: ASVideoOutput) -> [UIViewController] {
-        return output.videoTracks.map { self.videoPageViewController(clientId: output.clientId, videoTrack: $0) }
+        return output.videoTracks.map { self.videoPageViewController(peerId: output.peerId, videoTrack: $0) }
     }
 }
 
@@ -396,6 +396,10 @@ extension VideoPagerViewController: ASMediaStreamClientDelegate {
     }
     
     func mediaStreamClient(_ client: ASMediaStreamClient, didDiscardRemoteAudio output: ASAudioOutput) {
+        
+    }
+    
+    func mediaStreamClient(_ client: ASMediaStreamClient, didOpenDataChannelWithPeer peerId: String) {
         
     }
     
