@@ -1,6 +1,6 @@
 {
   "name": "ASMediaStream",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "summary": "Library to make an audio video call.",
   "description": "TODO: Add long description of the pod here.",
   "homepage": "https://github.com/mietelski-robert/ASMediaStream",
@@ -14,7 +14,7 @@
   },
   "source": {
     "git": "https://github.com/mietelski-robert/ASMediaStream.git",
-    "tag": "1.0.0"
+    "tag": "1.0.1"
   },
   "platforms": {
     "ios": "11.0"

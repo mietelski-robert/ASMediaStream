@@ -16,8 +16,6 @@
 "error.enableAudioFailed" = "Nie udało się włączyć mikrofonu";
 "error.disableAudioFailed" = "Nie udało się wyłączyć mikrofonu";
 "error.joiningRoomFailed" = "Nie udało się nawiązać połączenia";
-"error.openingChannelFailed" = "Nie udało się otworzyć kanału wymiany danych";
-"error.sendingDataFailed" = "Nie udało się wysłać danych";
 
 "error.encodingDataFailed" = "Nie udało się zakodować wiadomości";
 "error.decodingDataFailed" = "Nie udało się odkodować wiadomości";

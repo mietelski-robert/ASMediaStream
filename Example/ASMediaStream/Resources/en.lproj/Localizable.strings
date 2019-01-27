@@ -16,8 +16,6 @@
 "error.enableAudioFailed" = "Unable to turn on microphone";
 "error.disableAudioFailed" = "Unable to turn off microphone";
 "error.joiningRoomFailed" = "Unable to connect with room";
-"error.openingChannelFailed" = "Unable to open data channel";
-"error.sendingDataFailed" = "Unable to send data";
 
 "error.encodingDataFailed" = "Unable to encode message";
 "error.decodingDataFailed" = "Unable to decode message";

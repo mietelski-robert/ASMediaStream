@@ -21,10 +21,6 @@ extension ASMediaStreamClientError: LocalizedError {
             return NSLocalizedString("error.disableAudioFailed", comment: "")
         case .joiningRoomFailed:
             return NSLocalizedString("error.joiningRoomFailed", comment: "")
-        case .openingChannelFailed:
-            return NSLocalizedString("error.openingChannelFailed", comment: "")
-        case .sendingDataFailed:
-            return NSLocalizedString("error.sendingDataFailed", comment: "")
         }
     }
 }

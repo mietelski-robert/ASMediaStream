@@ -8,17 +8,19 @@
 
 import WebRTC
 
-class ASDataChannelPair {
+class ASDataChannelPair: NSObject {
 
     // MARK: - Public properties
     
-    let sender: RTCDataChannel?
-    let receiver: RTCDataChannel?
+    var sender: RTCDataChannel?
+    var receiver: RTCDataChannel?
     
     // MARK: - Initialization
     
     init(sender: RTCDataChannel? = nil, receiver: RTCDataChannel? = nil) {
         self.sender = sender
         self.receiver = receiver
+        
+        super.init()
     }
 }

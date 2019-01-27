@@ -231,8 +231,8 @@ extension VideoPagerViewController {
         }
     }
     
-    private func makeViewControllers(with output: ASVideoOutput) -> [UIViewController] {
-        return output.videoTracks.map { self.videoPageViewController(peerId: output.peerId, videoTrack: $0) }
+    private func makeViewControllers(peerId: String?, videoTracks: [RTCVideoTrack]) -> [UIViewController] {
+        return videoTracks.map { self.videoPageViewController(peerId: peerId, videoTrack: $0) }
     }
 }
 
@@ -339,77 +339,52 @@ extension VideoPagerViewController: ASMediaStreamClientDelegate {
         
     }
     
-    func mediaStreamClient(_ client: ASMediaStreamClient, didReceiveLocalVideo output: ASVideoOutput) {
-        guard let videoTrack = output.videoTracks.first else {
-            return
-        }
-        videoTrack.add(self.videoRenderer)
+    func mediaStreamClient(_ client: ASMediaStreamClient, didReceiveVideoTrack track: RTCVideoTrack) {
+        track.add(self.videoRenderer)
         client.videoCapturer?.startCapture()
     }
     
-    func mediaStreamClient(_ client: ASMediaStreamClient, didDiscardLocalVideo output: ASVideoOutput) {
-        for videoTrack in output.videoTracks {
-            videoTrack.remove(self.videoRenderer)
-        }
+    func mediaStreamClient(_ client: ASMediaStreamClient, didDiscardVideoTrack track: RTCVideoTrack) {
+        track.remove(self.videoRenderer)
         client.videoCapturer?.stopCapture()
-    }
-    
-    func mediaStreamClient(_ client: ASMediaStreamClient, didReceiveLocalAudio output: ASAudioOutput) {
-        
-    }
-    
-    func mediaStreamClient(_ client: ASMediaStreamClient, didDiscardLocalAudio output: ASAudioOutput) {
-        
-    }
-    
-    func mediaStreamClient(_ client: ASMediaStreamClient, didReceiveRemoteVideo output: ASVideoOutput) {
-        let viewControllers = self.makeViewControllers(with: output)
-        self.viewControllers.append(contentsOf: viewControllers)
-
-        self.pageViewController?.setViewControllers([self.viewControllers[self.currentPageIndex]],
-                                                    direction: .forward,
-                                                    animated: false,
-                                                    completion: nil)
-    }
-    
-    func mediaStreamClient(_ client: ASMediaStreamClient, didDiscardRemoteVideo output: ASVideoOutput) {
-        for item in self.viewControllerItems(of: output.videoTracks) {
-            self.viewControllers.remove(at: item.offset)
-        }
-        let viewControllers: [UIViewController]
-
-        if let viewController = self.viewControllers.first {
-            viewControllers = [viewController]
-        } else {
-            viewControllers = []
-        }
-
-        self.pageViewController?.setViewControllers(viewControllers,
-                                                    direction: .reverse,
-                                                    animated: true,
-                                                    completion: nil)
-        self.currentPageIndex = 0
-    }
-    
-    func mediaStreamClient(_ client: ASMediaStreamClient, didReceiveRemoteAudio output: ASAudioOutput) {
-        
-    }
-    
-    func mediaStreamClient(_ client: ASMediaStreamClient, didDiscardRemoteAudio output: ASAudioOutput) {
-        
-    }
-    
-    func mediaStreamClient(_ client: ASMediaStreamClient, didOpenDataChannelWithPeer peerId: String) {
-        
-    }
-    
-    func mediaStreamClient(_ client: ASMediaStreamClient, didReceiveData output: ASDataOutput) {
-
     }
     
     func mediaStreamClient(_ client: ASMediaStreamClient, didFailWithError error: Error) {
         self.showDialog(title: NSLocalizedString("error.title", comment: ""),
                         message: error.localizedDescription,
                         cancelButtonTitle: NSLocalizedString("error.ok", comment: ""))
+    }
+    
+    func mediaStreamClient(_ client: ASMediaStreamClient, peer: ASPeer, didChangeConnectionState state: RTCIceConnectionState) {
+        
+    }
+    
+    func mediaStreamClient(_ client: ASMediaStreamClient, peer: ASPeer, didReceiveVideoTracks tracks: [RTCVideoTrack]) {
+        let viewControllers = self.makeViewControllers(peerId: client.identifier(peer: peer), videoTracks: tracks)
+        self.viewControllers.append(contentsOf: viewControllers)
+        
+        self.pageViewController?.setViewControllers([self.viewControllers[self.currentPageIndex]],
+                                                    direction: .forward,
+                                                    animated: false,
+                                                    completion: nil)
+    }
+    
+    func mediaStreamClient(_ client: ASMediaStreamClient, peer: ASPeer, didDiscardVideoTracks tracks: [RTCVideoTrack]) {
+        for item in self.viewControllerItems(of: tracks) {
+            self.viewControllers.remove(at: item.offset)
+        }
+        let viewControllers: [UIViewController]
+        
+        if let viewController = self.viewControllers.first {
+            viewControllers = [viewController]
+        } else {
+            viewControllers = []
+        }
+        
+        self.pageViewController?.setViewControllers(viewControllers,
+                                                    direction: .reverse,
+                                                    animated: true,
+                                                    completion: nil)
+        self.currentPageIndex = 0
     }
 }
