@@ -360,7 +360,7 @@ extension VideoPagerViewController: ASMediaStreamClientDelegate {
     }
     
     func mediaStreamClient(_ client: ASMediaStreamClient, peer: ASPeer, didReceiveVideoTracks tracks: [RTCVideoTrack]) {
-        let viewControllers = self.makeViewControllers(peerId: client.identifier(peer: peer), videoTracks: tracks)
+        let viewControllers = self.makeViewControllers(peerId: peer.identifier, videoTracks: tracks)
         self.viewControllers.append(contentsOf: viewControllers)
         
         self.pageViewController?.setViewControllers([self.viewControllers[self.currentPageIndex]],

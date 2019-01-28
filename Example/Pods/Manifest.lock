@@ -1,5 +1,5 @@
 PODS:
-  - ASMediaStream (1.0.1):
+  - ASMediaStream (1.0.2):
     - GoogleWebRTC
   - GoogleWebRTC (1.1.26115)
   - PromiseKit (6.7.1):
@@ -32,7 +32,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  ASMediaStream: 44dca44eaa569012f78d00717df6110451fd6667
+  ASMediaStream: f57044dea0d91547b1671b2187c30c87423df2eb
   GoogleWebRTC: 7d833975fab5dcd21a89d2a97a375593b90cbc9b
   PromiseKit: ef376fb8b4e92edfeb66bd403b983eaa07fbde0c
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a

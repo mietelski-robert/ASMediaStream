@@ -12,6 +12,12 @@ public class ASPeer: NSObject {
 
     // MARK: - Public properties
     
+    public private(set) var identifier: String
+    public private(set) var localStreams: [RTCMediaStream] = []
+    public private(set) var signalingState: RTCSignalingState = .stable
+    public private(set) var iceConnectionState: RTCIceConnectionState = .new
+    public private(set) var iceGatheringState: RTCIceGatheringState = .new
+    
     weak var delegate: ASPeerDelegate?
     
     // MARK: - Private properties
@@ -21,12 +27,13 @@ public class ASPeer: NSObject {
     
     // MARK: - Initialization
     
-    init(iceServers: [RTCIceServer], dataChannelLabel: String, factory: ASPeerFactory) {
+    init(identifier: String, iceServers: [RTCIceServer], factory: ASPeerFactory) {
+        self.identifier = identifier
         super.init()
         
         let configuration = factory.makeDataChannelConfiguration()
         let peerConnection = factory.makePeerConnection(iceServers: iceServers, delegate: self)
-        let dataChannel = peerConnection.dataChannel(forLabel: dataChannelLabel, configuration: configuration, delegate: self)
+        let dataChannel = peerConnection.dataChannel(forLabel: identifier, configuration: configuration, delegate: self)
         
         self.peerConnection = peerConnection
         self.dataChannelPair = ASDataChannelPair(sender: nil, receiver: dataChannel)
@@ -112,30 +119,35 @@ extension ASPeer: RTCPeerConnectionDelegate {
     
     public func peerConnection(_ peerConnection: RTCPeerConnection, didChange stateChanged: RTCSignalingState) {
         DispatchQueue.main.async {
+            self.signalingState = stateChanged
             self.delegate?.peer(self, didChangeSignalingState: stateChanged)
         }
     }
     
     public func peerConnection(_ peerConnection: RTCPeerConnection, didAdd stream: RTCMediaStream) {
         DispatchQueue.main.async {
+            self.localStreams.append(stream)
             self.delegate?.peer(self, didAddStream: stream)
         }
     }
     
     public func peerConnection(_ peerConnection: RTCPeerConnection, didRemove stream: RTCMediaStream) {
         DispatchQueue.main.async {
+            self.localStreams = self.localStreams.filter { $0 != stream }
             self.delegate?.peer(self, didRemoveStream: stream)
         }
     }
     
     public func peerConnection(_ peerConnection: RTCPeerConnection, didChange newState: RTCIceConnectionState) {
         DispatchQueue.main.async {
+            self.iceConnectionState = newState
             self.delegate?.peer(self, didChangeConnectionState: newState)
         }
     }
     
     public func peerConnection(_ peerConnection: RTCPeerConnection, didChange newState: RTCIceGatheringState) {
         DispatchQueue.main.async {
+            self.iceGatheringState = newState
             self.delegate?.peer(self, didChangeGatheringState: newState)
         }
     }

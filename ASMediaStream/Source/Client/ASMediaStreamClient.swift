@@ -272,8 +272,8 @@ extension ASMediaStreamClient {
 // MARK: - Configuration
 
 extension ASMediaStreamClient {
-    private func makePeer(dataChannelLabel label: String) -> ASPeer {
-        let peer = ASPeer(iceServers: self.iceServers, dataChannelLabel: label, factory: self.peerFactory)
+    private func makePeer(peerId: String) -> ASPeer {
+        let peer = ASPeer(identifier: peerId, iceServers: self.iceServers, factory: self.peerFactory)
         peer.delegate = self
         
         return peer
@@ -390,7 +390,7 @@ extension ASMediaStreamClient: ASMediaStreamSessionDelegate {
             self.changeState(to: .connected)
         case .joined(let members):
             for identifier in members {
-                let peer = self.makePeer(dataChannelLabel: identifier)
+                let peer = self.makePeer(peerId: identifier)
                 
                 if let mediaStream = self.localStream {
                     peer.add(mediaStream)
@@ -409,7 +409,7 @@ extension ASMediaStreamClient: ASMediaStreamSessionDelegate {
         if let currentPeer = self.peer(identifier: response.senderId) {
             peer = currentPeer
         } else {
-            peer = self.makePeer(dataChannelLabel: response.senderId)
+            peer = self.makePeer(peerId: response.senderId)
             
             if let mediaStream = self.localStream {
                 peer.add(mediaStream)
