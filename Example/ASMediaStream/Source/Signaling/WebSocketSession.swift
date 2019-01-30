@@ -87,7 +87,7 @@ extension WebSocketSession {
 // MARK: - ASMediaStreamSession
 
 extension WebSocketSession: ASMediaStreamSession {
-    func join(completion: (() -> Void)?) {
+    func join(parameters: [String : Any], completion: (() -> Void)?) {
         do {
             let message = JoinMessageRemote(roomId: self.roomName)
             let jsonBody = try JSONAdapter().encodeToJSON(from: message)

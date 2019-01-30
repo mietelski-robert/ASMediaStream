@@ -25,7 +25,7 @@ public protocol ASMediaStreamSession: class {
     
     // MARK: - Access methods
     
-    func join(completion: (() -> Void)?)
+    func join(parameters: [String: Any], completion: (() -> Void)?)
     func leave()
     
     func send(_ request: ASSessionDescriptionRequest, completion: (() -> Void)?)
@@ -33,8 +33,8 @@ public protocol ASMediaStreamSession: class {
 }
 
 public extension ASMediaStreamSession {
-    func join() {
-        self.join(completion: nil)
+    func join(parameters: [String: Any]) {
+        self.join(parameters: parameters, completion: nil)
     }
     
     func send(_ request: ASSessionDescriptionRequest) {

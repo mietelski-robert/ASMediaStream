@@ -131,7 +131,7 @@ extension ASMediaStreamClient {
 // MARK: - Connection management
 
 extension ASMediaStreamClient {
-    public func connectToRoom(name roomName: String) {
+    public func connectToRoom(name roomName: String, parameters: [String: Any] = [:]) {
         do {
             guard self.state == .disconnected else {
                 throw ASMediaStreamClientError.joiningRoomFailed
@@ -139,7 +139,7 @@ extension ASMediaStreamClient {
             self.changeState(to: .connecting)
             
             self.session = self.sessionFactory.makeSession(roomName: roomName, delegate: self)
-            self.session?.join() { [weak self] in
+            self.session?.join(parameters: parameters) { [weak self] in
                 guard let caller = self else { return }
                 
                 do {
@@ -351,7 +351,7 @@ extension ASMediaStreamClient: ASPeerDelegate {
     }
 
     func peer(_ peer: ASPeer, didChangeConnectionState state: RTCIceConnectionState) {
-        if case .disconnected = state, let identifier = self.identifier(peer: peer) {
+        if case .closed = state, let identifier = self.identifier(peer: peer) {
             self.setPeer(nil, forIdentifier: identifier)
             
             if let mediaStream = self.localStream {
