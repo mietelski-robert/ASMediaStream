@@ -12,5 +12,5 @@ public protocol ASMediaStreamSessionFactory: class {
 
     // MARK: - Access methods
     
-    func makeSession(roomName: String, delegate: ASMediaStreamSessionDelegate) -> ASMediaStreamSession
+    func makeSession(roomName: String, parameters: [String: Any], delegate: ASMediaStreamSessionDelegate?) -> ASMediaStreamSession
 }

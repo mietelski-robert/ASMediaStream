@@ -15,9 +15,9 @@ class WebSocketSessionFactory {
 // MARK: - ASMediaStreamSessionFactory
 
 extension WebSocketSessionFactory: ASMediaStreamSessionFactory {
-    func makeSession(roomName: String, delegate: ASMediaStreamSessionDelegate) -> ASMediaStreamSession {
+    func makeSession(roomName: String, parameters: [String : Any], delegate: ASMediaStreamSessionDelegate?) -> ASMediaStreamSession {
         let serverUrl = URL(string: "ws://host.com")!
-        let session = WebSocketSession(roomName: roomName, serverUrl: serverUrl)
+        let session = WebSocketSession(serverUrl: serverUrl, roomName: roomName, parameters: parameters)
         session.delegate = delegate
         
         return session

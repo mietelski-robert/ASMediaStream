@@ -11,21 +11,22 @@ import Foundation
 public protocol ASMediaStreamSession: class {
     
     // MARK: - Public attributes
-    
-    var roomName: String { get }
-    var peerId: String? { get }
+
     var serverUrl: URL { get }
+    var roomName: String { get }
+    var parameters: [String: Any] { get }
+    var peerId: String? { get }
     var state: ASMediaStreamSessionState { get }
     
     var delegate: ASMediaStreamSessionDelegate? { set get }
     
     // MARK: - Initialization
     
-    init(roomName: String, serverUrl: URL)
+    init(serverUrl: URL, roomName: String, parameters: [String: Any])
     
     // MARK: - Access methods
     
-    func join(parameters: [String: Any], completion: (() -> Void)?)
+    func join(completion: (() -> Void)?)
     func leave()
     
     func send(_ request: ASSessionDescriptionRequest, completion: (() -> Void)?)
@@ -33,8 +34,8 @@ public protocol ASMediaStreamSession: class {
 }
 
 public extension ASMediaStreamSession {
-    func join(parameters: [String: Any]) {
-        self.join(parameters: parameters, completion: nil)
+    func join() {
+        self.join(completion: nil)
     }
     
     func send(_ request: ASSessionDescriptionRequest) {

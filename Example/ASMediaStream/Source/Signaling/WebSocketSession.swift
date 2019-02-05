@@ -14,9 +14,10 @@ class WebSocketSession: NSObject {
 
     // MARK: - Public attributes
     
-    private(set) var roomName: String
-    private(set) var peerId: String?
     private(set) var serverUrl: URL
+    private(set) var roomName: String
+    private(set) var parameters: [String: Any]
+    private(set) var peerId: String?
     private(set) var state: ASMediaStreamSessionState = .closed
     
     weak var delegate: ASMediaStreamSessionDelegate?
@@ -31,14 +32,18 @@ class WebSocketSession: NSObject {
     
     // MARK: - Initialization
     
-    required init(roomName: String, serverUrl: URL) {
-        self.roomName = roomName
+    required init(serverUrl: URL, roomName: String, parameters: [String: Any] = [:]) {
         self.serverUrl = serverUrl
+        self.roomName = roomName
+        self.parameters = parameters
+        
         super.init()
+        self.registerNotifications()
     }
     
     deinit {
         self.leave()
+        self.unregisterNotifications()
     }
 }
 
@@ -87,7 +92,7 @@ extension WebSocketSession {
 // MARK: - ASMediaStreamSession
 
 extension WebSocketSession: ASMediaStreamSession {
-    func join(parameters: [String : Any], completion: (() -> Void)?) {
+    func join(completion: (() -> Void)?) {
         do {
             let message = JoinMessageRemote(roomId: self.roomName)
             let jsonBody = try JSONAdapter().encodeToJSON(from: message)
@@ -178,9 +183,9 @@ extension WebSocketSession: WebSocketDelegate {
     }
     
     func websocketDidDisconnect(socket: WebSocketClient, error: Error?) {
-        if let error = error {
-            self.delegate?.mediaStreamSession(self, didFailWithError: error)
-        } else {
+        if let error = error as? WSError, error.code == CloseCode.normal.rawValue {
+            self.changeState(to: .closed)
+        } else if self.state == .open {
             self.changeState(to: .closed)
         }
     }
@@ -235,5 +240,30 @@ extension WebSocketSession: WebSocketDelegate {
 
     func websocketDidReceiveData(socket: WebSocketClient, data: Data) {
         
+    }
+}
+
+// MARK: - Notifications
+
+extension WebSocketSession {
+    private func registerNotifications() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(applicationDidBecomeActive(notification:)),
+                                               name: NSNotification.Name.UIApplicationDidBecomeActive ,
+                                               object: nil)
+    }
+    
+    private func unregisterNotifications() {
+        NotificationCenter.default.removeObserver(self,
+                                                  name: NSNotification.Name.UIApplicationDidBecomeActive,
+                                                  object: nil)
+    }
+    
+    @objc private func applicationDidBecomeActive(notification: NSNotification) {
+        guard !self.socket.isConnected, self.state != .closed else {
+            return
+        }
+        self.changeState(to: .reconnecting)
+        self.join()
     }
 }

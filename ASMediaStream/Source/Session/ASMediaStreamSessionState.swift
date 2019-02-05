@@ -11,6 +11,7 @@ import Foundation
 public enum ASMediaStreamSessionState {
     case open
     case joined(members: [String])
+    case reconnecting
     case closed
 }
 
@@ -21,6 +22,8 @@ extension ASMediaStreamSessionState: Equatable {
             return true
         case (.joined(let array1), .joined(let array2)):
             return array1 == array2
+        case (.reconnecting, .reconnecting):
+            return true
         case (.closed, .closed):
             return true
         default:

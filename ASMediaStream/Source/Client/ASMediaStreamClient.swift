@@ -9,59 +9,53 @@
 import WebRTC
 
 public class ASMediaStreamClient: NSObject {
-
+    
     // MARK: - Public attributes
     
     public var isVideoEnabled: Bool = true {
         didSet {
-            guard let mediaStream = self.localStream, isVideoEnabled != oldValue else {
-                return
-            }
-            do {
-                if isVideoEnabled {
-                    try self.enableVideo(for: mediaStream)
-                } else {
-                    try self.disableVideo(for: mediaStream)
-                }
-            } catch {
-                self.delegate?.mediaStreamClient(self, didFailWithError: error)
-            }
+            self.videoTrack?.isEnabled = isVideoEnabled
         }
     }
     
     public var isAudioEnabled: Bool = true {
         didSet {
-            guard let mediaStream = self.localStream, isAudioEnabled != oldValue else {
-                return
-            }
-            do {
-                if isAudioEnabled {
-                    try self.enableAudio(for: mediaStream)
-                } else {
-                    try self.disableAudio(for: mediaStream)
-                }
-            } catch {
-                self.delegate?.mediaStreamClient(self, didFailWithError: error)
-            }
+            self.audioTrack?.isEnabled = isAudioEnabled
         }
-    }
-    
-    public var videoTrack: RTCVideoTrack? {
-        guard let streamId = self.localStream?.streamId else {
-            return nil
-        }
-        return self.videoTrackCasche[streamId]
-    }
-    
-    public var audioTrack: RTCAudioTrack? {
-        guard let streamId = self.localStream?.streamId else {
-            return nil
-        }
-        return self.audioTrackCasche[streamId]
     }
     
     public var peers: [ASPeer] {
         return Array(self.peerDictionary.values)
+    }
+    
+    public private(set) var videoTrack: RTCVideoTrack? {
+        willSet {
+            guard let videoTrack = videoTrack else {
+                return
+            }
+            self.delegate?.mediaStreamClient(self, didDiscardVideoTrack: videoTrack)
+        }
+        didSet {
+            guard let videoTrack = videoTrack else {
+                return
+            }
+            self.delegate?.mediaStreamClient(self, didReceiveVideoTrack: videoTrack)
+        }
+    }
+    
+    public var audioTrack: RTCAudioTrack? {
+        willSet {
+            guard let audioTrack = audioTrack else {
+                return
+            }
+            self.delegate?.mediaStreamClient(self, didDiscardAudioTrack: audioTrack)
+        }
+        didSet {
+            guard let audioTrack = audioTrack else {
+                return
+            }
+            self.delegate?.mediaStreamClient(self, didReceiveAudioTrack: audioTrack)
+        }
     }
     
     public private(set) var iceServers: [RTCIceServer]
@@ -77,8 +71,6 @@ public class ASMediaStreamClient: NSObject {
     private let sessionFactory: ASMediaStreamSessionFactory
     private var peerDictionary: [String: ASPeer] = [:]
     
-    private var audioTrackCasche = [String: RTCAudioTrack]()
-    private var videoTrackCasche = [String: RTCVideoTrack]()
     private var session: ASMediaStreamSession?
     private var localStream: RTCMediaStream?
     
@@ -138,20 +130,24 @@ extension ASMediaStreamClient {
             }
             self.changeState(to: .connecting)
             
-            self.session = self.sessionFactory.makeSession(roomName: roomName, delegate: self)
-            self.session?.join(parameters: parameters) { [weak self] in
+            self.session = self.sessionFactory.makeSession(roomName: roomName, parameters: parameters, delegate: self)
+            self.session?.join() { [weak self] in
                 guard let caller = self else { return }
                 
                 do {
                     let mediaStream = caller.streamFactory.makeMediaStream(withStreamId: MediaIdentifiers.localStream)
-      
-                    if caller.isVideoEnabled {
-                        try caller.enableVideo(for: mediaStream)
-                    }
-                    if caller.isAudioEnabled {
-                        try caller.enableAudio(for: mediaStream)
-                    }
+                    let videoTrack = try caller.makeVideoTrack(isEnabled: caller.isVideoEnabled)
+                    let audioTrack = try caller.makeAudioTrack(isEnabled: caller.isAudioEnabled)
+                    
+                    mediaStream.addVideoTrack(videoTrack)
+                    mediaStream.addAudioTrack(audioTrack)
+                    
+                    let capturer = RTCCameraVideoCapturer(delegate: videoTrack.source)
+                    caller.videoCapturer = ASVideoCapturer(capturer: capturer)
+                    
                     caller.localStream = mediaStream
+                    caller.videoTrack = videoTrack
+                    caller.audioTrack = audioTrack
                 } catch {
                     caller.delegate?.mediaStreamClient(caller, didFailWithError: error)
                 }
@@ -162,94 +158,18 @@ extension ASMediaStreamClient {
     }
     
     public func disconnect() {
-        for peer in self.peers {
-            peer.close()
-        }
-
-        self.audioTrackCasche = [:]
-        self.videoTrackCasche = [:]
+        self.peers.forEach { $0.close() }
+        self.peerDictionary = [:]
+        
+        self.audioTrack = nil
+        self.videoTrack = nil
+        self.localStream = nil
+        self.videoCapturer = nil
+        
         self.session?.leave()
+        self.session = nil
         
         self.changeState(to: .disconnected)
-        
-        self.peerDictionary = [:]
-        self.localStream = nil
-        self.session = nil
-    }
-}
-
-// MARK: - Video management
-
-extension ASMediaStreamClient {
-    private func getVideoTrack(for streamId: String) throws -> RTCVideoTrack {
-        guard AuthorizationState.isVideoEnabled else {
-            throw ASMediaStreamClientError.enableVideoFailed
-        }
-        let videoTrack: RTCVideoTrack
-        
-        if let track = self.videoTrackCasche[streamId] {
-            videoTrack = track
-        } else {
-            videoTrack = self.streamFactory.makeVideoTrack(withTrackId: MediaIdentifiers.videoTrack)
-            self.videoTrackCasche[streamId] = videoTrack
-        }
-        videoTrack.isEnabled = true
-        
-        return videoTrack
-    }
-    
-    private func enableVideo(for mediaStream: RTCMediaStream) throws {
-        let videoTrack = try self.getVideoTrack(for: mediaStream.streamId)
-        let capturer = RTCCameraVideoCapturer(delegate: videoTrack.source)
-        mediaStream.addVideoTrack(videoTrack)
-        
-        self.videoCapturer = ASVideoCapturer(capturer: capturer)
-        self.delegate?.mediaStreamClient(self, didReceiveVideoTrack: videoTrack)
-    }
-    
-    private func disableVideo(for mediaStream: RTCMediaStream) throws {
-        guard let videoTrack = self.videoTrackCasche[mediaStream.streamId] else {
-            throw ASMediaStreamClientError.disableVideoFailed
-        }
-        mediaStream.removeVideoTrack(videoTrack)
-        
-        self.videoCapturer = nil
-        self.delegate?.mediaStreamClient(self, didDiscardVideoTrack: videoTrack)
-    }
-}
-
-// MARK: - Audio management
-
-extension ASMediaStreamClient {
-    private func getAudioTrack(for streamId: String) throws -> RTCAudioTrack {
-        guard AuthorizationState.isAudioEnabled else {
-            throw ASMediaStreamClientError.enableAudioFailed
-        }
-        let audioTrack: RTCAudioTrack
-        
-        if let track = self.audioTrackCasche[streamId] {
-            audioTrack = track
-        } else {
-            audioTrack = self.streamFactory.makeAudioTrack(withTrackId: MediaIdentifiers.audioTrack)
-            self.audioTrackCasche[streamId] = audioTrack
-        }
-        return audioTrack
-    }
-    
-    private func enableAudio(for mediaStream: RTCMediaStream) throws {
-        let audioTrack = try self.getAudioTrack(for: mediaStream.streamId)
-        mediaStream.addAudioTrack(audioTrack)
-        
-        self.delegate?.mediaStreamClient(self, didReceiveAudioTrack: audioTrack)
-    }
-    
-    private func disableAudio(for mediaStream: RTCMediaStream) throws {
-        guard let audioTrack = self.audioTrackCasche[mediaStream.streamId] else {
-            throw ASMediaStreamClientError.disableAudioFailed
-        }
-        mediaStream.removeAudioTrack(audioTrack)
-        
-        self.delegate?.mediaStreamClient(self, didDiscardAudioTrack: audioTrack)
     }
 }
 
@@ -272,13 +192,33 @@ extension ASMediaStreamClient {
 // MARK: - Configuration
 
 extension ASMediaStreamClient {
+    private func makeVideoTrack(isEnabled: Bool) throws -> RTCVideoTrack {
+        guard AuthorizationState.isVideoEnabled else {
+            throw ASMediaStreamClientError.enableVideoFailed
+        }
+        let videoTrack = self.streamFactory.makeVideoTrack(withTrackId: MediaIdentifiers.videoTrack)
+        videoTrack.isEnabled = isEnabled
+        
+        return videoTrack
+    }
+    
+    private func makeAudioTrack(isEnabled: Bool) throws -> RTCAudioTrack {
+        guard AuthorizationState.isAudioEnabled else {
+            throw ASMediaStreamClientError.enableAudioFailed
+        }
+        let audioTrack = self.streamFactory.makeAudioTrack(withTrackId: MediaIdentifiers.audioTrack)
+        audioTrack.isEnabled = isEnabled
+        
+        return audioTrack
+    }
+    
     private func makePeer(peerId: String) -> ASPeer {
         let peer = ASPeer(identifier: peerId, iceServers: self.iceServers, factory: self.peerFactory)
         peer.delegate = self
         
         return peer
     }
-
+    
     private func changeState(to state: ASMediaStreamClientState) {
         if state != self.state {
             self.state = state
@@ -349,7 +289,7 @@ extension ASMediaStreamClient: ASPeerDelegate {
         self.delegate?.mediaStreamClient(self, peer: peer, didDiscardVideoTracks: stream.videoTracks)
         self.delegate?.mediaStreamClient(self, peer: peer, didDiscardAudioTracks: stream.audioTracks)
     }
-
+    
     func peer(_ peer: ASPeer, didChangeConnectionState state: RTCIceConnectionState) {
         if case .closed = state, let identifier = self.identifier(peer: peer) {
             self.setPeer(nil, forIdentifier: identifier)
@@ -375,7 +315,7 @@ extension ASMediaStreamClient: ASPeerDelegate {
     func peer(_ peer: ASPeer, didChangeReceiverDataChannelState state: RTCDataChannelState) {
         self.delegate?.mediaStreamClient(self, peer: peer, didChangeReceiverDataChannelState: state)
     }
-
+    
     func peer(_ peer: ASPeer, didReceiveData data: Data) {
         self.delegate?.mediaStreamClient(self, peer: peer, didReceiveData: data)
     }
@@ -398,6 +338,9 @@ extension ASMediaStreamClient: ASMediaStreamSessionDelegate {
                 self.setPeer(peer, forIdentifier: identifier)
                 self.sendOffer(receiverId: identifier, peer: peer)
             }
+        case .reconnecting:
+            self.peers.forEach { $0.close() }
+            self.peerDictionary = [:]
         case .closed:
             self.disconnect()
         }
