@@ -18,7 +18,7 @@ class NavigationController: UINavigationController {
         self.navigationBar.setBackgroundImage(UIImage(), for: UIBarPosition.any, barMetrics: UIBarMetrics.default)
         self.navigationBar.shadowImage = UIImage()
         
-        self.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+        self.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         self.setNeedsStatusBarAppearanceUpdate()
     }
 }

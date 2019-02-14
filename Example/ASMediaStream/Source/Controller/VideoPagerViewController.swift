@@ -141,12 +141,12 @@ class VideoPagerViewController: ViewController {
 extension VideoPagerViewController {
     private func setupNavigationBar() {
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "back"),
-                                                                style: UIBarButtonItemStyle.plain,
+                                                                style: UIBarButtonItem.Style.plain,
                                                                 target: self,
                                                                 action: #selector(dismissViewController))
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "more"),
-                                                                 style: UIBarButtonItemStyle.plain,
+                                                                 style: UIBarButtonItem.Style.plain,
                                                                  target: self,
                                                                  action: #selector(showMore))
     }
@@ -155,10 +155,10 @@ extension VideoPagerViewController {
         let imageEdgeInsets = UIEdgeInsets(top: 12.5, left: 12.5, bottom: 12.5, right: 12.5)
         let image = UIColor.white.image(size: CGSize(width: 60.0, height: 60.0), radius: 30.0)
         
-        self.videoButton.setBackgroundImage(image, for: UIControlState.normal)
-        self.audioButton.setBackgroundImage(image, for: UIControlState.normal)
-        self.switchCameraButton.setBackgroundImage(image, for: UIControlState.normal)
-        self.cameraFlashButton.setBackgroundImage(image, for: UIControlState.normal)
+        self.videoButton.setBackgroundImage(image, for: UIControl.State.normal)
+        self.audioButton.setBackgroundImage(image, for: UIControl.State.normal)
+        self.switchCameraButton.setBackgroundImage(image, for: UIControl.State.normal)
+        self.cameraFlashButton.setBackgroundImage(image, for: UIControl.State.normal)
         
         self.videoButton.imageEdgeInsets = imageEdgeInsets
         self.audioButton.imageEdgeInsets = imageEdgeInsets

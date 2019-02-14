@@ -249,13 +249,13 @@ extension WebSocketSession {
     private func registerNotifications() {
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(applicationDidBecomeActive(notification:)),
-                                               name: NSNotification.Name.UIApplicationDidBecomeActive ,
+                                               name: UIApplication.didBecomeActiveNotification ,
                                                object: nil)
     }
     
     private func unregisterNotifications() {
         NotificationCenter.default.removeObserver(self,
-                                                  name: NSNotification.Name.UIApplicationDidBecomeActive,
+                                                  name: UIApplication.didBecomeActiveNotification,
                                                   object: nil)
     }
     

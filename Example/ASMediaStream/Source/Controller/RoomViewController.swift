@@ -84,8 +84,8 @@ extension RoomViewController {
     
     private func setupJoinButton() {
         self.joinButton.addTarget(self, action: #selector(joinButtonPressed(_:)), for: UIControl.Event.touchUpInside)
-        self.joinButton.setTitle(NSLocalizedString("join.submit", comment: ""), for: UIControlState.normal)
-        self.joinButton.setTitleColor(UIColor.white, for: UIControlState.normal)
+        self.joinButton.setTitle(NSLocalizedString("join.submit", comment: ""), for: UIControl.State.normal)
+        self.joinButton.setTitleColor(UIColor.white, for: UIControl.State.normal)
         self.joinButton.layer.cornerRadius = 15.0
         self.joinButton.titleLabel?.font = UIFont(name: "HelveticaNeue-Medium", size: 16.0)
         self.joinButton.layer.masksToBounds = true
@@ -96,25 +96,25 @@ extension RoomViewController {
     private func registerNotifications() {
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(keyboardWillShow),
-                                               name: NSNotification.Name.UIKeyboardWillShow,
+                                               name: UIResponder.keyboardWillShowNotification,
                                                object: nil)
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(keyboardWillHide),
-                                               name: NSNotification.Name.UIKeyboardWillHide,
+                                               name: UIResponder.keyboardWillHideNotification,
                                                object: nil)
     }
     
     private func unregisterNotifications() {
         NotificationCenter.default.removeObserver(self,
-                                                  name: NSNotification.Name.UIKeyboardWillShow,
+                                                  name: UIResponder.keyboardWillShowNotification,
                                                   object: nil)
         NotificationCenter.default.removeObserver(self,
-                                                  name: NSNotification.Name.UIKeyboardWillHide,
+                                                  name: UIResponder.keyboardWillHideNotification,
                                                   object: nil)
     }
     
     @objc private func keyboardWillShow(notification: NSNotification) {
-        guard let keyboardRect = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue else {
+        guard let keyboardRect = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else {
             return
         }
         self.scrollView.contentInset.bottom = keyboardRect.cgRectValue.size.height

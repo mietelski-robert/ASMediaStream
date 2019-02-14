@@ -160,13 +160,12 @@ extension ASMediaStreamClient {
     public func disconnect() {
         self.peers.forEach { $0.close() }
         self.peerDictionary = [:]
+        self.session?.leave()
         
         self.audioTrack = nil
         self.videoTrack = nil
         self.localStream = nil
         self.videoCapturer = nil
-        
-        self.session?.leave()
         self.session = nil
         
         self.changeState(to: .disconnected)
