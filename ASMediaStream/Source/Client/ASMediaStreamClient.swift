@@ -290,7 +290,7 @@ extension ASMediaStreamClient: ASPeerDelegate {
     }
     
     func peer(_ peer: ASPeer, didChangeConnectionState state: RTCIceConnectionState) {
-        if case .closed = state, let identifier = self.identifier(peer: peer) {
+        if [.closed, .disconnected].contains(state), let identifier = self.identifier(peer: peer)  {
             self.setPeer(nil, forIdentifier: identifier)
             
             if let mediaStream = self.localStream {
