@@ -340,6 +340,7 @@ extension ASMediaStreamClient: ASMediaStreamSessionDelegate {
         case .reconnecting:
             self.peers.forEach { $0.close() }
             self.peerDictionary = [:]
+            self.changeState(to: .reconnecting)
         case .closed:
             self.disconnect()
         }

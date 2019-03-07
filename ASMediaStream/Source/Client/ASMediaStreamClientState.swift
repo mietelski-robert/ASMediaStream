@@ -9,5 +9,5 @@
 import Foundation
 
 public enum ASMediaStreamClientState: Int {
-    case disconnected, connecting, connected
+    case disconnected, connecting, connected, reconnecting
 }
