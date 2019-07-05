@@ -59,7 +59,12 @@ class VideoPagerViewController: ViewController {
         } .then { _ in
             self.audioAuthorizationRequest()
         } .done { _ in
-            self.client = ASMediaStreamClient(iceServers: [self.stunServer, self.turnServer], sessionFactory: WebSocketSessionFactory())
+            let peerConnectionFactory = RTCPeerConnectionFactory(encoderFactory: ASVideoEncoderFactory(),
+                                                                 decoderFactory: ASVideoDecoderFactory())
+            
+            self.client = ASMediaStreamClient(iceServers: [self.stunServer, self.turnServer],
+                                              sessionFactory: WebSocketSessionFactory(),
+                                              peerConnectionFactory: peerConnectionFactory)
             self.client?.delegate = self
             self.client?.connectToRoom(name: self.roomName)
         } .catch { error in
