@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SnapKit
 
 class ViewController: UIViewController {
 
@@ -29,8 +28,9 @@ class ViewController: UIViewController {
 
         self.view.insertSubview(self.backgroundImageView, at: 0)
         
-        self.backgroundImageView.snp.makeConstraints { maker in
-            maker.edges.equalTo(self.view.snp.edges)
-        }
+        self.backgroundImageView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor)
+        self.backgroundImageView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
+        self.backgroundImageView.topAnchor.constraint(equalTo: self.view.topAnchor)
+        self.backgroundImageView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
     }
 }
