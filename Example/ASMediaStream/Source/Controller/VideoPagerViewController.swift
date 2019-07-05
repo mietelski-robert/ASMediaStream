@@ -191,12 +191,10 @@ extension VideoPagerViewController {
         currentVideoView.translatesAutoresizingMaskIntoConstraints = false
         self.videoWrapperView.addSubview(currentVideoView)
         
-        currentVideoView.snp.makeConstraints { maker in
-            maker.top.equalTo(self.videoWrapperView.snp.top)
-            maker.bottom.equalTo(self.videoWrapperView.snp.bottom)
-            maker.centerX.equalTo(self.videoWrapperView.snp.centerX)
-            maker.height.equalTo(currentVideoView.snp.width).multipliedBy(640.0 / 480.0)
-        }
+        currentVideoView.topAnchor.constraint(equalTo: self.videoWrapperView.topAnchor)
+        currentVideoView.bottomAnchor.constraint(equalTo: self.videoWrapperView.bottomAnchor)
+        currentVideoView.centerXAnchor.constraint(equalTo: self.videoWrapperView.centerXAnchor)
+        currentVideoView.widthAnchor.constraint(equalTo: currentVideoView.heightAnchor, multiplier: 640.0 / 480.0)
     }
     
     private func setupPageControl() {
